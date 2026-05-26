@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e66c6366d904e98bc83428217d4fd7, type: 3}
+  m_Name: New Script Graph
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":236.2892,"y":65.77678},"zoom":0.7683983,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":-144.0},"guid":"41bd65fa-209d-488b-ba03-18432fb364a3","$version":"A","$type":"Unity.VisualScripting.Start","$id":"9"},{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":60.0},"guid":"ce9cc8f4-6a5e-42e3-946b-d74eff2f5298","$version":"A","$type":"Unity.VisualScripting.Update"},{"defaultValues":{},"position":{"x":-191.0,"y":190.0},"guid":"badb40ad-da6f-44f2-b769-dc65526576a5","$version":"A","$type":"Unity.VisualScripting.CreateDictionary","$id":"13"},{"defaultValues":{},"position":{"x":7.0,"y":186.0},"guid":"1bb18fc6-472b-4eb5-847a-787244cc060c","$version":"A","$type":"Unity.VisualScripting.FirstItem","$id":"15"},{"chainable":false,"member":{"name":"text","parameterTypes":null,"targetType":"TMPro.TextMeshProUGUI","targetTypeName":"TMPro.TextMeshProUGUI","$version":"A"},"defaultValues":{"target":null,"input":{"$content":"EELo","$type":"System.String"}},"position":{"x":95.0,"y":19.0},"guid":"df0e6255-f987-4b69-a81e-9d2521ea9854","$version":"A","$type":"Unity.VisualScripting.SetMember","$id":"17"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"17"},"destinationKey":"assign","guid":"23665e15-8bf5-44c1-a8c6-2cc77961e4b1","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"13"},"sourceKey":"dictionary","destinationUnit":{"$ref":"15"},"destinationKey":"collection","guid":"44ce6e42-1024-4816-98dc-36fb8bba1f76","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []
