@@ -1,0 +1,36 @@
+{
+    "projectFileVersion": 4,
+    "sourceFiles": [
+        "**/*.yarn"
+    ],
+    "excludeFiles": [
+        "dialogue.yarn"
+    ],
+    "baseLanguage": "en",
+    "projectName": "LoveCoralsTest",
+    "authorName": [
+        "Author"
+    ],
+    "editorOptions": {
+        "yarnScriptEditor": {
+            "presenter": "try",
+            "characters": [
+                {
+                    "name": "Sea Whip Coral",
+                    "colour": "#b63a3a"
+                },
+                {
+                    "name": "You",
+                    "colour": "#fbff00"
+                }
+            ],
+            "startNode": "SeaWhipStart",
+            "projectGraphPositions": {
+                "CS41.yarn": {
+                    "x": 12,
+                    "y": 12
+                }
+            }
+        }
+    }
+}

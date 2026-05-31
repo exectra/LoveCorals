@@ -1,0 +1,56 @@
+﻿title: SeaWhipStart
+position: -177,-2
+---
+
+<<declare $SWaffinity = 0>>
+
+You find yourself face to face with a dazzling superstar. Its tresses sway hypnotically in the sea current, a vibrant shade of vermillion. When it speaks, its melodious voice puts you in a trance.
+
+Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something I can help you with?
+
+-> You: Pardon my intrusion, I simply had to stop and stare at what a mesmerising shade of red you are.
+    <<set $SWaffinity += 1>>
+    The coral is rather taken aback by your forwardness, its already rosy shade darkens with a blush. Good job. It seems that you have managed to fluster the bold coral.
+    Sea Whip Coral: Oh! Well- uh...thank you!
+-> You: Woah. I've never seen a red seaweed before!
+    <<if $SWaffinity >= 1>>
+        <<set $SWaffinity -= 1>>
+        Sea Whip Coral: SEAWEED???! SEA??? WEED???!!
+        Sea Whip Coral: HOW DARE YOU. Call me a weed, when I am a beautiful, majestic CORAL!
+        Sea Whip Coral flashes its soft vermillion branches at you, looking not unlike a great tree swaying in the wind.
+        Sea Whip Coral: BEHOLD.
+        You: I'm sorry, I was unaware of the existence of such a beautiful coral!
+    <<endif>>>>
+Sea Whip Coral: Look closer! Within me, each little polyp holds eight feathery, saw-toothed tentacles.
+You squint your eyes, bringing your angular face closer to her majestic red branches.
+True to its word, the tentacles emerge and sweeps their adoring fans of the plankton and microscopic particles right up into themselves.
+Sea Whip Coral: I have many adoring fans, though I do attract a particular kind of company. Can you guess what species my fanbase is mostly made off?
+-> You: Black sea bass?
+    <<set $SWaffinity += 1>>
+    Sea Whip Coral: Oh, so you noticed them? Yes, those are black sea bass. They know a good home when they see one!
+    Sea Whip Coral: I'm flattered you're paying such close attention. A star has to appreciate a devoted audience, after all.
+-> You: Stingrays?
+    <<if $SWaffinity >= 1>>
+        <<set $SWaffinity -= 1>>
+        Sea Whip Coral: Stingrays?! You must be joking. Those flat, sandy creatures prefer to skulk around the mud and rocks.
+        Sea Whip Coral: But I suppose I shouldn't expect a bunch of literal bottom dwellers to have any true appreciation for my beauty anyway.
+    <<endif>>
+You notice the sea whip coral, its long crimson strands swaying and whipping with the ocean current, moving in a slow, rhythmic dance.
+Sea Whip Coral: As a suspension feeder, I am eating plankton. People would pay to witness this, but you are seeing it for free, so etch it into your memory!
+Sea Whip Coral: WITNESS MY GREATNESS!!
+-> You give a faintly disgusted look.
+    <<if $SWaffinity >= 1>>
+        <<set $SWaffinity -= 1>>
+        You thought Sea Whip Coral would be busy looking, but it steals a quick look at you and sees your reaction.
+        Sea Whip Coral: Oh. That look.
+        Sea Whip Coral: I suppose not everyone appreciates fine dining. I didn't know why I expected you to be any different from the rest.
+        The coral's face shutters, and it seems to lose all interest in conversing with you for the day.
+    <<endif>>
+-> You state quietly in amazement and awe.
+    <<set $SWaffinity += 1>>
+    Sea Whip turns around and stares at you. A small sincere smile lights up their face. This was a smile unlike their usual haughty one, aimed at your candid acceptance and fascination with their being. 
+    Sea Whip Coral: Perhaps...we could be friends! You seem rather alright...for a fish.
+    You: I would love to be friends!
+    The coral's sparkle fades to a sleepy shimmer, like a star dozing off after the show. The reef returns to its peaceful rhythm. The conversation comes to an end.
+
+===
