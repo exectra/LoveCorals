@@ -1,48 +1,33 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameUIManager : MonoBehaviour
 {
     public static GameUIManager Instance;
 
-    [Header("Main UI")]
-    public GameObject navbarUI;
-    public GameObject inGameHUD;
-
-    [Header("Systems")]
     public InventoryDrawer inventoryDrawer;
-    public PausePopup pausePopup;
-
-    private bool isGameActive = false;
+    public PauseMenu pauseMenu;
 
     private void Awake()
     {
         Instance = this;
     }
-
-    public void StartGame()
+    private void OnEnable()
     {
-        isGameActive = true;
-
-        navbarUI.SetActive(false);
-        inGameHUD.SetActive(true);
-
-        inventoryDrawer.CloseInstant();
-        pausePopup.ClosePopup();
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    public void ReturnToMenu()
+    private void OnDisable()
     {
-        isGameActive = false;
-
-        navbarUI.SetActive(true);
-        inGameHUD.SetActive(false);
-
-        inventoryDrawer.CloseInstant();
-        pausePopup.ClosePopup();
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public bool IsGameActive()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        return isGameActive;
+        if (scene.name == "GameScene")
+        {
+            inventoryDrawer = FindObjectOfType<InventoryDrawer>();
+            pauseMenu = FindObjectOfType<PauseMenu>();
+        }
     }
 }
