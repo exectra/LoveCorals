@@ -27,6 +27,8 @@ public class InventoryDrawer : MonoBehaviour
 
     private void Start()
     {
+        shownPos = new Vector2(-400, 0);
+        hiddenPos = new Vector2(0, 0);
 
         panel.anchoredPosition = hiddenPos;
         ShowTab(0);
