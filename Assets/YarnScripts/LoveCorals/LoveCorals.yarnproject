@@ -1,0 +1,30 @@
+﻿{
+    "projectFileVersion": 4,
+    "sourceFiles": [
+        "**/*.yarn"
+    ],
+    "excludeFiles": [
+        "**/*~/*",
+        "./Samples/Yarn Spinner*/*",
+        "dialogue.yarn"
+    ],
+    "localisation": {},
+    "baseLanguage": "en",
+    "compilerOptions": {},
+    "projectName": "Love Corals",
+    "editorOptions": {
+        "yarnScriptEditor": {
+            "startNode": "SeaWhipStart",
+            "characters": [
+                {
+                    "name": "Sea Whip Coral",
+                    "colour": "#da255b"
+                },
+                {
+                    "name": "You",
+                    "colour": "#eeff00"
+                }
+            ]
+        }
+    }
+}
