@@ -35,4 +35,8 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void OpenIdentifyScene()
+    {
+        SceneManager.LoadScene("CoralIdentify");
+    }
 }
