@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 01afca804f7ce34459b854e5ca584678
+  - enabled: 1
+    path: Assets/Scenes/CoralIdentify.unity
+    guid: b0c77059858d46646a7c889182f91641
   m_configObjects: {}
