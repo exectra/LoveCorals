@@ -10,16 +10,10 @@ When it speaks, its melodious voice puts you in a trance.
 Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something I can help you with?
 
 -> You: Pardon my intrusion, I simply had to stop and stare at what a mesmerising shade of red you are.
-    <<set $SWaffinity += 1>>
-    <<update_affinity_display>>
     The coral is rather taken aback by your forwardness, its already rosy shade darkens with a blush.
     Good job. It seems that you have managed to fluster the bold coral.
     Sea Whip Coral: Oh! Well- uh...thank you!
 -> You: Woah.. I've never seen a red seaweed before!
-    <<if $SWaffinity >= 1>>
-        <<set $SWaffinity -= 1>>
-        <<update_affinity_display>>
-    <<endif>>
     Sea Whip Coral: SEAWEED?! SEA?! WEED?!
     Sea Whip Coral: How DARE you call me a weed when I am a beautiful, majestic CORAL!
     Sea Whip Coral flashes its soft vermillion branches at you, looking not unlike a great tree swaying in the wind.
@@ -36,10 +30,6 @@ Sea Whip Coral: I have many adoring fans, though I do attract a particular kind 
     Sea Whip Coral: Oh, so you noticed them? Yes, those are black sea bass. They know a good home when they see one!
     Sea Whip Coral: I'm flattered you're paying such close attention. A star has to appreciate a devoted audience, after all.
 -> You: Stingrays?
-    <<if $SWaffinity >= 1>>
-        <<set $SWaffinity -= 1>>
-        <<update_affinity_display>>
-    <<endif>>
     Sea Whip Coral: Stingrays?! You must be joking. Those flat, sandy creatures prefer to skulk around the mud and rocks.
     Sea Whip Coral: But I suppose I shouldn't expect a bunch of literal bottom dwellers to have any true appreciation for my beauty anyway.
     
