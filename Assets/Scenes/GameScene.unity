@@ -2123,6 +2123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSFX: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
+  gameBGM: {fileID: 8300000, guid: 333da9ef35e1115488e48bae6bb9c97a, type: 3}
+  menuBGM: {fileID: 8300000, guid: 46e5dd418daee8d41939f3cd727c560a, type: 3}
   AM: {fileID: 0}
 --- !u!1 &936881469
 GameObject:

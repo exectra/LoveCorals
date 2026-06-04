@@ -174,9 +174,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e21d2abcc5e4ba940896cecf1895b42b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSourceBGM: {fileID: 0}
-  audioSourceSFX: {fileID: 0}
-  PauseSFX: {fileID: 8300000, guid: dbeaf2fd377bcaf4ab47a6aa8fd30d00, type: 3}
+  audioSourceBGM: {fileID: 4520170701170942945}
+  audioSourceSFX: {fileID: 3679430122199414726}
+  menuBGM: {fileID: 8300000, guid: 46e5dd418daee8d41939f3cd727c560a, type: 3}
+  gameBGM: {fileID: 8300000, guid: 333da9ef35e1115488e48bae6bb9c97a, type: 3}
 --- !u!1 &3898648053485841583
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,9 +222,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

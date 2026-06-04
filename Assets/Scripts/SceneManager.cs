@@ -52,18 +52,4 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("CoralIdentify");
     }
 
-
-    public void LoadScene(string sceneName, AudioClip clip)
-    {
-        StartCoroutine(LoadAfterSFX(sceneName, clip));
-    }
-
-    private IEnumerator LoadAfterSFX(string sceneName, AudioClip clip)
-    {
-        float delay = AudioManager.Instance.PlaySFXAndGetLength(clip);
-
-        yield return new WaitForSeconds(delay);
-
-        SceneManager.LoadScene(sceneName);
-    }
 }
