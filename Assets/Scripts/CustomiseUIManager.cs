@@ -50,7 +50,7 @@ public class CustomisationUIManager : MonoBehaviour
 
     public void OpenFeet()
     {
-        OpenCategory("Tailwear (Feet)", 3);
+        OpenCategory("Tail (Footwear)", 3);
     }
 
     private void OpenCategory(string categoryName, int slotIndex)
