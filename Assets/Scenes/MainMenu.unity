@@ -2070,7 +2070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableIdleFloat: 1
-  floatAmount: 8
+  floatAmount: 5
   floatSpeed: 5
   pressedScale: 0.9
   popScale: 1.12
@@ -3344,6 +3344,7 @@ GameObject:
   - component: {fileID: 752722947}
   - component: {fileID: 752722946}
   - component: {fileID: 752722945}
+  - component: {fileID: 752722948}
   m_Layer: 5
   m_Name: Feet
   m_TagString: Untagged
@@ -3464,6 +3465,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752722943}
   m_CullTransparentMesh: 1
+--- !u!114 &752722948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752722943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a5eb0b77eae5549bfede79f2e2ba05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableIdleFloat: 0
+  floatAmount: 0
+  floatSpeed: 0
+  pressedScale: 0.9
+  popScale: 1.12
+  pressSpeed: 12
+  releaseSpeed: 10
+  rippleImage: {fileID: 0}
+  rippleDuration: 0.4
+  rippleMaxScale: 2
 --- !u!1 &760062633
 GameObject:
   m_ObjectHideFlags: 0
@@ -7738,6 +7761,7 @@ GameObject:
   - component: {fileID: 1570275275}
   - component: {fileID: 1570275274}
   - component: {fileID: 1570275273}
+  - component: {fileID: 1570275276}
   m_Layer: 5
   m_Name: Head
   m_TagString: Untagged
@@ -7858,6 +7882,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570275271}
   m_CullTransparentMesh: 1
+--- !u!114 &1570275276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570275271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a5eb0b77eae5549bfede79f2e2ba05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableIdleFloat: 0
+  floatAmount: 0
+  floatSpeed: 0
+  pressedScale: 0.9
+  popScale: 1.12
+  pressSpeed: 12
+  releaseSpeed: 10
+  rippleImage: {fileID: 0}
+  rippleDuration: 0.4
+  rippleMaxScale: 2
 --- !u!1 &1581396628
 GameObject:
   m_ObjectHideFlags: 0
@@ -8542,6 +8588,7 @@ GameObject:
   - component: {fileID: 1724957072}
   - component: {fileID: 1724957071}
   - component: {fileID: 1724957070}
+  - component: {fileID: 1724957073}
   m_Layer: 5
   m_Name: Body
   m_TagString: Untagged
@@ -8662,6 +8709,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724957068}
   m_CullTransparentMesh: 1
+--- !u!114 &1724957073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724957068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a5eb0b77eae5549bfede79f2e2ba05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableIdleFloat: 0
+  floatAmount: 0
+  floatSpeed: 0
+  pressedScale: 0.9
+  popScale: 1.12
+  pressSpeed: 12
+  releaseSpeed: 10
+  rippleImage: {fileID: 0}
+  rippleDuration: 0.4
+  rippleMaxScale: 2
 --- !u!1 &1744929005
 GameObject:
   m_ObjectHideFlags: 0
@@ -9152,6 +9221,7 @@ GameObject:
   - component: {fileID: 1823839843}
   - component: {fileID: 1823839842}
   - component: {fileID: 1823839841}
+  - component: {fileID: 1823839844}
   m_Layer: 5
   m_Name: Hands
   m_TagString: Untagged
@@ -9272,6 +9342,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823839839}
   m_CullTransparentMesh: 1
+--- !u!114 &1823839844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823839839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a5eb0b77eae5549bfede79f2e2ba05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableIdleFloat: 0
+  floatAmount: 0
+  floatSpeed: 0
+  pressedScale: 0.9
+  popScale: 1.12
+  pressSpeed: 12
+  releaseSpeed: 10
+  rippleImage: {fileID: 0}
+  rippleDuration: 0.4
+  rippleMaxScale: 2
 --- !u!1 &1848481324
 GameObject:
   m_ObjectHideFlags: 0
