@@ -2337,6 +2337,7 @@ GameObject:
   - component: {fileID: 948669165}
   - component: {fileID: 948669167}
   - component: {fileID: 948669166}
+  - component: {fileID: 948669168}
   m_Layer: 5
   m_Name: Coral
   m_TagString: Untagged
@@ -2401,6 +2402,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948669164}
   m_CullTransparentMesh: 1
+--- !u!114 &948669168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948669164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a5eb0b77eae5549bfede79f2e2ba05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableIdleFloat: 1
+  floatAmount: 12
+  floatSpeed: 3
+  pressedScale: 0.9
+  popScale: 1.12
+  pressSpeed: 12
+  releaseSpeed: 10
+  rippleImage: {fileID: 0}
+  rippleDuration: 0.4
+  rippleMaxScale: 2
 --- !u!1 &1002964165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,6 +3305,7 @@ GameObject:
   - component: {fileID: 1523595482}
   - component: {fileID: 1523595481}
   - component: {fileID: 1523595480}
+  - component: {fileID: 1523595483}
   m_Layer: 5
   m_Name: ButtonIDENTIFYTime
   m_TagString: Untagged
@@ -3402,6 +3426,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523595478}
   m_CullTransparentMesh: 1
+--- !u!114 &1523595483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523595478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a5eb0b77eae5549bfede79f2e2ba05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableIdleFloat: 0
+  floatAmount: 8
+  floatSpeed: 2
+  pressedScale: 0.9
+  popScale: 1.12
+  pressSpeed: 12
+  releaseSpeed: 10
+  rippleImage: {fileID: 0}
+  rippleDuration: 0.4
+  rippleMaxScale: 2
 --- !u!1 &1579121497
 GameObject:
   m_ObjectHideFlags: 0
