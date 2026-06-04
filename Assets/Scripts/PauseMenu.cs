@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
@@ -10,28 +11,42 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private AudioClip UnpauseSFX;
     [SerializeField] private AudioManager AM;
 
+    private void Awake()
+    {
+        AM = AudioManager.Instance;
+    }
     private void Start()
     {
-        AM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         if (popupPanel != null)
             popupPanel.SetActive(false);
 
         isOpen = false;
     }
-        
+
+    private void Update()
+    {
+        if (popupPanel != null && !popupPanel.activeSelf)
+        {
+            Debug.Log("FORCED CLOSED THIS FRAME: " + Time.frameCount);
+        }
+    }
+
     public void Toggle()
     {
+        
         if (isOpen) ClosePopup();
         else OpenPopup();
     }
 
     public void OpenPopup()
     {
+        
         if (popupPanel == null) return;
-
-        isOpen = true;
+       
+        isOpen = true;   
         popupPanel.SetActive(true);
+        
         AM.PlaySFX(PauseSFX);
 
         // optional safety: close inventory if open

@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioSourceBGM;
     [SerializeField] private AudioSource audioSourceSFX;
 
+    [SerializeField] private AudioClip PauseSFX;
+
     private void Awake()
     {
         if (Instance == null)
@@ -39,6 +41,11 @@ public class AudioManager : MonoBehaviour
     public void PlaySFX(AudioClip clip)
     {
         audioSourceSFX.PlayOneShot(clip);
+    }
+
+    public void PlayPauseSFX()
+    {
+        audioSourceSFX.PlayOneShot(PauseSFX);
     }
 
     public float PlaySFXAndGetLength(AudioClip clip)

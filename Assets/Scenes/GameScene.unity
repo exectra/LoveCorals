@@ -892,6 +892,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupPanel: {fileID: 331469020}
+  PauseSFX: {fileID: 8300000, guid: dbeaf2fd377bcaf4ab47a6aa8fd30d00, type: 3}
+  UnpauseSFX: {fileID: 8300000, guid: b351a522f6428b141a582478f6a20565, type: 3}
+  AM: {fileID: 0}
 --- !u!1 &396950158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryDrawer: {fileID: 1579121499}
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 331469022}
 --- !u!4 &935435151
 Transform:
   m_ObjectHideFlags: 0
@@ -2119,6 +2122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3522ec7bc323e4b438728da2a6c69297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickSFX: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
+  AM: {fileID: 0}
 --- !u!1 &936881469
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,6 +3514,10 @@ MonoBehaviour:
   selectedColor: {r: 1, g: 1, b: 1, a: 1}
   unselectedColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
   slideSpeed: 12
+  tabSFX: {fileID: 8300000, guid: dfb43cec9081cd24490ee1aebb7872ba, type: 3}
+  OpenSFX: {fileID: 8300000, guid: 89aefdf295c8bdd4a9dbde455eb47ece, type: 3}
+  CloseSFX: {fileID: 8300000, guid: f22c10ebcbae2e04fa9a598c49b8c808, type: 3}
+  AM: {fileID: 0}
   hiddenPos: {x: 0, y: 0}
   shownPos: {x: 0, y: 0}
 --- !u!1 &1639220468
