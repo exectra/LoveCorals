@@ -20,6 +20,9 @@ public class NavigationBar : MonoBehaviour
     [SerializeField] private Tab[] tabs;
     [SerializeField] private int defaultTab = 0;
 
+    [SerializeField] private AudioClip clickSFX;
+    private bool initialize = false;
+
     private int currentTab = -1;
 
     private void Start()
@@ -32,11 +35,17 @@ public class NavigationBar : MonoBehaviour
         }
 
         OpenTab(defaultTab);
+        initialize = true;
     }
     public void OpenTab(int index)
     {
         if (currentTab == index)
             return;
+
+        if (initialize && clickSFX != null)
+        {
+            AudioManager.Instance.PlaySFX(clickSFX);
+        }
 
         for (int i = 0; i < tabs.Length; i++)
         {

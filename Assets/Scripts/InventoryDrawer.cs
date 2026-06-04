@@ -20,21 +20,31 @@ using System.Collections;
         [Header("Animation")]
         public float slideSpeed = 12f;
 
+        [Header("Audio")]
+        [SerializeField] private AudioClip tabSFX;
+        [SerializeField] private AudioClip OpenSFX;
+        [SerializeField] private AudioClip CloseSFX;
+        [SerializeField] private AudioManager AM;
+
         [SerializeField] Vector2 hiddenPos;
         [SerializeField] Vector2 shownPos;
 
         private bool isOpen;
         private Coroutine animRoutine;
+        private bool initialized = false;
 
         private void Start()
         {
+            AM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
             shownPos = new Vector2(-400, 0);
             hiddenPos = new Vector2(0, 0);
 
             panel.anchoredPosition = hiddenPos;
             ShowTab(0);
             isOpen = false;
-        }
+            initialized = true;
+    }
 
         public void Toggle()
         {
@@ -46,12 +56,16 @@ using System.Collections;
         {
             isOpen = true;
             StartAnim(shownPos);
+            
+            AM.PlaySFX(OpenSFX);
         }
 
         public void Close()
         {
             isOpen = false;
             StartAnim(hiddenPos);
+
+            AM.PlaySFX(CloseSFX);
         }
 
         public void CloseInstant()
@@ -94,7 +108,10 @@ using System.Collections;
         {
             if (itemsTab == null || affinityTab == null) return;
 
-            itemsTab.SetActive(index == 0);
+        if(initialized)
+            AM.PlaySFX(tabSFX);
+
+        itemsTab.SetActive(index == 0);
             affinityTab.SetActive(index == 1);
 
             if (itemsButton != null && affinityButton != null)

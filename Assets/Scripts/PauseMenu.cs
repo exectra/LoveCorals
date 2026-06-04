@@ -6,8 +6,14 @@ public class PauseMenu : MonoBehaviour
 
     private bool isOpen;
 
+    [SerializeField] private AudioClip PauseSFX;
+    [SerializeField] private AudioClip UnpauseSFX;
+    [SerializeField] private AudioManager AM;
+
     private void Start()
     {
+        AM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
         if (popupPanel != null)
             popupPanel.SetActive(false);
 
@@ -26,6 +32,7 @@ public class PauseMenu : MonoBehaviour
 
         isOpen = true;
         popupPanel.SetActive(true);
+        AM.PlaySFX(PauseSFX);
 
         // optional safety: close inventory if open
         var inv = FindObjectOfType<InventoryDrawer>();
@@ -40,6 +47,7 @@ public class PauseMenu : MonoBehaviour
 
         isOpen = false;
         popupPanel.SetActive(false);
+        AM.PlaySFX(UnpauseSFX);
 
         Time.timeScale = 1f;
     }
