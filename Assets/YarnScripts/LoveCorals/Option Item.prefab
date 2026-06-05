@@ -107,10 +107,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6984677182408098792}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 909, y: 127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8560417971095047034
 CanvasRenderer:
@@ -140,9 +140,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ee7d73b296fd53843aa9a54ee624345c, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -220,8 +220,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Option Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8407fb2486fb88947bb344ed1a35648e, type: 2}
-  m_sharedMaterial: {fileID: 8596398618320316989, guid: 8407fb2486fb88947bb344ed1a35648e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aedab4d46c7975e4489a8a7b0336147a, type: 2}
+  m_sharedMaterial: {fileID: 3098873359817836050, guid: aedab4d46c7975e4489a8a7b0336147a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -246,9 +246,9 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 70
-  m_fontSizeBase: 36
+  m_fontSizeBase: 70
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 70
   m_fontSizeMax: 86
   m_fontStyle: 0
@@ -332,11 +332,11 @@ MonoBehaviour:
   selectionImage: {fileID: 721144572235377823}
   normal:
     sprite: {fileID: 0}
-    colour: {r: 0.047098573, g: 0.060609058, b: 0.18490559, a: 1}
+    colour: {r: 0.303446, g: 0.3126924, b: 0.4113207, a: 1}
   selected:
     sprite: {fileID: 21300000, guid: 997a4571b48144fd7be9c547b769c11d, type: 3}
-    colour: {r: 0.044407193, g: 0.12196572, b: 0.87169814, a: 1}
+    colour: {r: 0.78867924, g: 0.04864455, b: 0.040177934, a: 1}
   disabled:
     sprite: {fileID: 0}
-    colour: {r: 0.44759703, g: 0.45047414, b: 0.4792453, a: 0.5019608}
+    colour: {r: 0.6900177, g: 0.69763345, b: 0.7509433, a: 0.5019608}
   disabledStrikeThrough: 1

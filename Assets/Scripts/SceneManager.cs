@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -5,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader Instance;
+
+    [SerializeField] private AudioClip clickSFX;
+    [SerializeField] private AudioManager AM;
 
     private void Awake()
     {
@@ -17,6 +21,11 @@ public class SceneLoader : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void Start()
+    {
+        AM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
     public static SceneLoader GetInstance()
     {
         if (Instance == null)
@@ -28,15 +37,19 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadGame()
     {
+        AM.PlaySFX(clickSFX);
         SceneManager.LoadScene("GameScene");
     }
 
     public void LoadMenu()
     {
+        AM.PlaySFX(clickSFX);
         SceneManager.LoadScene("MainMenu");
     }
     public void OpenIdentifyScene()
     {
+        AM.PlaySFX(clickSFX);
         SceneManager.LoadScene("CoralIdentify");
     }
+
 }

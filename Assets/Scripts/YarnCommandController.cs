@@ -12,7 +12,7 @@ public class YarnCommandController : MonoBehaviour
 
     public DialogueRunner dialogueRunner;
 
-    public GameObject affinityObj;
+    //public GameObject affinityObj;
     public TextMeshProUGUI affinityNum;
 
 
@@ -21,7 +21,7 @@ public class YarnCommandController : MonoBehaviour
     {
         Debug.Log("YarnCommandController Awake");
         dialogueRunner = FindObjectOfType<DialogueRunner>();
-        affinityNum = affinityObj.GetComponent<TextMeshProUGUI>();
+        //affinityNum = affinityObj.GetComponent<TextMeshProUGUI>();
 
         dialogueRunner.AddCommandHandler(
             "update_affinity_display",
