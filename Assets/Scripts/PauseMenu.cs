@@ -18,10 +18,6 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
 
-        if (popupPanel != null)
-            popupPanel.SetActive(false);
-
-        isOpen = false;
     }
 
     private void Update()
@@ -41,12 +37,11 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenPopup()
     {
-        
         if (popupPanel == null) return;
-       
-        isOpen = true;   
+
+        isOpen = true;
         popupPanel.SetActive(true);
-        
+
         AM.PlaySFX(PauseSFX);
 
         // optional safety: close inventory if open
