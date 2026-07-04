@@ -3,25 +3,39 @@ position: -177,-2
 ---
 
 <<declare $SWaffinity = 0>>
+<<declare $Speaker = "none">>
 
+<<Update_CurrentSpeaker>>
 You find yourself face to face with a dazzling superstar. Its tresses sway hypnotically in the sea current, a vibrant shade of vermillion.
 When it speaks, its melodious voice puts you in a trance.
 
+<<set $Speaker to "SeaWhipCoral">>
+<<Update_CurrentSpeaker>>
 Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something I can help you with?
 
+<<set $Speaker to "jimbo">>
+<<Update_CurrentSpeaker>>
 -> You: Pardon my intrusion, I simply had to stop and stare at what a mesmerising shade of red you are.
     <<set $SWaffinity += 1>>
     <<update_affinity_display>>
     The coral is rather taken aback by your forwardness, its already rosy shade darkens with a blush.
     Good job. It seems that you have managed to fluster the bold coral.
+    <<set $Speaker to "SeaWhipCoral">>
+    <<Update_CurrentSpeaker>>
     Sea Whip Coral: Oh! Well- uh...thank you!
 -> You: Woah.. I've never seen a red seaweed before!
+    <<set $Speaker to "SeaWhipCoral">>
+    <<Update_CurrentSpeaker>>
     Sea Whip Coral: SEAWEED?! SEA?! WEED?!
     Sea Whip Coral: How DARE you call me a weed when I am a beautiful, majestic CORAL!
     Sea Whip Coral flashes its soft vermillion branches at you, looking not unlike a great tree swaying in the wind.
     Sea Whip Coral: BEHOLD.
+    <<set $Speaker to "jimbo">>
+    <<Update_CurrentSpeaker>>
     You: I'm sorry, I was unaware of the existence of such a beautiful coral!
-    
+   
+<<set $Speaker to "SeaWhipCoral">>
+<<Update_CurrentSpeaker>> 
 Sea Whip Coral: Look closer! Within me, each little polyp holds eight feathery, saw-toothed tentacles.
 You squint your eyes, bringing your angular face closer to her majestic red branches.
 True to its word, the tentacles emerge and sweeps their adoring fans of the plankton and microscopic particles right up into themselves.
@@ -29,6 +43,8 @@ Sea Whip Coral: I have many adoring fans, though I do attract a particular kind 
 -> You: Black sea bass?
     <<set $SWaffinity += 1>>
     <<update_affinity_display>>
+    <<set $Speaker to "SeaWhipCoral">>
+    <<Update_CurrentSpeaker>> 
     Sea Whip Coral: Oh, so you noticed them? Yes, those are black sea bass. They know a good home when they see one!
     Sea Whip Coral: I'm flattered you're paying such close attention. A star has to appreciate a devoted audience, after all.
 -> You: Stingrays?
