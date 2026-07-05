@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class CustomisationUIManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class CustomisationUIManager : MonoBehaviour
     public RectTransform equipmentPanel;
     [SerializeField] Vector2 hiddenPos = new Vector2(1000, 320);
     [SerializeField] Vector2 shownPos = new Vector2(0, 320);
-    public float slideSpeed = 900f;
+    private float slideSpeed = 1000f;
 
     [Header("Category Text")]
     public TMP_Text categoryText;
@@ -25,12 +26,19 @@ public class CustomisationUIManager : MonoBehaviour
     private Coroutine slideRoutine;
     private bool panelOpen = false;
     private bool boxesVisible = true;
-    private string currentCategory = "";
     private int currentOpenIndex = -1;
 
     private void Start()
     {
-        ShowSlotGroup(0);
+        // Make sure all gear slots are always visible
+        ShowAllGearSlots();
+
+        // Start with panel hidden
+        if (equipmentPanel != null)
+            equipmentPanel.anchoredPosition = hiddenPos;
+
+        panelOpen = false;
+        currentOpenIndex = -1;
     }
 
     public void OpenHeadgear()
@@ -50,42 +58,35 @@ public class CustomisationUIManager : MonoBehaviour
 
     public void OpenFeet()
     {
-        OpenCategory("Tail (Footwear)", 3);
+        OpenCategory("Tailwear (Feet)", 3);
     }
 
     private void OpenCategory(string categoryName, int slotIndex)
     {
-        // If clicking same category while panel is open -> close it
+        // If clicking the same category while panel is open, close the panel
         if (panelOpen && currentOpenIndex == slotIndex)
         {
             ClosePanel();
-            currentOpenIndex = -1;
             return;
         }
 
         currentOpenIndex = slotIndex;
 
-        currentCategory = categoryName;
-
         if (categoryText != null)
             categoryText.text = categoryName;
 
-        ShowBoxesAndLines();
-        ShowSlotGroup(slotIndex);
+        ShowAllGearSlots();
 
-        if (!panelOpen)
-        {
-            panelOpen = true;
-            SlideTo(shownPos);
-        }
+        panelOpen = true;
+        SlideTo(shownPos);
     }
 
-    private void ShowSlotGroup(int index)
+    private void ShowAllGearSlots()
     {
-        if (headgearSlots != null) headgearSlots.SetActive(index == 0);
-        if (bodySlots != null) bodySlots.SetActive(index == 1);
-        if (handsSlots != null) handsSlots.SetActive(index == 2);
-        if (feetSlots != null) feetSlots.SetActive(index == 3);
+        if (headgearSlots != null) headgearSlots.SetActive(true);
+        if (bodySlots != null) bodySlots.SetActive(true);
+        if (handsSlots != null) handsSlots.SetActive(true);
+        if (feetSlots != null) feetSlots.SetActive(true);
     }
 
     public void ClosePanel()
@@ -93,7 +94,14 @@ public class CustomisationUIManager : MonoBehaviour
         panelOpen = false;
         currentOpenIndex = -1;
 
+        ClearSelectedButton();
+
         SlideTo(hiddenPos);
+    }
+    private void ClearSelectedButton()
+    {
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void TogglePanel()
@@ -111,32 +119,16 @@ public class CustomisationUIManager : MonoBehaviour
         if (boxesAndLinesParent != null)
             boxesAndLinesParent.SetActive(boxesVisible);
 
-        // If boxes are now hidden, close gear panel too
+        // If boxes are hidden, close gear panel too
         if (!boxesVisible && panelOpen)
             ClosePanel();
     }
 
-    public void HideBoxesAndLines()
-    {
-        boxesVisible = false;
-
-        if (boxesAndLinesParent != null)
-            boxesAndLinesParent.SetActive(false);
-
-        if (panelOpen)
-            ClosePanel();
-    }
-
-    public void ShowBoxesAndLines()
-    {
-        boxesVisible = true;
-
-        if (boxesAndLinesParent != null)
-            boxesAndLinesParent.SetActive(true);
-    }
-
     private void SlideTo(Vector2 target)
     {
+        if (equipmentPanel == null)
+            return;
+
         if (slideRoutine != null)
             StopCoroutine(slideRoutine);
 
