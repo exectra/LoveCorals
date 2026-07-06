@@ -10,5 +10,11 @@ namespace Yarn.Unity.Samples {
             set => this.SetValue<float>("$SWaffinity", value);
         }
 
+        // Accessor for String $Speaker
+        public string Speaker {
+            get => this.GetValueOrDefault<string>("$Speaker");
+            set => this.SetValue<string>("$Speaker", value);
+        }
+
     }
 }

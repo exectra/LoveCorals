@@ -9,6 +9,7 @@ public class YarnCommandController : MonoBehaviour
 {
     [SerializeField] private YarnVariables yarnVariables;
     [SerializeField] public float SWaffinity;
+    [SerializeField] public string currentSpeaker;
 
     public DialogueRunner dialogueRunner;
 
@@ -26,6 +27,11 @@ public class YarnCommandController : MonoBehaviour
         dialogueRunner.AddCommandHandler(
             "update_affinity_display",
             UpdateAffinityDisplay
+        );
+
+        dialogueRunner.AddCommandHandler(
+            "Update_CurrentSpeaker",
+            CurrentSpeaker
         );
     }
 
@@ -50,6 +56,20 @@ public class YarnCommandController : MonoBehaviour
         else
         {
             Debug.LogError("Could not find $SWaffinity in Yarn variables.");
+        }
+    }
+
+    public void CurrentSpeaker()
+    {
+        if (yarnVariables.TryGetValue("$Speaker", out string speaker))
+        {
+            currentSpeaker = speaker;
+
+            Debug.Log("Updated speaker: " + currentSpeaker);
+        }
+        else
+        {
+            Debug.LogError("Could not find $Speaker in Yarn variables.");
         }
     }
 }
