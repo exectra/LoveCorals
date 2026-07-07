@@ -259,6 +259,10 @@ PrefabInstance:
       propertyPath: coralPointsText
       value: 
       objectReference: {fileID: 1393591643}
+    - target: {fileID: 1119642763311849555, guid: 640bc48a09f22de46b750641ccda0f2a, type: 3}
+      propertyPath: giftGivingManager
+      value: 
+      objectReference: {fileID: 935435153}
     - target: {fileID: 6493369140899550060, guid: 640bc48a09f22de46b750641ccda0f2a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 296.42102
@@ -974,12 +978,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 7
+    m_Left: 10
+    m_Right: 10
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 1
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1

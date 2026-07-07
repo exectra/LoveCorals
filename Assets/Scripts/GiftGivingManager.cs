@@ -1,6 +1,8 @@
 ﻿using CoralDating.Inventory;
 using CoralDating.Runtime;
 using UnityEngine;
+using System;
+using System.Threading.Tasks;
 
 namespace CoralDating.Gifts
 {
@@ -13,6 +15,10 @@ namespace CoralDating.Gifts
 
         private string currentCoralID;
 
+        public event Action OnGiftFinished;
+
+        private TaskCompletionSource<GiftData> giftSelectionTask;
+
         // 👇 TEMPORARY TEST
         private void Update()
         {
@@ -21,24 +27,32 @@ namespace CoralDating.Gifts
                 OpenGiftMenu("brain_coral");
             }
         }
-
-        public void OpenGiftMenu(string coralID)
+        public async Task<GiftData> OpenGiftMenu(string coralID)
         {
-            Debug.Log("Opening Gift Menu");
             currentCoralID = coralID;
 
             giftMenuPanel.SetActive(true);
 
             PopulateGiftMenu();
+
+            giftSelectionTask = new TaskCompletionSource<GiftData>();
+
+            return await giftSelectionTask.Task;
         }
 
         public void OnGiftSelected(GiftData gift)
         {
             inventorySystem.RemoveGift(gift);
 
-            Debug.Log($"Gave {gift.displayName} to {currentCoralID}");
+            PopulateGiftMenu();
 
-            giftMenuPanel.SetActive(false);
+            Debug.Log($"Player gave {gift.displayName} to {currentCoralID}");
+
+            Debug.Log($"{gift.displayName} now has {inventorySystem.GetGiftCount(gift)} remaining.");
+
+            //giftMenuPanel.SetActive(false);
+
+            giftSelectionTask?.SetResult(gift);
         }
 
         private void PopulateGiftMenu()
@@ -81,6 +95,22 @@ namespace CoralDating.Gifts
         public void CancelGift()
         {
             giftMenuPanel.SetActive(false);
+        }
+
+        private void OnEnable()
+        {
+            if (inventorySystem != null)
+            {
+                inventorySystem.OnInventoryChanged += PopulateGiftMenu;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (inventorySystem != null)
+            {
+                inventorySystem.OnInventoryChanged -= PopulateGiftMenu;
+            }
         }
     }
 }

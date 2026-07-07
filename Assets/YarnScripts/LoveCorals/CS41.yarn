@@ -26,6 +26,8 @@ Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something
 -> You: Woah.. I've never seen a red seaweed before!
     <<set $Speaker to "SeaWhipCoral">>
     <<Update_CurrentSpeaker>>
+    <<GiveGift SW_Coral>>
+
     Sea Whip Coral: SEAWEED?! SEA?! WEED?!
     Sea Whip Coral: How DARE you call me a weed when I am a beautiful, majestic CORAL!
     Sea Whip Coral flashes its soft vermilion branches at you, looking not unlike a great tree swaying in the wind.

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using Yarn.Unity;
 using Yarn.Unity.Samples;
+using System.Threading.Tasks;
 
 public class YarnCommandController : MonoBehaviour
 {
@@ -95,10 +96,12 @@ public class YarnCommandController : MonoBehaviour
         }
     }
 
-    private void GiveGiftCommand(string coralID)
+    private async Task GiveGiftCommand(string coralID)
     {
-        Debug.Log($"Giving gift to {coralID}");
+        GiftData selectedGift = await giftGivingManager.OpenGiftMenu(coralID);
 
-        giftGivingManager.OpenGiftMenu(coralID);
+        Debug.Log($"Player selected {selectedGift.displayName}");
+
+        // We'll process the gift in the next step.
     }
 }
