@@ -1,18 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GiftButton : MonoBehaviour
+namespace CoralDating.Gifts
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GiftButton : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Image icon;
+        [SerializeField] private TextMeshProUGUI giftName;
+        [SerializeField] private TextMeshProUGUI quantity;
+        [SerializeField] private Button button;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private GiftData gift;
+        private GiftGivingManager giftGivingManager;
+
+        public void Setup(
+            GiftData giftData,
+            int amount,
+            GiftGivingManager manager)
+        {
+            gift = giftData;
+            giftGivingManager = manager;
+
+            icon.sprite = gift.icon;
+            giftName.text = gift.displayName;
+            quantity.text = $"x{amount}";
+
+            button.onClick.RemoveAllListeners();
+            button.onClick.AddListener(OnClicked);
+        }
+
+        private void OnClicked()
+        {
+            giftGivingManager.OnGiftSelected(gift);
+        }
     }
 }

@@ -18,6 +18,18 @@ namespace CoralDating.Inventory
 
         public event Action OnInventoryChanged;
 
+        [SerializeField] private GiftData testPearl;
+        [SerializeField] private GiftData testShell;
+        [SerializeField] private GiftData testSeaFanFragment;
+        private void Start()
+        {
+            Debug.Log("InventorySystem Start");
+
+            AddGift(testPearl, 2);
+            AddGift(testShell, 5);
+            AddGift(testSeaFanFragment, 1);
+            Debug.Log($"Inventory contains {GetAllGifts().Count} gift types.");
+        }
         public bool AddGift(GiftData gift, int amount = 1)
         {
             // Validate input
