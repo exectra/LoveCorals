@@ -41,7 +41,7 @@ public class SpeakerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("not replacing");
+            //Debug.Log("not replacing");
         }
     }
 }

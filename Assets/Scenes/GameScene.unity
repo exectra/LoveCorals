@@ -255,6 +255,10 @@ PrefabInstance:
       propertyPath: dialogueRunner
       value: 
       objectReference: {fileID: 8309902628832093529}
+    - target: {fileID: 1119642763311849555, guid: 640bc48a09f22de46b750641ccda0f2a, type: 3}
+      propertyPath: coralPointsText
+      value: 
+      objectReference: {fileID: 1393591643}
     - target: {fileID: 6493369140899550060, guid: 640bc48a09f22de46b750641ccda0f2a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 296.42102
@@ -919,11 +923,11 @@ GameObject:
   - component: {fileID: 396950159}
   m_Layer: 0
   m_Name: EventSystem
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &396950159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2085,6 +2089,7 @@ GameObject:
   - component: {fileID: 935435151}
   - component: {fileID: 935435150}
   - component: {fileID: 935435152}
+  - component: {fileID: 935435153}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2135,6 +2140,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickSFX: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
   AM: {fileID: 0}
+--- !u!114 &935435153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935435149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddcd70f1dbfd7984bb5c5b96de8b8d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  giftMenuPanel: {fileID: 0}
+  inventorySystem: {fileID: 0}
 --- !u!1 &936881469
 GameObject:
   m_ObjectHideFlags: 0

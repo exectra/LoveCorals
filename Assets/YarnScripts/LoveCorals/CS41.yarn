@@ -2,7 +2,7 @@
 position: -177,-2
 ---
 
-<<declare $SWaffinity = 0>>
+<<declare $SWCoralPoints = 0>>
 <<declare $Speaker = "none">>
 
 <<Update_CurrentSpeaker>>
@@ -16,8 +16,8 @@ Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something
 <<set $Speaker to "jimbo">>
 <<Update_CurrentSpeaker>>
 -> You: Pardon my intrusion, I simply had to stop and stare at what a mesmerising shade of red you are.
-    <<set $SWaffinity += 1>>
-    <<update_affinity_display>>
+    <<set $SWCoralPoints += 1>>
+    <<update_coral_points_display>>
     The coral is rather taken aback by your forwardness, its already rosy shade darkens with a blush.
     Good job. It seems that you have managed to fluster the bold coral.
     <<set $Speaker to "SeaWhipCoral">>
@@ -28,7 +28,7 @@ Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something
     <<Update_CurrentSpeaker>>
     Sea Whip Coral: SEAWEED?! SEA?! WEED?!
     Sea Whip Coral: How DARE you call me a weed when I am a beautiful, majestic CORAL!
-    Sea Whip Coral flashes its soft vermillion branches at you, looking not unlike a great tree swaying in the wind.
+    Sea Whip Coral flashes its soft vermilion branches at you, looking not unlike a great tree swaying in the wind.
     Sea Whip Coral: BEHOLD.
     <<set $Speaker to "jimbo">>
     <<Update_CurrentSpeaker>>
@@ -41,8 +41,8 @@ You squint your eyes, bringing your angular face closer to her majestic red bran
 True to its word, the tentacles emerge and sweeps their adoring fans of the plankton and microscopic particles right up into themselves.
 Sea Whip Coral: I have many adoring fans, though I do attract a particular kind of company. Can you guess what species my fanbase is mostly made off?
 -> You: Black sea bass?
-    <<set $SWaffinity += 1>>
-    <<update_affinity_display>>
+    <<set $SWCoralPoints += 1>>
+    <<update_coral_points_display>>
     <<set $Speaker to "SeaWhipCoral">>
     <<Update_CurrentSpeaker>> 
     Sea Whip Coral: Oh, so you noticed them? Yes, those are black sea bass. They know a good home when they see one!
@@ -56,9 +56,9 @@ Sea Whip Coral: As a suspension feeder, I am eating plankton.
 Sea Whip Coral: People would pay to witness this, but you are seeing it for free, so etch it into your memory!
 Sea Whip Coral: WITNESS MY GREATNESS!!
 -> You give a faintly disgusted look.
-    <<if $SWaffinity >= 1>>
-        <<set $SWaffinity -= 1>>
-        <<update_affinity_display>>
+    <<if $SWCoralPoints >= 1>>
+        <<set $SWCoralPoints -= 1>>
+        <<update_coral_points_display>>
     <<endif>>
     You thought Sea Whip Coral would be busy looking, but it steals a quick look at you and sees your reaction.
     Sea Whip Coral: Oh.
@@ -67,8 +67,8 @@ Sea Whip Coral: WITNESS MY GREATNESS!!
     The coral's face shutters, and it seems to lose all interest in conversing with you for the day.
     
 -> You state quietly in amazement and awe.
-    <<set $SWaffinity += 1>>
-    <<update_affinity_display>>
+    <<set $SWCoralPoints += 1>>
+    <<update_coral_points_display>>
     Sea Whip turns around and stares at you. A small sincere smile lights up their face. 
     This was a smile unlike their usual haughty one, aimed at your candid acceptance and fascination with their being. 
     Sea Whip Coral: Perhaps...we could be friends! You seem rather alright...for a fish.
