@@ -6,6 +6,9 @@ position: -177,-2
 <<declare $Speaker = "none">>
 
 <<Update_CurrentSpeaker>>
+You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
+A coral!
+
 You find yourself face to face with a dazzling superstar. Its tresses sway hypnotically in the sea current, a vibrant shade of vermillion.
 When it speaks, its melodious voice puts you in a trance.
 
@@ -13,14 +16,14 @@ When it speaks, its melodious voice puts you in a trance.
 <<Update_CurrentSpeaker>>
 Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something I can help you with?
 
-<<set $Speaker to "jimbo">>
+<<set $Speaker to "Player">>
 <<Update_CurrentSpeaker>>
 -> You: Pardon my intrusion, I simply had to stop and stare at what a mesmerising shade of red you are.
     <<set $SWaffinity += 1>>
     <<update_affinity_display>>
     The coral is rather taken aback by your forwardness, its already rosy shade darkens with a blush.
     Good job. It seems that you have managed to fluster the bold coral.
-    <<set $Speaker to "SeaWhipCoral">>
+    <<set $Speaker to "Player">>
     <<Update_CurrentSpeaker>>
     Sea Whip Coral: Oh! Well- uh...thank you!
 -> You: Woah.. I've never seen a red seaweed before!
@@ -30,7 +33,7 @@ Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something
     Sea Whip Coral: How DARE you call me a weed when I am a beautiful, majestic CORAL!
     Sea Whip Coral flashes its soft vermillion branches at you, looking not unlike a great tree swaying in the wind.
     Sea Whip Coral: BEHOLD.
-    <<set $Speaker to "jimbo">>
+    <<set $Speaker to "Player">>
     <<Update_CurrentSpeaker>>
     You: I'm sorry, I was unaware of the existence of such a beautiful coral!
    
@@ -72,7 +75,19 @@ Sea Whip Coral: WITNESS MY GREATNESS!!
     Sea Whip turns around and stares at you. A small sincere smile lights up their face. 
     This was a smile unlike their usual haughty one, aimed at your candid acceptance and fascination with their being. 
     Sea Whip Coral: Perhaps...we could be friends! You seem rather alright...for a fish.
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
     You: I would love to be friends!
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
     The coral's sparkle fades to a sleepy shimmer, like a star dozing off after the show. The reef returns to its peaceful rhythm. The conversation comes to an end.
+
+===
+title: GroovedBrainCoral
+position: 74,0
+---
+You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
+A coral!
+
 
 ===

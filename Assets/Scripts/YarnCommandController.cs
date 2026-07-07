@@ -4,6 +4,7 @@ using UnityEngine;
 using Yarn.Unity;
 using Yarn.Unity.Samples;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class YarnCommandController : MonoBehaviour
 {
@@ -71,5 +72,11 @@ public class YarnCommandController : MonoBehaviour
         {
             Debug.LogError("Could not find $Speaker in Yarn variables.");
         }
+    }
+
+    [YarnCommand("returnMainMenu")]
+    public void returnToHome()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

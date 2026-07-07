@@ -5016,8 +5016,8 @@ MonoBehaviour:
   speakers:
   - name: SeaWhipCoral
     image: {fileID: 21300000, guid: 0d81bb6e2b91eeb40894cfdd367d4636, type: 3}
-  - name: jimbo
-    image: {fileID: 21300000, guid: 9e471eada7999f94ea2c435714529346, type: 3}
+  - name: Player
+    image: {fileID: 21300000, guid: 336626f65397bf34a8334f46f963fb48, type: 3}
 --- !u!1 &9078442560205187376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9078442560890639579, guid: 52571f68872914e24837210513edea1d, type: 3}
