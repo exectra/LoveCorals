@@ -101,9 +101,9 @@ You get closer to take a clearer look when someone interrupted you.
 <<Update_CurrentSpeaker>>
 Grooved Brain Coral: That’s actually a Wrasse, not a parrot fish.
 
-said a nearby coral.
 <<set $Speaker to "GroovedBrainCoral">>
 <<Update_CurrentSpeaker>>
+said a nearby coral.
 
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
