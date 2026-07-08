@@ -46,6 +46,11 @@ public class YarnCommandController : MonoBehaviour
             GiveGiftCommand
         );
 
+        dialogueRunner.AddCommandHandler(
+            "returnToHome",
+            returnToHome
+        );
+
         if (giftGivingManager == null)
         {
             giftGivingManager = FindObjectOfType<GiftGivingManager>();
@@ -99,7 +104,7 @@ public class YarnCommandController : MonoBehaviour
         }
     }
 
-    [YarnCommand("returnMainMenu")]
+    //[YarnCommand("returnMainMenu")]
     public void returnToHome()
     {
         SceneManager.LoadScene("MainMenu");

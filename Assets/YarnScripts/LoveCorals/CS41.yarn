@@ -30,7 +30,6 @@ Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something
     <<set $Speaker to "SeaWhipCoral">>
     <<Update_CurrentSpeaker>>
     <<GiveGift SW_Coral>>
-
     Sea Whip Coral: SEAWEED?! SEA?! WEED?!
     Sea Whip Coral: How DARE you call me a weed when I am a beautiful, majestic CORAL!
     Sea Whip Coral flashes its soft vermilion branches at you, looking not unlike a great tree swaying in the wind.
@@ -83,7 +82,7 @@ Sea Whip Coral: WITNESS MY GREATNESS!!
     <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
     The coral's sparkle fades to a sleepy shimmer, like a star dozing off after the show. The reef returns to its peaceful rhythm. The conversation comes to an end.
-
+    <<returnToHome>>
 ===
 title: GroovedBrainCoral
 position: 74,0
