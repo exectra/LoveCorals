@@ -1,13 +1,14 @@
-using CoralDating.Gifts;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using CoralDating.Gifts;
+using TMPro;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 using Yarn.Unity.Samples;
-using TMPro;
-using UnityEngine.SceneManagement;
-using System.Threading.Tasks;
+using static DialogueStarter;
 
 
 public class YarnCommandController : MonoBehaviour
@@ -56,9 +57,14 @@ public class YarnCommandController : MonoBehaviour
             giftGivingManager = FindObjectOfType<GiftGivingManager>();
         }
 
-
-
-
+        if (!string.IsNullOrEmpty(DialogueState.NextNode))
+        {
+            dialogueRunner.startNode = DialogueState.NextNode;
+            Debug.Log(DialogueState.NextNode);
+            //dialogueRunner.StartDialogue(DialogueState.NextNode);
+            DialogueState.NextNode = ""; // Clear it after use
+           
+        }
     }
 
     // Update is called once per frame

@@ -5646,7 +5646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: startNode
-      value: SeaWhipStart
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: yarnProject
@@ -5656,6 +5656,10 @@ PrefabInstance:
       propertyPath: variableStorage
       value: 
       objectReference: {fileID: 2038300146}
+    - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
+      propertyPath: allowOptionFallthrough
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8635081094713202853, guid: 52571f68872914e24837210513edea1d, type: 3}
     m_RemovedGameObjects: []
@@ -5808,9 +5812,13 @@ MonoBehaviour:
   commandController: {fileID: 44250660}
   speakers:
   - name: SeaWhipCoral
-    image: {fileID: 21300000, guid: 0d81bb6e2b91eeb40894cfdd367d4636, type: 3}
+    image: {fileID: 21300000, guid: cdfbf19a12c2b654d9c7768f12a24e82, type: 3}
   - name: Player
     image: {fileID: 21300000, guid: 336626f65397bf34a8334f46f963fb48, type: 3}
+  - name: GroovedBrainCoral
+    image: {fileID: 21300000, guid: b6dd0b42745be04489a55d3e36ee784f, type: 3}
+  - name: CabbageCoral
+    image: {fileID: 21300000, guid: f7d882fb3026ef84da2c17486c7ac826, type: 3}
 --- !u!1 &9078442560205187376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9078442560890639579, guid: 52571f68872914e24837210513edea1d, type: 3}
