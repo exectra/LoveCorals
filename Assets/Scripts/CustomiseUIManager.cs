@@ -212,7 +212,7 @@ public class CustomisationUIManager : MonoBehaviour
             }
             else
             {
-                if (hatDisplay.GetComponent<Image>().sprite.name == image.name) { hatDisplay.GetComponent<Image>().sprite = null; }
+                if (hatDisplay.GetComponent<Image>().sprite.name == image.name) { hatDisplay.GetComponent<Image>().sprite = null; hatDisplay.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f); }
 
             }
 
