@@ -8046,7 +8046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1581396629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8505,7 +8505,6 @@ MonoBehaviour:
   equipmentPanel: {fileID: 1688338018}
   hiddenPos: {x: 1000, y: 320}
   shownPos: {x: 0, y: 320}
-  slideSpeed: 500
   categoryText: {fileID: 1162625751}
   boxesAndLinesParent: {fileID: 1581396628}
   headgearSlots: {fileID: 786216213}

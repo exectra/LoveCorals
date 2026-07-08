@@ -48,7 +48,7 @@ public class SpeakerController : MonoBehaviour
         else
         {
             currentSpeaker.gameObject.SetActive(false);
-            Debug.Log("not replacing");
+            //Debug.Log("not replacing");
         }
     }
 }
