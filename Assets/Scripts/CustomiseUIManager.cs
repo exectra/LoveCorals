@@ -1,7 +1,11 @@
-using UnityEngine;
-using TMPro;
+using System;
 using System.Collections;
+using System.Reflection;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CustomisationUIManager : MonoBehaviour
 {
@@ -18,16 +22,15 @@ public class CustomisationUIManager : MonoBehaviour
     public GameObject boxesAndLinesParent;
 
     [Header("Slot Groups")]
-    public GameObject headgearSlots;
-    public GameObject bodySlots;
-    public GameObject handsSlots;
-    public GameObject feetSlots;
+    public GameObject itemSlots;
 
     private Coroutine slideRoutine;
     private bool panelOpen = false;
     private bool boxesVisible = true;
     private int currentOpenIndex = -1;
 
+    [Header("DisplaySlots")]
+    public GameObject hatDisplay;
     private void Start()
     {
         // Make sure all gear slots are always visible
@@ -44,21 +47,25 @@ public class CustomisationUIManager : MonoBehaviour
     public void OpenHeadgear()
     {
         OpenCategory("Crown (Headgear)", 0);
+        AddInteractionOnOpen();
     }
 
     public void OpenBody()
     {
         OpenCategory("Gills (Body)", 1);
+        AddInteractionOnOpen();
     }
 
     public void OpenHands()
     {
         OpenCategory("Flippers (Hands)", 2);
+        AddInteractionOnOpen();
     }
 
     public void OpenFeet()
     {
         OpenCategory("Tailwear (Feet)", 3);
+        AddInteractionOnOpen();
     }
 
     private void OpenCategory(string categoryName, int slotIndex)
@@ -79,14 +86,12 @@ public class CustomisationUIManager : MonoBehaviour
 
         panelOpen = true;
         SlideTo(shownPos);
+
     }
 
     private void ShowAllGearSlots()
     {
-        if (headgearSlots != null) headgearSlots.SetActive(true);
-        if (bodySlots != null) bodySlots.SetActive(true);
-        if (handsSlots != null) handsSlots.SetActive(true);
-        if (feetSlots != null) feetSlots.SetActive(true);
+        if (itemSlots != null) itemSlots.SetActive(true);
     }
 
     public void ClosePanel()
@@ -149,5 +154,68 @@ public class CustomisationUIManager : MonoBehaviour
         }
 
         equipmentPanel.anchoredPosition = target;
+    }
+
+    //Van added this section onwards
+    //Slot interactions + Updating corresponding item slots + Showing item on Sharkie
+
+    //Slot interaction
+    private void AddInteractionOnOpen(/*int currentIndex*/)
+    {
+        int index = 0;
+        foreach (Transform child in itemSlots.transform)
+        {
+            Debug.Log(child.name);
+            if (!child.gameObject.TryGetComponent<Button>(out Button btn))
+            {
+                btn = child.gameObject.AddComponent<Button>();
+            }
+
+
+            ColorBlock colorBlock = btn.colors;
+            colorBlock.highlightedColor = Color.red;
+
+            btn.colors = colorBlock;
+
+            // CRITICAL FIX: Clear old click hooks before assigning the current loop's tracking data
+            btn.onClick.RemoveAllListeners();
+
+            // Use a local copy variable for the lambda expression capture trap
+            int currentCapturedIndex = index;
+
+            // Pass the structural database pointer directly through the anonymous click function
+            btn.onClick.AddListener(() => OnSlotClicked(currentCapturedIndex));
+
+            // Increment the tracking index counter for the next slot child
+            index++;
+        }
+    }
+
+    private void OnSlotClicked(int databaseSlotID)
+    {
+        Debug.Log($"Player selected UI Slot Index: {databaseSlotID}");
+
+        // Example database check logic:
+        // ItemData selectedItem = ItemDatabase.GetItemFromCategory(currentCategory, databaseSlotID);
+        // CharacterManager.Equip(selectedItem);
+
+        GameObject[] arr = GameObject.FindGameObjectsWithTag("Database");
+
+        if (arr[databaseSlotID] == null) { Debug.Log("Out of Bounds"); }
+        else
+        {
+            Sprite image = arr[databaseSlotID].GetComponent<Image>().sprite;
+            if (hatDisplay.GetComponent<Image>().sprite == null)
+            {
+                hatDisplay.GetComponent<Image>().sprite = image;
+                hatDisplay.GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                if (hatDisplay.GetComponent<Image>().sprite.name == image.name) { hatDisplay.GetComponent<Image>().sprite = null; }
+
+            }
+
+        }
     }
 }
