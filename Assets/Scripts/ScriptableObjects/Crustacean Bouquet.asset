@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 652a906f8e6030d468d9af0c4e68ee18, type: 3}
-  m_Name: Shiny Pearl
+  m_Name: Crustacean Bouquet
   m_EditorClassIdentifier: 
-  giftID: pearl
-  displayName: Shiny Pearl
-  icon: {fileID: 0}
-  description: A perfectly polished pearl found deep beneath the reef.
+  giftID: bouquet
+  displayName: Crustacean Bouquet
+  icon: {fileID: 21300000, guid: f9961dd8520dbf84f80cd9a3a67e6b40, type: 3}
+  description: 
   category: 4

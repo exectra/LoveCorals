@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 652a906f8e6030d468d9af0c4e68ee18, type: 3}
-  m_Name: Polished Shell
+  m_Name: Cabbage
   m_EditorClassIdentifier: 
-  giftID: polished_shell
-  displayName: Polished Shell
-  icon: {fileID: 0}
+  giftID: cabbage
+  displayName: Cabbage
+  icon: {fileID: 21300000, guid: b1bccb14241bc3648b75be9ff966347a, type: 3}
   description: 
-  category: 0
+  category: 3
