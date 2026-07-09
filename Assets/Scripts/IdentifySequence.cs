@@ -8,6 +8,7 @@ public class IdentifySequence : MonoBehaviour
 {
     [Header("Video")]
     public VideoPlayer videoPlayer;
+    public VideoClip identify, loading;
 
     [Header("Rotate Intro")]
     public GameObject rotateOverlay;
@@ -106,16 +107,31 @@ public class IdentifySequence : MonoBehaviour
 
     private IEnumerator RunIdentificationSequence()
     {
-        for (int i = 0; i < phrases.Length; i++)
-        {
-            if (phrases[i] == "Party Hat Obtained" && rewardPopup != null)
-            {
-                StartCoroutine(AnimateReward());
-            }
+        //for (int i = 0; i < phrases.Length; i++)
+        //{
+        //    if (phrases[i] == "Party Hat Obtained" && rewardPopup != null)
+        //    {
+        //        StartCoroutine(AnimateReward());
+        //    }
 
-            yield return StartCoroutine(TypePhrase(phrases[i]));
-            yield return new WaitForSeconds(phraseHoldTime);
-        }
+        //    yield return StartCoroutine(TypePhrase(phrases[i]));
+        //    yield return new WaitForSeconds(phraseHoldTime);
+        //}
+        Debug.Log("identifying");
+        videoPlayer.isLooping = false;
+        videoPlayer.Stop();
+        videoPlayer.clip = identify;
+        videoPlayer.Prepare();
+
+        yield return new WaitUntil(() => videoPlayer.isPrepared);
+
+        videoPlayer.Play();
+
+        // Wait until the video actually starts
+        yield return new WaitUntil(() => videoPlayer.isPlaying);
+
+        // Wait until it finishes
+        yield return new WaitUntil(() => !videoPlayer.isPlaying);
     }
 
     private IEnumerator TypePhrase(string phrase)
@@ -151,6 +167,20 @@ public class IdentifySequence : MonoBehaviour
     }
     private IEnumerator PlayRotateBackOutro()
     {
+        Debug.Log("loading");
+        videoPlayer.Stop();
+        videoPlayer.clip = loading;
+        videoPlayer.isLooping = true;
+
+        videoPlayer.Prepare();
+        yield return new WaitUntil(() => videoPlayer.isPrepared);
+
+        videoPlayer.Play();
+
+        // Wait until the first frame is actually playing
+        yield return new WaitUntil(() => videoPlayer.isPlaying);
+
+
         // HIDE IDENTIFICATION UI
         if (overlayText != null)
             overlayText.text = "";

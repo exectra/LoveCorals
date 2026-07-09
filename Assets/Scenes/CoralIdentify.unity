@@ -504,6 +504,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 35611858}
+  identify: {fileID: 32900000, guid: 359a91d60ee87784eb9930bfb9473e27, type: 3}
+  loading: {fileID: 32900000, guid: bd2ad482cf2695e408fa79b6c4ecc6fe, type: 3}
   rotateOverlay: {fileID: 365670423}
   rotateIcon: {fileID: 1319235694}
   rotateText: {fileID: 66743339}
