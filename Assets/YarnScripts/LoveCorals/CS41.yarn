@@ -257,8 +257,6 @@ Cabbage Leather Coral: Do you...not? Have zooxanthellae algae to help you?
 title: CabbageCoralNode2
 position: -424,395
 ---
-// <<set $CLBranch = true>>
-// <<isCLBranch2>>
 <<if $CLBranch == true>>
 <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
