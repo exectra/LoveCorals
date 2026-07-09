@@ -8,6 +8,7 @@ position: -702,-12
 <<declare $CLBranch= false>>
 <<declare $GBBranch= false>>
 
+<<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
@@ -92,6 +93,8 @@ title: GroovedBrainCoralNode
 color: yellow
 position: -162,-16
 ---
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
 
@@ -182,6 +185,8 @@ title: CabbageCoralNode
 color: green
 position: -434,-11
 ---
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
 
@@ -255,6 +260,8 @@ position: -424,395
 // <<set $CLBranch = true>>
 // <<isCLBranch2>>
 <<if $CLBranch == true>>
+<<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
     A fortuitous encounter unfolds once again as you find yourself face to...well, leaf with a very green, very cabbage looking coral once again.
     <<set $Speaker to "CabbageCoral">>
     <<Update_CurrentSpeaker>>
@@ -300,12 +307,11 @@ The warmth of the tropical waters could not be felt, as a toxins filled the wate
 The shy, sweet coral seemingly dissipated, replaced by a scary, territorial leafy coral.
 Did I mention scary? Cabbage Leather Coral became very, very scary.
 
-<<set $Speaker to "Player">>
-<<Update_CurrentSpeaker>>
-You: DON’T TOUCH ME.
-After a few moments, Cabbage Leather Coral snaps out of it’s rageful trance. And the atmosphere was once again restored to it’s sunny tropical state.
 <<set $Speaker to "CabbageCoral">>
 <<Update_CurrentSpeaker>>
+Cabbage Leather Coral: DON’T TOUCH ME.
+After a few moments, Cabbage Leather Coral snaps out of it’s rageful trance. And the atmosphere was once again restored to it’s sunny tropical state.
+
 Cabbage Leather Coral: Sorry...where was I? I think I was a bit lost in the sauce there.
 -> Uh, do you not remember?
     Cabbage Leather Coral: Remember what?
@@ -380,7 +386,7 @@ position: -163,187
 title: A_Box
 position: -168,375
 ---
-Grooved Brain Coral proudly pulled out a box and presented it to us.
+Grooved Brain Coral proudly pulled out a box and presented it to you.
 
 Grooved Brain Coral: I CALL THIS...
 Grooved Brain Coral: THE MAZE!!!
