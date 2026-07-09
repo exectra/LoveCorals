@@ -17,6 +17,7 @@ public class YarnCommandController : MonoBehaviour
     [SerializeField] public float coralPoints;
     [SerializeField] public string currentSpeaker;
     [SerializeField] public bool isBranch2;
+    [SerializeField] public bool isGBBranch2;
 
     [SerializeField] private GiftGivingManager giftGivingManager;
 
@@ -151,6 +152,11 @@ public class YarnCommandController : MonoBehaviour
             "isCLBranch2",
             CLBranch
         );
+
+        dialogueRunner.AddCommandHandler(
+            "isGBBranch2",
+            GBBranch
+        );
     }
 
     public void UpdateCoralPointsDisplay()
@@ -195,6 +201,7 @@ public class YarnCommandController : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    //get the bool if the player has already finish the first branch for Cabbage coral
     public void CLBranch()
     {
         if (yarnVariables.TryGetValue("$CLBranch", out bool isNextBranch))
@@ -205,7 +212,22 @@ public class YarnCommandController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Could not find $Speaker in Yarn variables.");
+            Debug.LogError("Could not find $CLBranch in Yarn variables.");
+        }
+    }
+
+    //get the bool if the player has already finish the first branch for Grooved Brain coral
+    public void GBBranch()
+    {
+        if (yarnVariables.TryGetValue("$GBBranch", out bool isNextBranch))
+        {
+            isGBBranch2 = isNextBranch;
+
+            Debug.Log("Updated proceeding to 2nd branch?: " + isGBBranch2);
+        }
+        else
+        {
+            Debug.LogError("Could not find $GBBranch in Yarn variables.");
         }
     }
 

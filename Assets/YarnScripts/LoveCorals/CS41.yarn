@@ -162,6 +162,8 @@ The coral looked up. Lo and behold, the fish was gobbling away. It let out a pie
 -> Let the fish continue nibbling.
     You stood by and watched as the Grooved Brain Coral was helplessly nibbled by the fish. Once it had its fill, the fish swam away.
     The coral stared blankly into the distance, evidently done with this conversation... and perhaps with you as well.
+    <<set $GBBranch = true>>
+    <<isGBBranch2>>
     <<returnToHome>>
 -> Eat the fish
     <<set $SWCoralPoints += 5>>
@@ -170,7 +172,10 @@ The coral looked up. Lo and behold, the fish was gobbling away. It let out a pie
     Grooved Brain Coral: Thank you... I suppose I owe you one. And yes, before you say anything, that was definitely a wrasse. I refuse to discuss the matter any further.
     The coral cleared its throat. 
     Grooved Brain Coral: Come back and visit me sometime. There's still plenty about the reef for you to learn... even if your fish identification skills need work.
+    <<set $GBBranch = true>>
+    <<isGBBranch2>>
     <<returnToHome>>
+<<jump GroovedBrainCoralNode2>>
 ===
 
 title: CabbageCoralNode
@@ -329,5 +334,73 @@ position: -380,975
 ---
 Cabbage Leather Coral: Thanks buddy. You’ve been a great help so far. But I need some time to myself to...figure things out.
 Cabbage Leather Coral: Cabbage Leather Coral waves a leafy lobe at you as you swim away.
+<<returnToHome>>
+===
+
+title: GroovedBrainCoralNode2
+position: -163,187
+---
+<<if $GBBranch == true>>
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You approach the coral, and it looked like it was thinking hard about something...
+
+    You sneaked around the coral and whispered.
+
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Hey, what are you thinking about?
+
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: WOWZERS! Jeez you are as silent as a parrot fish! How long have you been creeping behind me?
+
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You were about to reply to the coral when it interrupted you excitedly.
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: Actually, now that you’re here, let’s exchange a few fun facts about ourselves to get to know each other better!
+    Grooved Brain Coral: ME FIRST!!!!!
+    Grooved Brain Coral: (Clears throat)
+    Grooved Brain Coral: Did you know that corals are actually animals, not plants?
+    Grooved Brain Coral: And, and! White sandy beaches are actually made of corals and parrot fish excrement from feeding on corals.
+    Grooved Brain Coral: Ahhh.. such is the circle of life.... I love biology..
+    -> Wow, how interesting. I’ve learned so much in such a short time!
+        Grooved Brain Coral: Hehe, that was nothing! Wait till you lay your eyes upon GREATNESS!!!
+        <<set $SWCoralPoints += 5>>
+        <<update_coral_points_display>>
+    -> Zzz...zzz...zzz...zzz
+        The coral notices you dozing away but doesn't say anything. However it looks really dejected.
+        Grooved Brain Coral: H..Hey, what about this? Look, its my favourite puzzle!
+<<jump A_Box>>
+<<endif>>
+===
+
+title: A_Box
+position: -168,375
+---
+Grooved Brain Coral proudly pulled out a box and presented it to us.
+
+Grooved Brain Coral: I CALL THIS...
+Grooved Brain Coral: THE MAZE!!!
+Grooved Brain Coral: This box descended upon me one day and I have been tinkering with it. I am now a master-mazer and will teach you a trick I learned.
+It taught you a few tricks and persuaded you to give it a try.
+-> You solve it in less than a minute.
+    Grooved Brain Coral: You solved it so fast, it’s hard to believe this is your first time...
+    Its vibrant colours had faded, and it looked dejected...
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You feel guilty, maybe you finished it too fast.
+-> You solve it after 5 minutes.
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: Hey, that wasn't so bad! That was a great effort! With more practice you might be a master like me!
+    It seemed happy and content!
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You feel glad both of you are having fun.
+    -> Let’s offer a gift before we leave!
+        //add the function of the gift before continue the the convo
 <<returnToHome>>
 ===
