@@ -3225,6 +3225,7 @@ MonoBehaviour:
   inventorySystem: {fileID: 935435154}
   contentParent: {fileID: 346274487}
   giftButtonPrefab: {fileID: 2242777085206281832, guid: d0266e659aa3ae74a94bed3525d64a31, type: 3}
+  inventoryDrawer: {fileID: 2003673556}
 --- !u!114 &935435154
 MonoBehaviour:
   m_ObjectHideFlags: 0
