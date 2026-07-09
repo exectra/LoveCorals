@@ -149,6 +149,11 @@ public class YarnCommandController : MonoBehaviour
         );
 
         dialogueRunner.AddCommandHandler(
+            "identifyCorals",
+            identifying
+        );
+
+        dialogueRunner.AddCommandHandler(
             "isCLBranch2",
             CLBranch
         );
@@ -199,6 +204,10 @@ public class YarnCommandController : MonoBehaviour
     public void returnToHome()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+    public void identifying()
+    {
+        SceneManager.LoadScene("CoralIdentify", LoadSceneMode.Additive);
     }
 
     //get the bool if the player has already finish the first branch for Cabbage coral

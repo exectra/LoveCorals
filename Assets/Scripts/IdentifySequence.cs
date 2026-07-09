@@ -34,7 +34,7 @@ public class IdentifySequence : MonoBehaviour
         "Loading Data...",
         "Analysing Reef Pattern...",
         "Coral Correctly Identified!",
-        "Affinity Points Increased by 10",
+        "Coral Points Increased by 5",
         "Party Hat Obtained"
     };
 
@@ -68,7 +68,8 @@ public class IdentifySequence : MonoBehaviour
 
         yield return StartCoroutine(PlayRotateBackOutro());
 
-        SceneManager.LoadScene(returnSceneName);
+        //SceneManager.LoadScene(returnSceneName);
+        SceneManager.UnloadSceneAsync("CoralIdentify");
     }
 
     private IEnumerator PlayRotateIntro()
