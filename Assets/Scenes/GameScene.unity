@@ -218,8 +218,8 @@ RectTransform:
   m_Children:
   - {fileID: 501285937}
   - {fileID: 1670908180}
-  - {fileID: 1579121498}
   - {fileID: 331469021}
+  - {fileID: 1579121498}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1936,6 +1936,7 @@ RectTransform:
   - {fileID: 1833888197}
   - {fileID: 649174636}
   - {fileID: 1678413222}
+  - {fileID: 1393591645}
   m_Father: {fileID: 281651642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -3177,7 +3178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec16bb67c2615e64ea2f66cfc0fbd137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryDrawer: {fileID: 1579121499}
+  inventoryDrawer: {fileID: 2003673556}
   pauseMenu: {fileID: 331469022}
 --- !u!4 &935435151
 Transform:
@@ -4060,11 +4061,11 @@ GameObject:
   - component: {fileID: 1094843029}
   m_Layer: 0
   m_Name: mockup_affinity
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1094843029
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4616,7 +4617,7 @@ GameObject:
   - component: {fileID: 1393591644}
   - component: {fileID: 1393591643}
   m_Layer: 5
-  m_Name: AffinityNum
+  m_Name: CoralPtsNum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4644,15 +4645,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 254d3ae80eceac64d8a3865264a3659a, type: 2}
-  m_sharedMaterial: {fileID: 8003917162194412639, guid: 254d3ae80eceac64d8a3865264a3659a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
+  m_sharedMaterial: {fileID: -5005721474381861224, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285681424
-  m_fontColor: {r: 0.0627451, g: 0.30980393, b: 0.44705886, a: 1}
+    rgba: 4280419615
+  m_fontColor: {r: 0.120708965, g: 0.02068351, b: 0.13207549, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4677,7 +4678,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4687,7 +4688,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
@@ -4705,7 +4706,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 106.10345, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4731,12 +4732,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1708196043}
+  m_Father: {fileID: 655486621}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 304.05002, y: 80}
-  m_SizeDelta: {x: 200, y: 24.84}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -16.7, y: -27}
+  m_SizeDelta: {x: 172.9, y: 31.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1414076248
 GameObject:
@@ -5295,7 +5296,7 @@ GameObject:
   - component: {fileID: 1579121499}
   m_Layer: 5
   m_Name: InventoryUI
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5837,8 +5838,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1393591645}
+  m_Children: []
   m_Father: {fileID: 243268119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
