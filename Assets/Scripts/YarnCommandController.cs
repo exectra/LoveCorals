@@ -1,20 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using CoralDating.Gifts;
+using TMPro;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 using Yarn.Unity.Samples;
-using TMPro;
+using static DialogueStarter;
+
 
 public class YarnCommandController : MonoBehaviour
 {
     [SerializeField] private YarnVariables yarnVariables;
-    [SerializeField] public float SWaffinity;
+    [SerializeField] public float coralPoints;
     [SerializeField] public string currentSpeaker;
+
+    [SerializeField] private GiftGivingManager giftGivingManager;
 
     public DialogueRunner dialogueRunner;
 
-    //public GameObject affinityObj;
-    public TextMeshProUGUI affinityNum;
+    //public GameObject coralPointsObj;
+    public TextMeshProUGUI coralPointsText;
 
 
     // Start is called before the first frame update
@@ -22,17 +30,41 @@ public class YarnCommandController : MonoBehaviour
     {
         Debug.Log("YarnCommandController Awake");
         dialogueRunner = FindObjectOfType<DialogueRunner>();
-        //affinityNum = affinityObj.GetComponent<TextMeshProUGUI>();
+        //coralPointsNum = coralPointsObj.GetComponent<TextMeshProUGUI>();
 
         dialogueRunner.AddCommandHandler(
-            "update_affinity_display",
-            UpdateAffinityDisplay
+            "update_coral_points_display",
+            UpdateCoralPointsDisplay
         );
 
         dialogueRunner.AddCommandHandler(
             "Update_CurrentSpeaker",
             CurrentSpeaker
         );
+
+        dialogueRunner.AddCommandHandler<string>(
+            "GiveGift",
+            GiveGiftCommand
+        );
+
+        dialogueRunner.AddCommandHandler(
+            "returnToHome",
+            returnToHome
+        );
+
+        if (giftGivingManager == null)
+        {
+            giftGivingManager = FindObjectOfType<GiftGivingManager>();
+        }
+
+        if (!string.IsNullOrEmpty(DialogueState.NextNode))
+        {
+            dialogueRunner.startNode = DialogueState.NextNode;
+            Debug.Log(DialogueState.NextNode);
+            //dialogueRunner.StartDialogue(DialogueState.NextNode);
+            DialogueState.NextNode = ""; // Clear it after use
+           
+        }
     }
 
     // Update is called once per frame
@@ -41,21 +73,26 @@ public class YarnCommandController : MonoBehaviour
         
     }
 
-    //[YarnCommand("update_affinity_display")]
-    public void UpdateAffinityDisplay()
+    //[YarnCommand("update_CoralPoints_display")]
+    public void UpdateCoralPointsDisplay()
     {
-        if (yarnVariables.TryGetValue("$SWaffinity", out float affinity))
+        if (yarnVariables.TryGetValue("$SWCoralPoints", out float points))
         {
-            SWaffinity = affinity;
+            coralPoints = points;
 
             // Update the TextMeshPro text
-            affinityNum.text = SWaffinity.ToString();
 
-            Debug.Log("Updated affinity: " + SWaffinity);
+            coralPointsText.text = coralPoints.ToString();
+            if (coralPointsText != null)
+            {
+                coralPointsText.text = coralPoints.ToString("0");
+            }
+
+            Debug.Log("Updated coralPoints: " + coralPoints);
         }
         else
         {
-            Debug.LogError("Could not find $SWaffinity in Yarn variables.");
+            Debug.LogError("Could not find $SWCoralPoints in Yarn variables.");
         }
     }
 
@@ -71,5 +108,20 @@ public class YarnCommandController : MonoBehaviour
         {
             Debug.LogError("Could not find $Speaker in Yarn variables.");
         }
+    }
+
+    //[YarnCommand("returnMainMenu")]
+    public void returnToHome()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    private async Task GiveGiftCommand(string coralID)
+    {
+        GiftData selectedGift = await giftGivingManager.OpenGiftMenu(coralID);
+
+        Debug.Log($"Player selected {selectedGift.displayName}");
+
+        // We'll process the gift in the next step.
     }
 }
