@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,11 +38,17 @@ public class SpeakerController : MonoBehaviour
     {
         if(speakerImagesDic.TryGetValue(commandController.currentSpeaker, out Speaker portrait))
         {
-            currentSpeaker.sprite = portrait.image; 
+            if(!currentSpeaker.gameObject.activeSelf) 
+            { 
+                currentSpeaker.gameObject.SetActive(true);
+            }
+
+                currentSpeaker.sprite = portrait.image; 
         }
         else
         {
-            Debug.Log("not replacing");
+            currentSpeaker.gameObject.SetActive(false);
+            //Debug.Log("not replacing");
         }
     }
 }

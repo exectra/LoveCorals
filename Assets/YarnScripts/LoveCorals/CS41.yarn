@@ -1,11 +1,18 @@
-﻿title: SeaWhipStart
-position: -177,-2
+﻿title: SeaWhipCoralNode
+color: red
+position: -702,-12
 ---
 
-<<declare $SWaffinity = 0>>
+<<declare $SWCoralPoints = 0>>
 <<declare $Speaker = "none">>
+<<declare $CLBranch= false>>
+<<declare $GBBranch= false>>
 
+<<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
+You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
+A coral!
+
 You find yourself face to face with a dazzling superstar. Its tresses sway hypnotically in the sea current, a vibrant shade of vermillion.
 When it speaks, its melodious voice puts you in a trance.
 
@@ -13,24 +20,25 @@ When it speaks, its melodious voice puts you in a trance.
 <<Update_CurrentSpeaker>>
 Sea Whip Coral: Helloooo, sailor! Come to admire the view, or is there something I can help you with?
 
-<<set $Speaker to "jimbo">>
+<<set $Speaker to "Player">>
 <<Update_CurrentSpeaker>>
 -> You: Pardon my intrusion, I simply had to stop and stare at what a mesmerising shade of red you are.
-    <<set $SWaffinity += 1>>
-    <<update_affinity_display>>
+    <<set $SWCoralPoints += 1>>
+    <<update_coral_points_display>>
     The coral is rather taken aback by your forwardness, its already rosy shade darkens with a blush.
     Good job. It seems that you have managed to fluster the bold coral.
-    <<set $Speaker to "SeaWhipCoral">>
+    <<set $Speaker to "Player">>
     <<Update_CurrentSpeaker>>
     Sea Whip Coral: Oh! Well- uh...thank you!
 -> You: Woah.. I've never seen a red seaweed before!
     <<set $Speaker to "SeaWhipCoral">>
     <<Update_CurrentSpeaker>>
+    <<GiveGift SW_Coral>>
     Sea Whip Coral: SEAWEED?! SEA?! WEED?!
     Sea Whip Coral: How DARE you call me a weed when I am a beautiful, majestic CORAL!
-    Sea Whip Coral flashes its soft vermillion branches at you, looking not unlike a great tree swaying in the wind.
+    Sea Whip Coral flashes its soft vermilion branches at you, looking not unlike a great tree swaying in the wind.
     Sea Whip Coral: BEHOLD.
-    <<set $Speaker to "jimbo">>
+    <<set $Speaker to "Player">>
     <<Update_CurrentSpeaker>>
     You: I'm sorry, I was unaware of the existence of such a beautiful coral!
    
@@ -41,8 +49,8 @@ You squint your eyes, bringing your angular face closer to her majestic red bran
 True to its word, the tentacles emerge and sweeps their adoring fans of the plankton and microscopic particles right up into themselves.
 Sea Whip Coral: I have many adoring fans, though I do attract a particular kind of company. Can you guess what species my fanbase is mostly made off?
 -> You: Black sea bass?
-    <<set $SWaffinity += 1>>
-    <<update_affinity_display>>
+    <<set $SWCoralPoints += 1>>
+    <<update_coral_points_display>>
     <<set $Speaker to "SeaWhipCoral">>
     <<Update_CurrentSpeaker>> 
     Sea Whip Coral: Oh, so you noticed them? Yes, those are black sea bass. They know a good home when they see one!
@@ -56,23 +64,347 @@ Sea Whip Coral: As a suspension feeder, I am eating plankton.
 Sea Whip Coral: People would pay to witness this, but you are seeing it for free, so etch it into your memory!
 Sea Whip Coral: WITNESS MY GREATNESS!!
 -> You give a faintly disgusted look.
-    <<if $SWaffinity >= 1>>
-        <<set $SWaffinity -= 1>>
-        <<update_affinity_display>>
+    <<if $SWCoralPoints >= 1>>
+        <<set $SWCoralPoints -= 1>>
+        <<update_coral_points_display>>
     <<endif>>
     You thought Sea Whip Coral would be busy looking, but it steals a quick look at you and sees your reaction.
     Sea Whip Coral: Oh.
     Sea Whip Coral: That look.
     Sea Whip Coral: I suppose not everyone appreciates fine dining. I didn't know why I expected you to be any different from the rest.
     The coral's face shutters, and it seems to lose all interest in conversing with you for the day.
-    
+    <<returnToHome>>
 -> You state quietly in amazement and awe.
-    <<set $SWaffinity += 1>>
-    <<update_affinity_display>>
+    <<set $SWCoralPoints += 1>>
+    <<update_coral_points_display>>
     Sea Whip turns around and stares at you. A small sincere smile lights up their face. 
     This was a smile unlike their usual haughty one, aimed at your candid acceptance and fascination with their being. 
     Sea Whip Coral: Perhaps...we could be friends! You seem rather alright...for a fish.
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
     You: I would love to be friends!
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
     The coral's sparkle fades to a sleepy shimmer, like a star dozing off after the show. The reef returns to its peaceful rhythm. The conversation comes to an end.
+    <<returnToHome>>
+===
 
+title: GroovedBrainCoralNode
+color: yellow
+position: -162,-16
+---
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
+A coral!
+
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Whoa, what a cute parrot fish!
+
+You get closer to take a clearer look when someone interrupted you.
+
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+Grooved Brain Coral: That’s actually a Wrasse, not a parrot fish.
+
+<<set $Speaker to "GroovedBrainCoral">>
+<<Update_CurrentSpeaker>>
+said a nearby coral.
+
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+You looked away embarrassingly.
+
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Nope, I didn't say anything.
+
+Seeing your face red with embarrassment, it smirked at you. 
+
+<<set $Speaker to "GroovedBrainCoral">>
+<<Update_CurrentSpeaker>>
+Grooved Brain Coral: It’s ok to be embarrassed, after all, I, Grooved Brain Coral, am here to educate the masses.
+
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+That comment irked you. Naturally, you decided that rage baiting was the mature response.
+
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: You are wrong, that fish is MOST definitely a parrot fish!
+
+<<set $Speaker to "GroovedBrainCoral">>
+<<Update_CurrentSpeaker>>
+Grooved brain Coral let out a laugh of disbelief.
+
+Grooved Brain Coral: Erm, actually that’s a wrasse. Though they both hold similarities, the main difference is that parrot fish have a distinctive beak-like mouth for scraping algae off coral.
+
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Source?
+
+<<set $Speaker to "GroovedBrainCoral">>
+<<Update_CurrentSpeaker>>
+Grooved Brain Coral: I would know... my colony never recovered after a hungry parrot fish came through.
+-> Whoa, things just got dark...
+    It ignored your comment and started rambling again. 
+    Grooved Brain Coral: That is why I know that is definitely a wrasse. Speaking of which, where has it gone off to?
+-> Can that little guy really be the cause of that?
+    <<set $SWCoralPoints += 5>>
+    <<update_coral_points_display>>
+    Grooved Brain Coral: Without a doubt! I'd recognize a wrasse anywhere. Unless... no, wait... it had the... beak... thing... Actually, forget I said that. It was a wrasse. Final answer.
+
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Oh hey, the Wrasse is back and its nibbling on you. That’s so cute, look at it go!
+
+<<set $Speaker to "GroovedBrainCoral">>
+<<Update_CurrentSpeaker>>
+The coral looked up. Lo and behold, the fish was gobbling away. It let out a piercing shriek.
+-> Let the fish continue nibbling.
+    You stood by and watched as the Grooved Brain Coral was helplessly nibbled by the fish. Once it had its fill, the fish swam away.
+    The coral stared blankly into the distance, evidently done with this conversation... and perhaps with you as well.
+    <<set $GBBranch = true>>
+    <<isGBBranch2>>
+    <<returnToHome>>
+-> Eat the fish
+    <<set $SWCoralPoints += 5>>
+    <<update_coral_points_display>>
+    You gobbled the fish up, saving the coral from becoming the fish’s next meal.
+    Grooved Brain Coral: Thank you... I suppose I owe you one. And yes, before you say anything, that was definitely a wrasse. I refuse to discuss the matter any further.
+    The coral cleared its throat. 
+    Grooved Brain Coral: Come back and visit me sometime. There's still plenty about the reef for you to learn... even if your fish identification skills need work.
+    <<set $GBBranch = true>>
+    <<isGBBranch2>>
+    <<returnToHome>>
+<<jump GroovedBrainCoralNode2>>
+===
+
+title: CabbageCoralNode
+color: green
+position: -434,-11
+---
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
+A coral!
+
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: The coral was lovely, with beautiful green lobes waved into elegant velvety folds. Effortlessly gorgeous.
+
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: Oh...hey there! I didn’t think you were talking to me! Usually no one...talks to me...
+-> No way? How could anyone resist talking to such an interesting looking coral?
+   Cabbage Leather Coral: Oh! Why thank you...I’m not sure how to respond to this compliment. I don’t get much of those-- compliments, I mean.
+   Cabbage Leather Coral: You’re pretty...interesting looking too! You have a very shapely snout.
+   <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+   You felt flattered by the compliment. No one had ever complimented your rather rotound snout before.
+    -> Give Cabbage Leather Coral a gift.
+        //a function to open the gift inventory based on the gift given proceed to 
+        <<jump CabbageCoralGrateful>>
+    -> Why thank you.
+        <<set $CLBranch = true>>
+        <<isCLBranch2>>
+        <<returnToHome>>
+-> I don’t blame them...you look absolutely terrifying
+    <<set $Speaker to "CabbageCoral">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: Oh..yes, I get that a lot.
+    Cabbage Leather Coral visibly wilts. Its leafy leathery lobes loses its luster.
+    Cabbage Leather Coral: But still, I’m glad that you’re here!
+    Cabbage Leather Coral: With me!
+    Cabbage Leather Coral: Talking!
+    <<jump CabbageCoralGrateful>>
+===
+
+title: CabbageCoralGrateful
+position: -435,190
+---
+Cabbage Leather Coral: Sorry. 
+Cabbage Leather Coral: Oh gosh, I’m so awkward. 
+Cabbage Leather Coral: Usually the only people who talk to me is the zooxanthellae algae living in my tissue.
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Zooxanthellae algae?
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: You know...the tiny algae that help me undergo photosynthesis!
+Cabbage Leather Coral: Do you...not? Have zooxanthellae algae to help you?
+-> That’s not exactly something normal people have.
+    Cabbage Leather Coral: Oh...I see. How rude of me to assume. 
+    Cabbage Leather Coral: Oh Cabbage, this is why no one wants to be your friend!
+    Cabbage Leather Coral starts berating itself under its breath as you swim away guiltily. Just why would you say that?
+    <<set $CLBranch = true>>
+    <<isCLBranch2>>
+    <<returnToHome>>
+-> I don’t, and that’s what makes you so unique and special!
+    <<set $SWCoralPoints += 5>>
+    <<update_coral_points_display>>
+    Cabbage Leather Coral: Well thank you kind sir...no one has shown be grace quite like you!
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You leave Cabbage Leather Coral with a light heart.
+    <<set $CLBranch = true>>
+    <<isCLBranch2>>
+    <<returnToHome>>
+<<jump CabbageCoralNode2>>
+===
+
+title: CabbageCoralNode2
+position: -424,395
+---
+<<if $CLBranch == true>>
+<<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    A fortuitous encounter unfolds once again as you find yourself face to...well, leaf with a very green, very cabbage looking coral once again.
+    <<set $Speaker to "CabbageCoral">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: Oh my gosh, oh my GOSH! It’s you again!
+    Cabbage Leather Coral: I’m sorry, I know, I’m shouting! It’s just, well...I thought I messed everything up with how our last encounter went. 
+    Cabbage Leather Coral: I am glad you came back. Really!
+    Cabbage Leather Coral: I’m really, REALLY glad. It’s been real hard for me to find someone to talk to these days.
+    Cabbage Leather Coral: And you know, I understand why. It just gets so lonely.
+    -> Why? Is it because you look like a cabbage? Mon Petit Chou?
+        <<jump Branch>>
+    -> Well you aren’t the most...easy person to have a conversation with.
+        <<jump Continuation>>>>
+
+<<endif>>
+
+===
+
+title: Branch
+position: -533,578
+---
+Cabbage Leather Coral: Oh I don’t know about that. I’ve been a real mess lately. But that’s really sweet of you.
+<<jump Continuation>>
+===
+
+title: Continuation
+position: -375,774
+---
+Cabbage Leather Coral: I think that’s why all my friends find excuses to ditch me.
+-> Yes I... do understand you. I too, felt somewhat alienated with my sharky pals.
+    Cabbage Leather Coral: You...do?
+    It looks at you in awe. Hopeful to have found a like-minded soul that understands it.
+    -> Maybe we can just be two aliens...together?
+        <<set $SWCoralPoints += 5>>
+        <<update_coral_points_display>>
+-> Well your friends are missing out. You’re a real riot under that shy exterior!
+    Cabbage Leather Coral smiles bashfully at your complement.
+
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+Your sweet moment is interrupted as the ocean current shifted, leading the coral next to Cabbage Leather Coral to nudge at them lightly.
+Suddenly it was as if the ocean pressure doubled, crushing you with anxiety.
+The warmth of the tropical waters could not be felt, as a toxins filled the water, coming from-- shockingly, Cabbage Leather Coral itself!
+The shy, sweet coral seemingly dissipated, replaced by a scary, territorial leafy coral.
+Did I mention scary? Cabbage Leather Coral became very, very scary.
+
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: DON’T TOUCH ME.
+After a few moments, Cabbage Leather Coral snaps out of it’s rageful trance. And the atmosphere was once again restored to it’s sunny tropical state.
+
+Cabbage Leather Coral: Sorry...where was I? I think I was a bit lost in the sauce there.
+-> Uh, do you not remember?
+    Cabbage Leather Coral: Remember what?
+-> Okay wow, you’re psycho!
+    Cabbage Leather Coral: Why would you say that about me!
+
+You tell Cabbage Leather Coral about their little...episode.
+Cabbage Leather Coral: Wait you’re saying I have some sort of...defence mechanism?
+Cabbage Leather Coral: That sprays toxic chemicals when I’m stressed?
+Cabbage Leather Coral: And that’s why my friends are so awkward around me? Because I’m scary when they come too close?
+-> Pretty much, yeah.
+    <<jump Become_friend>>
+-> They’re just being pansies!
+    <<set $SWCoralPoints += 5>>
+    <<update_coral_points_display>>
+    It smiles a bit at your attempt to lighten the mood.
+    <<jump Become_friend>>
+-> I guess it was you after all.
+    Cabbage Leather Coral: Yea...I guess it was.
+    <<returnToHome>>
+
+===
+
+title: Become_friend
+position: -380,975
+---
+Cabbage Leather Coral: Thanks buddy. You’ve been a great help so far. But I need some time to myself to...figure things out.
+Cabbage Leather Coral: Cabbage Leather Coral waves a leafy lobe at you as you swim away.
+<<returnToHome>>
+===
+
+title: GroovedBrainCoralNode2
+position: -163,187
+---
+<<if $GBBranch == true>>
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You approach the coral, and it looked like it was thinking hard about something...
+
+    You sneaked around the coral and whispered.
+
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Hey, what are you thinking about?
+
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: WOWZERS! Jeez you are as silent as a parrot fish! How long have you been creeping behind me?
+
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You were about to reply to the coral when it interrupted you excitedly.
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: Actually, now that you’re here, let’s exchange a few fun facts about ourselves to get to know each other better!
+    Grooved Brain Coral: ME FIRST!!!!!
+    Grooved Brain Coral: (Clears throat)
+    Grooved Brain Coral: Did you know that corals are actually animals, not plants?
+    Grooved Brain Coral: And, and! White sandy beaches are actually made of corals and parrot fish excrement from feeding on corals.
+    Grooved Brain Coral: Ahhh.. such is the circle of life.... I love biology..
+    -> Wow, how interesting. I’ve learned so much in such a short time!
+        Grooved Brain Coral: Hehe, that was nothing! Wait till you lay your eyes upon GREATNESS!!!
+        <<set $SWCoralPoints += 5>>
+        <<update_coral_points_display>>
+    -> Zzz...zzz...zzz...zzz
+        The coral notices you dozing away but doesn't say anything. However it looks really dejected.
+        Grooved Brain Coral: H..Hey, what about this? Look, its my favourite puzzle!
+<<jump A_Box>>
+<<endif>>
+===
+
+title: A_Box
+position: -168,375
+---
+Grooved Brain Coral proudly pulled out a box and presented it to you.
+
+Grooved Brain Coral: I CALL THIS...
+Grooved Brain Coral: THE MAZE!!!
+Grooved Brain Coral: This box descended upon me one day and I have been tinkering with it. I am now a master-mazer and will teach you a trick I learned.
+It taught you a few tricks and persuaded you to give it a try.
+-> You solve it in less than a minute.
+    Grooved Brain Coral: You solved it so fast, it’s hard to believe this is your first time...
+    Its vibrant colours had faded, and it looked dejected...
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You feel guilty, maybe you finished it too fast.
+-> You solve it after 5 minutes.
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: Hey, that wasn't so bad! That was a great effort! With more practice you might be a master like me!
+    It seemed happy and content!
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You feel glad both of you are having fun.
+    -> Let’s offer a gift before we leave!
+        //add the function of the gift before continue the the convo
+<<returnToHome>>
 ===
