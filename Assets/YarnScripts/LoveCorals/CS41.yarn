@@ -1,9 +1,12 @@
 ﻿title: SeaWhipCoralNode
+color: red
 position: -702,-12
 ---
 
 <<declare $SWCoralPoints = 0>>
 <<declare $Speaker = "none">>
+<<declare $CLBranch= false>>
+<<declare $GBBranch= false>>
 
 <<Update_CurrentSpeaker>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
@@ -86,7 +89,8 @@ Sea Whip Coral: WITNESS MY GREATNESS!!
 ===
 
 title: GroovedBrainCoralNode
-position: 98,-12
+color: yellow
+position: -162,-16
 ---
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
@@ -167,4 +171,163 @@ The coral looked up. Lo and behold, the fish was gobbling away. It let out a pie
     The coral cleared its throat. 
     Grooved Brain Coral: Come back and visit me sometime. There's still plenty about the reef for you to learn... even if your fish identification skills need work.
     <<returnToHome>>
+===
+
+title: CabbageCoralNode
+color: green
+position: -434,-11
+---
+You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
+A coral!
+
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: The coral was lovely, with beautiful green lobes waved into elegant velvety folds. Effortlessly gorgeous.
+
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: Oh...hey there! I didn’t think you were talking to me! Usually no one...talks to me...
+-> No way? How could anyone resist talking to such an interesting looking coral?
+   Cabbage Leather Coral: Oh! Why thank you...I’m not sure how to respond to this compliment. I don’t get much of those-- compliments, I mean.
+   Cabbage Leather Coral: You’re pretty...interesting looking too! You have a very shapely snout.
+   <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+   You felt flattered by the compliment. No one had ever complimented your rather rotound snout before.
+    -> Give Cabbage Leather Coral a gift.
+        //a function to open the gift inventory based on the gift given proceed to 
+        <<jump CabbageCoralGrateful>>
+    -> Why thank you.
+        <<set $CLBranch = true>>
+        <<isCLBranch2>>
+        <<returnToHome>>
+-> I don’t blame them...you look absolutely terrifying
+    <<set $Speaker to "CabbageCoral">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: Oh..yes, I get that a lot.
+    Cabbage Leather Coral visibly wilts. Its leafy leathery lobes loses its luster.
+    Cabbage Leather Coral: But still, I’m glad that you’re here!
+    Cabbage Leather Coral: With me!
+    Cabbage Leather Coral: Talking!
+    <<jump CabbageCoralGrateful>>
+===
+
+title: CabbageCoralGrateful
+position: -435,190
+---
+Cabbage Leather Coral: Sorry. 
+Cabbage Leather Coral: Oh gosh, I’m so awkward. 
+Cabbage Leather Coral: Usually the only people who talk to me is the zooxanthellae algae living in my tissue.
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Zooxanthellae algae?
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: You know...the tiny algae that help me undergo photosynthesis!
+Cabbage Leather Coral: Do you...not? Have zooxanthellae algae to help you?
+-> That’s not exactly something normal people have.
+    Cabbage Leather Coral: Oh...I see. How rude of me to assume. 
+    Cabbage Leather Coral: Oh Cabbage, this is why no one wants to be your friend!
+    Cabbage Leather Coral starts berating itself under its breath as you swim away guiltily. Just why would you say that?
+    <<set $CLBranch = true>>
+    <<isCLBranch2>>
+    <<returnToHome>>
+-> I don’t, and that’s what makes you so unique and special!
+    <<set $SWCoralPoints += 5>>
+    <<update_coral_points_display>>
+    Cabbage Leather Coral: Well thank you kind sir...no one has shown be grace quite like you!
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You leave Cabbage Leather Coral with a light heart.
+    <<set $CLBranch = true>>
+    <<isCLBranch2>>
+    <<returnToHome>>
+<<jump CabbageCoralNode2>>
+===
+
+title: CabbageCoralNode2
+position: -424,395
+---
+// <<set $CLBranch = true>>
+// <<isCLBranch2>>
+<<if $CLBranch == true>>
+    A fortuitous encounter unfolds once again as you find yourself face to...well, leaf with a very green, very cabbage looking coral once again.
+    <<set $Speaker to "CabbageCoral">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: Oh my gosh, oh my GOSH! It’s you again!
+    Cabbage Leather Coral: I’m sorry, I know, I’m shouting! It’s just, well...I thought I messed everything up with how our last encounter went. 
+    Cabbage Leather Coral: I am glad you came back. Really!
+    Cabbage Leather Coral: I’m really, REALLY glad. It’s been real hard for me to find someone to talk to these days.
+    Cabbage Leather Coral: And you know, I understand why. It just gets so lonely.
+    -> Why? Is it because you look like a cabbage? Mon Petit Chou?
+        <<jump Branch>>
+    -> Well you aren’t the most...easy person to have a conversation with.
+        <<jump Continuation>>>>
+
+<<endif>>
+
+===
+
+title: Branch
+position: -533,578
+---
+Cabbage Leather Coral: Oh I don’t know about that. I’ve been a real mess lately. But that’s really sweet of you.
+<<jump Continuation>>
+===
+
+title: Continuation
+position: -375,774
+---
+Cabbage Leather Coral: I think that’s why all my friends find excuses to ditch me.
+-> Yes I... do understand you. I too, felt somewhat alienated with my sharky pals.
+    Cabbage Leather Coral: You...do?
+    It looks at you in awe. Hopeful to have found a like-minded soul that understands it.
+    -> Maybe we can just be two aliens...together?
+        <<set $SWCoralPoints += 5>>
+        <<update_coral_points_display>>
+-> Well your friends are missing out. You’re a real riot under that shy exterior!
+    Cabbage Leather Coral smiles bashfully at your complement.
+
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+Your sweet moment is interrupted as the ocean current shifted, leading the coral next to Cabbage Leather Coral to nudge at them lightly.
+Suddenly it was as if the ocean pressure doubled, crushing you with anxiety.
+The warmth of the tropical waters could not be felt, as a toxins filled the water, coming from-- shockingly, Cabbage Leather Coral itself!
+The shy, sweet coral seemingly dissipated, replaced by a scary, territorial leafy coral.
+Did I mention scary? Cabbage Leather Coral became very, very scary.
+
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: DON’T TOUCH ME.
+After a few moments, Cabbage Leather Coral snaps out of it’s rageful trance. And the atmosphere was once again restored to it’s sunny tropical state.
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: Sorry...where was I? I think I was a bit lost in the sauce there.
+-> Uh, do you not remember?
+    Cabbage Leather Coral: Remember what?
+-> Okay wow, you’re psycho!
+    Cabbage Leather Coral: Why would you say that about me!
+
+You tell Cabbage Leather Coral about their little...episode.
+Cabbage Leather Coral: Wait you’re saying I have some sort of...defence mechanism?
+Cabbage Leather Coral: That sprays toxic chemicals when I’m stressed?
+Cabbage Leather Coral: And that’s why my friends are so awkward around me? Because I’m scary when they come too close?
+-> Pretty much, yeah.
+    <<jump Become_friend>>
+-> They’re just being pansies!
+    <<set $SWCoralPoints += 5>>
+    <<update_coral_points_display>>
+    It smiles a bit at your attempt to lighten the mood.
+    <<jump Become_friend>>
+-> I guess it was you after all.
+    Cabbage Leather Coral: Yea...I guess it was.
+    <<returnToHome>>
+
+===
+
+title: Become_friend
+position: -380,975
+---
+Cabbage Leather Coral: Thanks buddy. You’ve been a great help so far. But I need some time to myself to...figure things out.
+Cabbage Leather Coral: Cabbage Leather Coral waves a leafy lobe at you as you swim away.
+<<returnToHome>>
 ===
