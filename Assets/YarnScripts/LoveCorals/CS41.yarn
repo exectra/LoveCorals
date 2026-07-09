@@ -10,6 +10,7 @@ position: -702,-12
 
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
+<<update_coral_points_display>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
 
@@ -95,6 +96,7 @@ position: -162,-16
 ---
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
+<<update_coral_points_display>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
 
@@ -187,6 +189,7 @@ position: -434,-11
 ---
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
+<<update_coral_points_display>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
 
@@ -258,8 +261,9 @@ title: CabbageCoralNode2
 position: -424,395
 ---
 <<if $CLBranch == true>>
-<<set $Speaker to "None">>
+    <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
+    <<update_coral_points_display>>
     A fortuitous encounter unfolds once again as you find yourself face to...well, leaf with a very green, very cabbage looking coral once again.
     <<set $Speaker to "CabbageCoral">>
     <<Update_CurrentSpeaker>>
@@ -347,6 +351,7 @@ position: -163,187
 <<if $GBBranch == true>>
     <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
+    <<update_coral_points_display>>
     You approach the coral, and it looked like it was thinking hard about something...
 
     You sneaked around the coral and whispered.
