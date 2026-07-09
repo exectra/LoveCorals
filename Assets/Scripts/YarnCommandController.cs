@@ -18,7 +18,8 @@ public class YarnCommandController : MonoBehaviour
     [SerializeField] public string currentSpeaker;
     [SerializeField] public bool isBranch2;
     [SerializeField] public bool isGBBranch2;
-
+    [SerializeField] private string lastGiftID;
+    public string LastGiftID => lastGiftID;
     [SerializeField] private GiftGivingManager giftGivingManager;
 
     public DialogueRunner dialogueRunner;
@@ -162,6 +163,10 @@ public class YarnCommandController : MonoBehaviour
             "isGBBranch2",
             GBBranch
         );
+        dialogueRunner.AddFunction(
+            "LastGift",
+            () => lastGiftID
+        );
     }
 
     public void UpdateCoralPointsDisplay()
@@ -244,8 +249,11 @@ public class YarnCommandController : MonoBehaviour
     {
         GiftData selectedGift = await giftGivingManager.OpenGiftMenu(coralID);
 
-        Debug.Log($"Player selected {selectedGift.displayName}");
+        if (selectedGift == null)
+            return;
 
-        // We'll process the gift in the next step.
+        lastGiftID = selectedGift.giftID;
+
+        Debug.Log($"Player gave {selectedGift.displayName} to {coralID}");
     }
 }

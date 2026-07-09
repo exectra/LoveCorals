@@ -9,7 +9,6 @@ namespace CoralDating.Gifts
     {
         [Header("Gift Database")]
         [SerializeField] private List<GiftData> availableGifts = new();
-
         [SerializeField] private CoralDating.Inventory.InventorySystem inventorySystem;
 
         [Header("Settings")]
