@@ -204,8 +204,23 @@ Cabbage Leather Coral: Oh...hey there! I didn’t think you were talking to me! 
     <<Update_CurrentSpeaker>>
    You felt flattered by the compliment. No one had ever complimented your rather rotound snout before.
     -> Give Cabbage Leather Coral a gift.
-        //a function to open the gift inventory based on the gift given proceed to 
-        <<jump CabbageCoralGrateful>>
+        <<GiveGift CabbageCoral>>
+        <<set $Speaker to "CabbageCoral">>
+        <<Update_CurrentSpeaker>>
+        <<if LastGift() == "bouquet">>
+            <<set $SWCoralPoints += 5>>
+            <<update_coral_points_display>>
+            Cabbage Leather Coral: Oh, that looks tasty! Thank you!
+            <<jump CabbageCoralGrateful>>
+        <<elseif LastGift() == "cabbage">>
+            <<set $SWCoralPoints += 5>>
+            <<update_coral_points_display>>
+            Cabbage Leather Coral: Is that.. a sculpture of me? That's beautiful!
+            <<jump CabbageCoralGrateful>>
+        <<elseif LastGift() == "sea_bass">>
+            Cabbage Leather Coral: Oh.. well, I don't really know what to do with this, but.. it's the thought that counts, right?
+            <<jump CabbageCoralGrateful>>
+        <<endif>>
     -> Why thank you.
         <<set $CLBranch = true>>
         <<isCLBranch2>>
@@ -404,7 +419,25 @@ It taught you a few tricks and persuaded you to give it a try.
     <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
     You feel glad both of you are having fun.
-    -> Let’s offer a gift before we leave!
-        //add the function of the gift before continue the the convo
-<<returnToHome>>
+Let’s offer a gift before we leave!
+    <<GiveGift GroovedBrainCoral>>
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    <<if LastGift() == "bouquet">>
+        <<set $SWCoralPoints += 5>>
+        <<update_coral_points_display>>
+        Grooved Brain Coral: Gasp! Is this for me??
+        Grooved Brain Coral: These are my favourite! How did you know?
+        Grooved Brain Coral: Thank you so much! Please excuse me as I feast on this delicacy!
+        The coral is shaking with glee as it gobbles the food.
+        <<returnToHome>>
+    <<endif>>
+    <<if LastGift() == "cabbage">>
+        Grooved Brain Coral: This kinda.. are you saying this looks like me?
+    <<elseif LastGift() == "sea_bass">>
+        Grooved Brain Coral: I don't like this.. whatever it is.
+    <<endif>>
+    Grooved Brain Coral: And I thought we knew each other well enough.. Guess I was wrong.
+    The coral is avoiding your gaze. It seems like you have done it this time...
+    <<returnToHome>>
 ===
