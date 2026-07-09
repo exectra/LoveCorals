@@ -16,5 +16,17 @@ namespace Yarn.Unity.Samples {
             set => this.SetValue<string>("$Speaker", value);
         }
 
+        // Accessor for Bool $CLBranch
+        public bool CLBranch {
+            get => this.GetValueOrDefault<bool>("$CLBranch");
+            set => this.SetValue<bool>("$CLBranch", value);
+        }
+
+        // Accessor for Bool $GBBranch
+        public bool GBBranch {
+            get => this.GetValueOrDefault<bool>("$GBBranch");
+            set => this.SetValue<bool>("$GBBranch", value);
+        }
+
     }
 }

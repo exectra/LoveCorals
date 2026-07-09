@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6493369140899550060}
   - component: {fileID: 1119642763311849555}
+  - component: {fileID: 8460526868727557339}
   m_Layer: 0
   m_Name: YarnManager
   m_TagString: Untagged
@@ -45,7 +46,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yarnVariables: {fileID: 0}
-  SWaffinity: 0
+  coralPoints: 0
+  currentSpeaker: 
+  isBranch2: 0
+  giftGivingManager: {fileID: 0}
   dialogueRunner: {fileID: 0}
-  affinityObj: {fileID: 0}
-  affinityNum: {fileID: 0}
+  coralPointsText: {fileID: 0}
+--- !u!114 &8460526868727557339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031872550881214045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85bdc899d911fdc4483517ae9c75ea11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebug: 0
+  debugTextView: {fileID: 0}
