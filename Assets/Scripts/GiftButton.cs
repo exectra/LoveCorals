@@ -32,6 +32,12 @@ namespace CoralDating.Gifts
 
         private void OnClicked()
         {
+            if (!giftGivingManager.IsGivingGift)
+            {
+                Debug.Log("Inventory is only for viewing.");
+                return;
+            }
+
             giftGivingManager.OnGiftSelected(gift);
         }
     }

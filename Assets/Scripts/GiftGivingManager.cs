@@ -14,6 +14,8 @@ namespace CoralDating.Gifts
         [SerializeField] private GiftButton giftButtonPrefab;
         [SerializeField] private InventoryDrawer inventoryDrawer;
 
+        public bool IsGivingGift { get; private set; } = false;
+
         private string currentCoralID;
 
         public event Action OnGiftFinished;
@@ -31,6 +33,8 @@ namespace CoralDating.Gifts
         public async Task<GiftData> OpenGiftMenu(string coralID)
         {
             currentCoralID = coralID;
+
+            IsGivingGift = true;
 
             inventoryDrawer.OpenInventory();
 
@@ -52,6 +56,8 @@ namespace CoralDating.Gifts
             Debug.Log($"{gift.displayName} now has {inventorySystem.GetGiftCount(gift)} remaining.");
 
             inventoryDrawer.CloseInventory();
+
+            IsGivingGift = false;
 
             giftSelectionTask?.SetResult(gift);
         }
