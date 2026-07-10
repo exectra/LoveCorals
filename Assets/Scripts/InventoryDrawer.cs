@@ -177,6 +177,13 @@ public class InventoryDrawer : MonoBehaviour
         inventoryRoutine = StartCoroutine(SlideInventory(inventoryShownPos));
     }
 
+    public void GoToCustomization()
+    {
+        PlayerPrefs.SetInt("GoToCustom", 1);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void CloseInventory()
     {
         if (inventoryPanel == null) return;
