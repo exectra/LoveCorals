@@ -208,8 +208,6 @@ Cabbage Leather Coral: Oh...hey there! I didn't think you were talking to me! Us
     <<Update_CurrentSpeaker>>
    You felt flattered by the compliment. No one had ever complimented your rather rotound snout before.
     -> Give Cabbage Leather Coral a gift.
-        <<set $Speaker to "CabbageCoral">>
-        <<Update_CurrentSpeaker>>
         <<GiveGift CabbageCoral>>
         <<set $Speaker to "CabbageCoral">>
         <<Update_CurrentSpeaker>>
@@ -228,8 +226,6 @@ Cabbage Leather Coral: Oh...hey there! I didn't think you were talking to me! Us
             <<jump CabbageCoralGrateful>>
         <<endif>>
     -> Why thank you.
-        <<set $Speaker to "CabbageCoral">>
-        <<Update_CurrentSpeaker>>
         <<set $CLBranch = true>>
         <<isCLBranch2>>
         <<jump CabbageCoralGrateful>>
