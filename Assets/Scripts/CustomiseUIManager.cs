@@ -38,35 +38,38 @@ public class CustomisationUIManager : MonoBehaviour
         ShowAllGearSlots();
 
         // Start with panel hidden
-        if (equipmentPanel != null)
-            equipmentPanel.anchoredPosition = hiddenPos;
+        /*if (equipmentPanel != null)
+            equipmentPanel.anchoredPosition = hiddenPos;*/
 
         panelOpen = false;
         currentOpenIndex = -1;
+
+        //add interxn on 
+        AddInteractionOnOpen();
     }
 
     public void OpenHeadgear()
     {
         OpenCategory("Crown (Headgear)", 0);
-        AddInteractionOnOpen();
+
     }
 
     public void OpenBody()
     {
         OpenCategory("Gills (Body)", 1);
-        AddInteractionOnOpen();
+
     }
 
     public void OpenHands()
     {
         OpenCategory("Flippers (Hands)", 2);
-        AddInteractionOnOpen();
+
     }
 
     public void OpenFeet()
     {
         OpenCategory("Tailwear (Feet)", 3);
-        AddInteractionOnOpen();
+
     }
 
     private void OpenCategory(string categoryName, int slotIndex)
@@ -80,13 +83,13 @@ public class CustomisationUIManager : MonoBehaviour
 
         currentOpenIndex = slotIndex;
 
-        if (categoryText != null)
-            categoryText.text = categoryName;
+        /*if (categoryText != null)
+            categoryText.text = categoryName;*/
 
         ShowAllGearSlots();
 
         panelOpen = true;
-        SlideTo(shownPos);
+        //SlideTo(shownPos);
 
     }
 
@@ -102,7 +105,7 @@ public class CustomisationUIManager : MonoBehaviour
 
         ClearSelectedButton();
 
-        SlideTo(hiddenPos);
+        //SlideTo(hiddenPos);
     }
     private void ClearSelectedButton()
     {
@@ -130,7 +133,7 @@ public class CustomisationUIManager : MonoBehaviour
             ClosePanel();
     }
 
-    private void SlideTo(Vector2 target)
+/*    private void SlideTo(Vector2 target)
     {
         if (equipmentPanel == null)
             return;
@@ -155,7 +158,7 @@ public class CustomisationUIManager : MonoBehaviour
         }
 
         equipmentPanel.anchoredPosition = target;
-    }
+    }*/
 
     //Van added this section onwards
     //Slot interactions + Updating corresponding item slots + Showing item on Sharkie
@@ -174,7 +177,7 @@ public class CustomisationUIManager : MonoBehaviour
 
 
             ColorBlock colorBlock = btn.colors;
-            colorBlock.highlightedColor = Color.red;
+            colorBlock.highlightedColor = Color.cyan;
 
             btn.colors = colorBlock;
 
@@ -202,7 +205,11 @@ public class CustomisationUIManager : MonoBehaviour
 
         GameObject[] arr = GameObject.FindGameObjectsWithTag("Database");
 
-        if (arr[databaseSlotID] == null) { Debug.Log("Out of Bounds"); }
+        if (databaseSlotID >= arr.Length) 
+        {
+            Debug.Log("Out of Bounds");
+            hatDisplay.GetComponent<Image>().sprite = null; hatDisplay.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f);
+        }       
         else
         {
             Sprite image = arr[databaseSlotID].GetComponent<Image>().sprite;
@@ -214,9 +221,9 @@ public class CustomisationUIManager : MonoBehaviour
             else
             {
                 if (hatDisplay.GetComponent<Image>().sprite.name == image.name) { hatDisplay.GetComponent<Image>().sprite = null; hatDisplay.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f); }
-
+                else if(hatDisplay.GetComponent<Image>().sprite.name != image.name && image != null) { hatDisplay.GetComponent<Image>().sprite = image; hatDisplay.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f); }
+                else { hatDisplay.GetComponent<Image>().sprite = null; hatDisplay.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f); }
             }
-
         }
     }
 }
