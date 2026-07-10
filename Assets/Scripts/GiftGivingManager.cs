@@ -14,6 +14,7 @@ namespace CoralDating.Gifts
         [SerializeField] private GiftButton giftButtonPrefab;
         [SerializeField] private InventoryDrawer inventoryDrawer;
 
+        public string LastGiftID { get; private set; }
         public bool IsGivingGift { get; private set; } = false;
 
         private string currentCoralID;
@@ -47,6 +48,8 @@ namespace CoralDating.Gifts
 
         public void OnGiftSelected(GiftData gift)
         {
+            LastGiftID = gift.giftID;
+
             inventorySystem.RemoveGift(gift);
 
             PopulateGiftMenu();
