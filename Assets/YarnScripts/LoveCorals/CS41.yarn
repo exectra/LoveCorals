@@ -228,7 +228,7 @@ Cabbage Leather Coral: Oh...hey there! I didn't think you were talking to me! Us
     -> Why thank you.
         <<set $CLBranch = true>>
         <<isCLBranch2>>
-        <<returnToHome>>
+        <<jump CabbageCoralGrateful>>
 -> I don't blame them...you look absolutely terrifying
     <<set $Speaker to "CabbageCoral">>
     <<Update_CurrentSpeaker>>
