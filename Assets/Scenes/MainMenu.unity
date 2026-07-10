@@ -1355,6 +1355,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1516175059}
+        m_TargetAssemblyTypeName: ProfileLoader, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &164396530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5266,7 +5278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 8736
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
   m_sharedMaterial: {fileID: -5005721474381861224, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
@@ -5488,6 +5500,10 @@ PrefabInstance:
     - target: {fileID: 1031872550881214045, guid: 640bc48a09f22de46b750641ccda0f2a, type: 3}
       propertyPath: m_Name
       value: YarnManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119642763311849555, guid: 640bc48a09f22de46b750641ccda0f2a, type: 3}
+      propertyPath: coralPoints
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6493369140899550060, guid: 640bc48a09f22de46b750641ccda0f2a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5807,6 +5823,18 @@ MonoBehaviour:
       - m_Target: {fileID: 903534012}
         m_TargetAssemblyTypeName: DialogueStarter, Assembly-CSharp
         m_MethodName: BrainCoralSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1516175059}
+        m_TargetAssemblyTypeName: ProfileLoader, Assembly-CSharp
+        m_MethodName: PlaySFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9316,7 +9344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 8736
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
   m_sharedMaterial: {fileID: -5005721474381861224, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
@@ -10067,6 +10095,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1516175059}
+        m_TargetAssemblyTypeName: ProfileLoader, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1460989900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10722,6 +10762,7 @@ MonoBehaviour:
   gbcProfile: {fileID: 372652116}
   clcProfile: {fileID: 2134810646}
   swcProfile: {fileID: 2062222241}
+  clickSFX: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
 --- !u!1 &1522348706
 GameObject:
   m_ObjectHideFlags: 0
@@ -11944,7 +11985,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 8736
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
   m_sharedMaterial: {fileID: -5005721474381861224, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
@@ -12352,7 +12393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 8736
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
   m_sharedMaterial: {fileID: -5005721474381861224, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
@@ -12486,7 +12527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 8736
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
   m_sharedMaterial: {fileID: -5005721474381861224, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
@@ -13382,7 +13423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 8736
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
   m_sharedMaterial: {fileID: -5005721474381861224, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
