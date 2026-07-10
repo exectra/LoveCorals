@@ -10,6 +10,8 @@ public class ProfileLoader : MonoBehaviour
     public GameObject gbcProfile;
     public GameObject clcProfile;
     public GameObject swcProfile;
+
+    public AudioClip clickSFX;
     void Start()
     {
         gbcProfile.SetActive(false);
@@ -24,19 +26,25 @@ public class ProfileLoader : MonoBehaviour
 
     }
 
-    public void OpenGBC() { gbcProfile.SetActive(true); }
+    public void OpenGBC() { gbcProfile.SetActive(true); AudioManager.Instance.PlaySFX(clickSFX); }
     public void CloseGBC() { gbcProfile.SetActive(false); }
 
-    public void OpenCLC() { clcProfile.SetActive(true); }
+    public void OpenCLC() { clcProfile.SetActive(true); AudioManager.Instance.PlaySFX(clickSFX); }
     public void CloseCLC() { clcProfile.SetActive(false); }
 
-    public void OpenSWC() { swcProfile.SetActive(true); }
+    public void OpenSWC() { swcProfile.SetActive(true); AudioManager.Instance.PlaySFX(clickSFX); }
     public void CloseSWC() { swcProfile.SetActive(false); }
 
     public void CloseAll()
     {
+        AudioManager.Instance.PlaySFX(clickSFX);
         gbcProfile.SetActive(false);
         clcProfile.SetActive(false);
         swcProfile.SetActive(false);
+    }
+
+    public void PlaySFX()
+    {
+        AudioManager.Instance.PlaySFX(clickSFX);
     }
 }
