@@ -170,11 +170,18 @@ public class InventoryDrawer : MonoBehaviour
         inventoryOpen = true;
         inventoryPanel.gameObject.SetActive(true);
 
-        if (dialogueSystem != null)
-            dialogueSystem.SetActive(false);   // hide dialogue while inventory is open
+        //if (dialogueSystem != null)
+        //    dialogueSystem.SetActive(false);   // hide dialogue while inventory is open
 
         if (inventoryRoutine != null) StopCoroutine(inventoryRoutine);
         inventoryRoutine = StartCoroutine(SlideInventory(inventoryShownPos));
+    }
+
+    public void GoToCustomization()
+    {
+        PlayerPrefs.SetInt("GoToCustom", 1);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void CloseInventory()
@@ -183,8 +190,8 @@ public class InventoryDrawer : MonoBehaviour
 
         inventoryOpen = false;
 
-        if (dialogueSystem != null)
-            dialogueSystem.SetActive(true);    // bring dialogue back when inventory closes
+        //if (dialogueSystem != null)
+        //    dialogueSystem.SetActive(true);    // bring dialogue back when inventory closes
 
         if (inventoryRoutine != null) StopCoroutine(inventoryRoutine);
         inventoryRoutine = StartCoroutine(SlideInventoryOut(inventoryHiddenPos));

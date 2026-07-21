@@ -20,7 +20,15 @@ public class DialogueStarter : MonoBehaviour
 
     public void BrainCoralSelected()
     {
-        DialogueState.NextNode = "GroovedBrainCoralNode";
+        if(commandController.isGBBranch2)
+        {
+            DialogueState.NextNode = "GroovedBrainCoralNode2";
+        }
+        else
+        {
+            DialogueState.NextNode = "GroovedBrainCoralNode";
+        }
+            
 
         SceneManager.LoadScene("GameScene");
     }

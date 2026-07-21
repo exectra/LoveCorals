@@ -27,6 +27,8 @@ public class NavigationBar : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(PlayerPrefs.GetInt("GoToCustom"));
+
         for (int i = 0; i < tabs.Length; i++)
         {
             int index = i;
@@ -34,8 +36,21 @@ public class NavigationBar : MonoBehaviour
             tabs[i].button.onClick.AddListener(() => OpenTab(index));
         }
 
-        OpenTab(defaultTab);
-        initialize = true;
+       
+
+        if (PlayerPrefs.GetInt("GoToCustom") == 1)
+        {
+            OpenTab(2);
+            initialize = true;
+        }
+        else
+        {
+            OpenTab(defaultTab);
+            initialize = true;
+        }
+
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
     public void OpenTab(int index)
     {

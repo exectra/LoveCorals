@@ -10,11 +10,14 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private AudioClip clickSFX;
     [SerializeField] private AudioManager AM;
 
+    public string previousScene;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -25,6 +28,7 @@ public class SceneLoader : MonoBehaviour
     private void Start()
     {
         AM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        previousScene = SceneManager.GetActiveScene().name;
     }
     public static SceneLoader GetInstance()
     {

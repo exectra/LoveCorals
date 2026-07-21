@@ -17,7 +17,9 @@ public class YarnCommandController : MonoBehaviour
     [SerializeField] public float coralPoints;
     [SerializeField] public string currentSpeaker;
     [SerializeField] public bool isBranch2;
-
+    [SerializeField] public bool isGBBranch2;
+    [SerializeField] private string lastGiftID;
+    public string LastGiftID => lastGiftID;
     [SerializeField] private GiftGivingManager giftGivingManager;
 
     public DialogueRunner dialogueRunner;
@@ -148,8 +150,22 @@ public class YarnCommandController : MonoBehaviour
         );
 
         dialogueRunner.AddCommandHandler(
+            "identifyCorals",
+            identifying
+        );
+
+        dialogueRunner.AddCommandHandler(
             "isCLBranch2",
             CLBranch
+        );
+
+        dialogueRunner.AddCommandHandler(
+            "isGBBranch2",
+            GBBranch
+        );
+        dialogueRunner.AddFunction(
+            "LastGift",
+            () => lastGiftID
         );
     }
 
@@ -194,7 +210,12 @@ public class YarnCommandController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void identifying()
+    {
+        SceneManager.LoadScene("CoralIdentify", LoadSceneMode.Additive);
+    }
 
+    //get the bool if the player has already finish the first branch for Cabbage coral
     public void CLBranch()
     {
         if (yarnVariables.TryGetValue("$CLBranch", out bool isNextBranch))
@@ -205,7 +226,22 @@ public class YarnCommandController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Could not find $Speaker in Yarn variables.");
+            Debug.LogError("Could not find $CLBranch in Yarn variables.");
+        }
+    }
+
+    //get the bool if the player has already finish the first branch for Grooved Brain coral
+    public void GBBranch()
+    {
+        if (yarnVariables.TryGetValue("$GBBranch", out bool isNextBranch))
+        {
+            isGBBranch2 = isNextBranch;
+
+            Debug.Log("Updated proceeding to 2nd branch?: " + isGBBranch2);
+        }
+        else
+        {
+            Debug.LogError("Could not find $GBBranch in Yarn variables.");
         }
     }
 
@@ -213,8 +249,11 @@ public class YarnCommandController : MonoBehaviour
     {
         GiftData selectedGift = await giftGivingManager.OpenGiftMenu(coralID);
 
-        Debug.Log($"Player selected {selectedGift.displayName}");
+        if (selectedGift == null)
+            return;
 
-        // We'll process the gift in the next step.
+        lastGiftID = selectedGift.giftID;
+
+        Debug.Log($"Player gave {selectedGift.displayName} to {coralID}");
     }
 }
