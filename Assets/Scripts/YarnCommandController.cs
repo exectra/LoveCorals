@@ -18,7 +18,8 @@ public class YarnCommandController : MonoBehaviour
     [SerializeField] public string currentSpeaker;
     [SerializeField] public bool isBranch2;
     [SerializeField] public bool isGBBranch2;
-
+    [SerializeField] private string lastGiftID;
+    public string LastGiftID => lastGiftID;
     [SerializeField] private GiftGivingManager giftGivingManager;
 
     public DialogueRunner dialogueRunner;
@@ -149,6 +150,11 @@ public class YarnCommandController : MonoBehaviour
         );
 
         dialogueRunner.AddCommandHandler(
+            "identifyCorals",
+            identifying
+        );
+
+        dialogueRunner.AddCommandHandler(
             "isCLBranch2",
             CLBranch
         );
@@ -156,6 +162,10 @@ public class YarnCommandController : MonoBehaviour
         dialogueRunner.AddCommandHandler(
             "isGBBranch2",
             GBBranch
+        );
+        dialogueRunner.AddFunction(
+            "LastGift",
+            () => lastGiftID
         );
     }
 
@@ -200,6 +210,10 @@ public class YarnCommandController : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    public void identifying()
+    {
+        SceneManager.LoadScene("CoralIdentify", LoadSceneMode.Additive);
+    }
 
     //get the bool if the player has already finish the first branch for Cabbage coral
     public void CLBranch()
@@ -235,8 +249,11 @@ public class YarnCommandController : MonoBehaviour
     {
         GiftData selectedGift = await giftGivingManager.OpenGiftMenu(coralID);
 
-        Debug.Log($"Player selected {selectedGift.displayName}");
+        if (selectedGift == null)
+            return;
 
-        // We'll process the gift in the next step.
+        lastGiftID = selectedGift.giftID;
+
+        Debug.Log($"Player gave {selectedGift.displayName} to {coralID}");
     }
 }

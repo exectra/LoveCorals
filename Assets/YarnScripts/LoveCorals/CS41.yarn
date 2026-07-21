@@ -10,6 +10,7 @@ position: -702,-12
 
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
+<<update_coral_points_display>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
 
@@ -95,6 +96,7 @@ position: -162,-16
 ---
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
+<<update_coral_points_display>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
 
@@ -106,7 +108,7 @@ You get closer to take a clearer look when someone interrupted you.
 
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
-Grooved Brain Coral: That’s actually a Wrasse, not a parrot fish.
+Grooved Brain Coral: That's actually a Wrasse, not a parrot fish.
 
 <<set $Speaker to "GroovedBrainCoral">>
 <<Update_CurrentSpeaker>>
@@ -124,7 +126,7 @@ Seeing your face red with embarrassment, it smirked at you.
 
 <<set $Speaker to "GroovedBrainCoral">>
 <<Update_CurrentSpeaker>>
-Grooved Brain Coral: It’s ok to be embarrassed, after all, I, Grooved Brain Coral, am here to educate the masses.
+Grooved Brain Coral: It's ok to be embarrassed, after all, I, Grooved Brain Coral, am here to educate the masses.
 
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
@@ -138,7 +140,7 @@ You: You are wrong, that fish is MOST definitely a parrot fish!
 <<Update_CurrentSpeaker>>
 Grooved brain Coral let out a laugh of disbelief.
 
-Grooved Brain Coral: Erm, actually that’s a wrasse. Though they both hold similarities, the main difference is that parrot fish have a distinctive beak-like mouth for scraping algae off coral.
+Grooved Brain Coral: Erm, actually that's a wrasse. Though they both hold similarities, the main difference is that parrot fish have a distinctive beak-like mouth for scraping algae off coral.
 
 <<set $Speaker to "Player">>
 <<Update_CurrentSpeaker>>
@@ -150,14 +152,15 @@ Grooved Brain Coral: I would know... my colony never recovered after a hungry pa
 -> Whoa, things just got dark...
     It ignored your comment and started rambling again. 
     Grooved Brain Coral: That is why I know that is definitely a wrasse. Speaking of which, where has it gone off to?
--> Can that little guy really be the cause of that?
+-> Can that little guy really be the cause of that? [3 Identification Needed]
+    <<identifyCorals>>
     <<set $SWCoralPoints += 5>>
     <<update_coral_points_display>>
     Grooved Brain Coral: Without a doubt! I'd recognize a wrasse anywhere. Unless... no, wait... it had the... beak... thing... Actually, forget I said that. It was a wrasse. Final answer.
 
 <<set $Speaker to "Player">>
 <<Update_CurrentSpeaker>>
-You: Oh hey, the Wrasse is back and its nibbling on you. That’s so cute, look at it go!
+You: Oh hey, the Wrasse is back and its nibbling on you. That's so cute, look at it go!
 
 <<set $Speaker to "GroovedBrainCoral">>
 <<Update_CurrentSpeaker>>
@@ -171,7 +174,7 @@ The coral looked up. Lo and behold, the fish was gobbling away. It let out a pie
 -> Eat the fish
     <<set $SWCoralPoints += 5>>
     <<update_coral_points_display>>
-    You gobbled the fish up, saving the coral from becoming the fish’s next meal.
+    You gobbled the fish up, saving the coral from becoming the fish's next meal.
     Grooved Brain Coral: Thank you... I suppose I owe you one. And yes, before you say anything, that was definitely a wrasse. I refuse to discuss the matter any further.
     The coral cleared its throat. 
     Grooved Brain Coral: Come back and visit me sometime. There's still plenty about the reef for you to learn... even if your fish identification skills need work.
@@ -187,6 +190,7 @@ position: -434,-11
 ---
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
+<<update_coral_points_display>>
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
 
@@ -196,26 +200,45 @@ You: The coral was lovely, with beautiful green lobes waved into elegant velvety
 
 <<set $Speaker to "CabbageCoral">>
 <<Update_CurrentSpeaker>>
-Cabbage Leather Coral: Oh...hey there! I didn’t think you were talking to me! Usually no one...talks to me...
+Cabbage Leather Coral: Oh...hey there! I didn't think you were talking to me! Usually no one...talks to me...
 -> No way? How could anyone resist talking to such an interesting looking coral?
-   Cabbage Leather Coral: Oh! Why thank you...I’m not sure how to respond to this compliment. I don’t get much of those-- compliments, I mean.
-   Cabbage Leather Coral: You’re pretty...interesting looking too! You have a very shapely snout.
+   Cabbage Leather Coral: Oh! Why thank you...I'm not sure how to respond to this compliment. I don't get much of those-- compliments, I mean.
+   Cabbage Leather Coral: You're pretty...interesting looking too! You have a very shapely snout.
    <<set $Speaker to "Player">>
     <<Update_CurrentSpeaker>>
    You felt flattered by the compliment. No one had ever complimented your rather rotound snout before.
     -> Give Cabbage Leather Coral a gift.
-        //a function to open the gift inventory based on the gift given proceed to 
-        <<jump CabbageCoralGrateful>>
+        <<set $Speaker to "CabbageCoral">>
+        <<Update_CurrentSpeaker>>
+        <<GiveGift CabbageCoral>>
+        <<set $Speaker to "CabbageCoral">>
+        <<Update_CurrentSpeaker>>
+        <<if LastGift() == "bouquet">>
+            <<set $SWCoralPoints += 5>>
+            <<update_coral_points_display>>
+            Cabbage Leather Coral: Oh, that looks tasty! Thank you!
+            <<jump CabbageCoralGrateful>>
+        <<elseif LastGift() == "cabbage">>
+            <<set $SWCoralPoints += 5>>
+            <<update_coral_points_display>>
+            Cabbage Leather Coral: Is that.. a sculpture of me? That's beautiful!
+            <<jump CabbageCoralGrateful>>
+        <<elseif LastGift() == "sea_bass">>
+            Cabbage Leather Coral: Oh.. well, I don't really know what to do with this, but.. it's the thought that counts, right?
+            <<jump CabbageCoralGrateful>>
+        <<endif>>
     -> Why thank you.
+        <<set $Speaker to "CabbageCoral">>
+        <<Update_CurrentSpeaker>>
         <<set $CLBranch = true>>
         <<isCLBranch2>>
-        <<returnToHome>>
--> I don’t blame them...you look absolutely terrifying
+        <<jump CabbageCoralGrateful>>
+-> I don't blame them...you look absolutely terrifying
     <<set $Speaker to "CabbageCoral">>
     <<Update_CurrentSpeaker>>
     Cabbage Leather Coral: Oh..yes, I get that a lot.
     Cabbage Leather Coral visibly wilts. Its leafy leathery lobes loses its luster.
-    Cabbage Leather Coral: But still, I’m glad that you’re here!
+    Cabbage Leather Coral: But still, I'm glad that you're here!
     Cabbage Leather Coral: With me!
     Cabbage Leather Coral: Talking!
     <<jump CabbageCoralGrateful>>
@@ -225,7 +248,7 @@ title: CabbageCoralGrateful
 position: -435,190
 ---
 Cabbage Leather Coral: Sorry. 
-Cabbage Leather Coral: Oh gosh, I’m so awkward. 
+Cabbage Leather Coral: Oh gosh, I'm so awkward. 
 Cabbage Leather Coral: Usually the only people who talk to me is the zooxanthellae algae living in my tissue.
 <<set $Speaker to "Player">>
 <<Update_CurrentSpeaker>>
@@ -234,14 +257,15 @@ You: Zooxanthellae algae?
 <<Update_CurrentSpeaker>>
 Cabbage Leather Coral: You know...the tiny algae that help me undergo photosynthesis!
 Cabbage Leather Coral: Do you...not? Have zooxanthellae algae to help you?
--> That’s not exactly something normal people have.
+-> That's not exactly something normal people have.
     Cabbage Leather Coral: Oh...I see. How rude of me to assume. 
     Cabbage Leather Coral: Oh Cabbage, this is why no one wants to be your friend!
     Cabbage Leather Coral starts berating itself under its breath as you swim away guiltily. Just why would you say that?
     <<set $CLBranch = true>>
     <<isCLBranch2>>
     <<returnToHome>>
--> I don’t, and that’s what makes you so unique and special!
+-> I don't, and that's what makes you so unique and special! [3 Identification Needed]
+    <<identifyCorals>>
     <<set $SWCoralPoints += 5>>
     <<update_coral_points_display>>
     Cabbage Leather Coral: Well thank you kind sir...no one has shown be grace quite like you!
@@ -258,19 +282,20 @@ title: CabbageCoralNode2
 position: -424,395
 ---
 <<if $CLBranch == true>>
-<<set $Speaker to "None">>
+    <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
+    <<update_coral_points_display>>
     A fortuitous encounter unfolds once again as you find yourself face to...well, leaf with a very green, very cabbage looking coral once again.
     <<set $Speaker to "CabbageCoral">>
     <<Update_CurrentSpeaker>>
-    Cabbage Leather Coral: Oh my gosh, oh my GOSH! It’s you again!
-    Cabbage Leather Coral: I’m sorry, I know, I’m shouting! It’s just, well...I thought I messed everything up with how our last encounter went. 
+    Cabbage Leather Coral: Oh my gosh, oh my GOSH! It's you again!
+    Cabbage Leather Coral: I'm sorry, I know, I'm shouting! It's just, well...I thought I messed everything up with how our last encounter went. 
     Cabbage Leather Coral: I am glad you came back. Really!
-    Cabbage Leather Coral: I’m really, REALLY glad. It’s been real hard for me to find someone to talk to these days.
+    Cabbage Leather Coral: I'm really, REALLY glad. It's been real hard for me to find someone to talk to these days.
     Cabbage Leather Coral: And you know, I understand why. It just gets so lonely.
     -> Why? Is it because you look like a cabbage? Mon Petit Chou?
         <<jump Branch>>
-    -> Well you aren’t the most...easy person to have a conversation with.
+    -> Well you aren't the most...easy person to have a conversation with.
         <<jump Continuation>>>>
 
 <<endif>>
@@ -280,21 +305,22 @@ position: -424,395
 title: Branch
 position: -533,578
 ---
-Cabbage Leather Coral: Oh I don’t know about that. I’ve been a real mess lately. But that’s really sweet of you.
+Cabbage Leather Coral: Oh I don't know about that. I've been a real mess lately. But that's really sweet of you.
 <<jump Continuation>>
 ===
 
 title: Continuation
 position: -375,774
 ---
-Cabbage Leather Coral: I think that’s why all my friends find excuses to ditch me.
--> Yes I... do understand you. I too, felt somewhat alienated with my sharky pals.
+Cabbage Leather Coral: I think that's why all my friends find excuses to ditch me.
+-> Yes I... do understand you. I too, felt somewhat alienated with my sharky pals. [3 Identification Needed]
+    <<identifyCorals>>
     Cabbage Leather Coral: You...do?
     It looks at you in awe. Hopeful to have found a like-minded soul that understands it.
     -> Maybe we can just be two aliens...together?
         <<set $SWCoralPoints += 5>>
         <<update_coral_points_display>>
--> Well your friends are missing out. You’re a real riot under that shy exterior!
+-> Well your friends are missing out. You're a real riot under that shy exterior!
     Cabbage Leather Coral smiles bashfully at your complement.
 
 <<set $Speaker to "None">>
@@ -307,22 +333,23 @@ Did I mention scary? Cabbage Leather Coral became very, very scary.
 
 <<set $Speaker to "CabbageCoral">>
 <<Update_CurrentSpeaker>>
-Cabbage Leather Coral: DON’T TOUCH ME.
-After a few moments, Cabbage Leather Coral snaps out of it’s rageful trance. And the atmosphere was once again restored to it’s sunny tropical state.
+Cabbage Leather Coral: DON'T TOUCH ME.
+After a few moments, Cabbage Leather Coral snaps out of it's rageful trance. And the atmosphere was once again restored to it's sunny tropical state.
 
 Cabbage Leather Coral: Sorry...where was I? I think I was a bit lost in the sauce there.
 -> Uh, do you not remember?
     Cabbage Leather Coral: Remember what?
--> Okay wow, you’re psycho!
+-> Okay wow, you're psycho!
     Cabbage Leather Coral: Why would you say that about me!
 
 You tell Cabbage Leather Coral about their little...episode.
-Cabbage Leather Coral: Wait you’re saying I have some sort of...defence mechanism?
-Cabbage Leather Coral: That sprays toxic chemicals when I’m stressed?
-Cabbage Leather Coral: And that’s why my friends are so awkward around me? Because I’m scary when they come too close?
+Cabbage Leather Coral: Wait you're saying I have some sort of...defence mechanism?
+Cabbage Leather Coral: That sprays toxic chemicals when I'm stressed?
+Cabbage Leather Coral: And that's why my friends are so awkward around me? Because I'm scary when they come too close?
 -> Pretty much, yeah.
     <<jump Become_friend>>
--> They’re just being pansies!
+-> They're just being pansies! [3 Identification Needed]
+    <<identifyCorals>>
     <<set $SWCoralPoints += 5>>
     <<update_coral_points_display>>
     It smiles a bit at your attempt to lighten the mood.
@@ -336,7 +363,7 @@ Cabbage Leather Coral: And that’s why my friends are so awkward around me? Bec
 title: Become_friend
 position: -380,975
 ---
-Cabbage Leather Coral: Thanks buddy. You’ve been a great help so far. But I need some time to myself to...figure things out.
+Cabbage Leather Coral: Thanks buddy. You've been a great help so far. But I need some time to myself to...figure things out.
 Cabbage Leather Coral: Cabbage Leather Coral waves a leafy lobe at you as you swim away.
 <<returnToHome>>
 ===
@@ -347,6 +374,7 @@ position: -163,187
 <<if $GBBranch == true>>
     <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
+    <<update_coral_points_display>>
     You approach the coral, and it looked like it was thinking hard about something...
 
     You sneaked around the coral and whispered.
@@ -364,13 +392,14 @@ position: -163,187
     You were about to reply to the coral when it interrupted you excitedly.
     <<set $Speaker to "GroovedBrainCoral">>
     <<Update_CurrentSpeaker>>
-    Grooved Brain Coral: Actually, now that you’re here, let’s exchange a few fun facts about ourselves to get to know each other better!
+    Grooved Brain Coral: Actually, now that you're here, let's exchange a few fun facts about ourselves to get to know each other better!
     Grooved Brain Coral: ME FIRST!!!!!
     Grooved Brain Coral: (Clears throat)
     Grooved Brain Coral: Did you know that corals are actually animals, not plants?
     Grooved Brain Coral: And, and! White sandy beaches are actually made of corals and parrot fish excrement from feeding on corals.
     Grooved Brain Coral: Ahhh.. such is the circle of life.... I love biology..
-    -> Wow, how interesting. I’ve learned so much in such a short time!
+    -> Wow, how interesting. I've learned so much in such a short time! [3 Identification Needed]
+        <<identifyCorals>>
         Grooved Brain Coral: Hehe, that was nothing! Wait till you lay your eyes upon GREATNESS!!!
         <<set $SWCoralPoints += 5>>
         <<update_coral_points_display>>
@@ -391,7 +420,7 @@ Grooved Brain Coral: THE MAZE!!!
 Grooved Brain Coral: This box descended upon me one day and I have been tinkering with it. I am now a master-mazer and will teach you a trick I learned.
 It taught you a few tricks and persuaded you to give it a try.
 -> You solve it in less than a minute.
-    Grooved Brain Coral: You solved it so fast, it’s hard to believe this is your first time...
+    Grooved Brain Coral: You solved it so fast, it's hard to believe this is your first time...
     Its vibrant colours had faded, and it looked dejected...
     <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
@@ -404,7 +433,25 @@ It taught you a few tricks and persuaded you to give it a try.
     <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
     You feel glad both of you are having fun.
-    -> Let’s offer a gift before we leave!
-        //add the function of the gift before continue the the convo
-<<returnToHome>>
+-> Let's offer a gift before we leave!
+    <<GiveGift GroovedBrainCoral>>
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    <<if LastGift() == "bouquet">>
+        <<set $SWCoralPoints += 5>>
+        <<update_coral_points_display>>
+        Grooved Brain Coral: Gasp! Is this for me??
+        Grooved Brain Coral: These are my favourite! How did you know?
+        Grooved Brain Coral: Thank you so much! Please excuse me as I feast on this delicacy!
+        The coral is shaking with glee as it gobbles the food.
+        <<returnToHome>>
+    <<endif>>
+    <<if LastGift() == "cabbage">>
+        Grooved Brain Coral: This kinda.. are you saying this looks like me?
+    <<elseif LastGift() == "sea_bass">>
+        Grooved Brain Coral: I don't like this.. whatever it is.
+    <<endif>>
+    Grooved Brain Coral: And I thought we knew each other well enough.. Guess I was wrong.
+    The coral is avoiding your gaze. It seems like you have done it this time...
+    <<returnToHome>>
 ===
