@@ -6,6 +6,9 @@ using System.Collections;
 
 public class IdentifySequence : MonoBehaviour
 {
+    [Header("Reference")]
+    public SceneLoader SL;
+
     [Header("Video")]
     public VideoPlayer videoPlayer;
     public VideoClip identify, loading;
@@ -27,18 +30,6 @@ public class IdentifySequence : MonoBehaviour
     [Header("Reward")]
     public GameObject rewardPopup;
 
-    [Header("Scene")]
-    public string returnSceneName = "GameScene";
-
-    private string[] phrases =
-    {
-        "Loading Data...",
-        "Analysing Reef Pattern...",
-        "Coral Correctly Identified!",
-        "Coral Points Increased by 5",
-        "Party Hat Obtained"
-    };
-
     private void Start()
     {
         Time.timeScale = 1f;
@@ -54,6 +45,7 @@ public class IdentifySequence : MonoBehaviour
             videoPlayer.isLooping = true;
             videoPlayer.Stop();
         }
+        SL = FindAnyObjectByType<SceneLoader>();
 
         StartCoroutine(FullSequence());
     }
@@ -69,8 +61,14 @@ public class IdentifySequence : MonoBehaviour
 
         yield return StartCoroutine(PlayRotateBackOutro());
 
-        //SceneManager.LoadScene(returnSceneName);
-        SceneManager.UnloadSceneAsync("CoralIdentify");
+        if(SL.previousScene == "MainMenu")
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        else
+        {
+            SceneManager.UnloadSceneAsync("CoralIdentify");
+        }
     }
 
     private IEnumerator PlayRotateIntro()

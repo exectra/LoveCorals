@@ -34,6 +34,7 @@ public class GameUIManager : MonoBehaviour
         {
             inventoryDrawer = FindObjectOfType<InventoryDrawer>();
             pauseMenu = FindObjectOfType<PauseMenu>();
+            pauseMenu.gameObject.SetActive(false);
         }
     }
 }
