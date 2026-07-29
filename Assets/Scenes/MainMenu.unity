@@ -5463,6 +5463,10 @@ PrefabInstance:
       propertyPath: coralPoints
       value: 10000
       objectReference: {fileID: 0}
+    - target: {fileID: 1119642763311849555, guid: 640bc48a09f22de46b750641ccda0f2a, type: 3}
+      propertyPath: coralPointsText
+      value: 
+      objectReference: {fileID: 1683212972}
     - target: {fileID: 6493369140899550060, guid: 640bc48a09f22de46b750641ccda0f2a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 296.42102
@@ -11912,7 +11916,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 8736
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
   m_sharedMaterial: {fileID: -5005721474381861224, guid: f878136cd425fa747b1c80bc979f217f, type: 2}
@@ -14082,6 +14086,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickSFX: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
   AM: {fileID: 295556952}
+  identifyScene: (Main Menu) IdentifyScene 2.0
+  previousScene: 
 --- !u!1 &1859611608
 GameObject:
   m_ObjectHideFlags: 0

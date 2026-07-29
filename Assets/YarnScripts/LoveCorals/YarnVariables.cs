@@ -22,10 +22,22 @@ namespace Yarn.Unity.Samples {
             set => this.SetValue<bool>("$CLBranch", value);
         }
 
+        // Accessor for Bool $CLBranch3
+        public bool CLBranch3 {
+            get => this.GetValueOrDefault<bool>("$CLBranch3");
+            set => this.SetValue<bool>("$CLBranch3", value);
+        }
+
         // Accessor for Bool $GBBranch
         public bool GBBranch {
             get => this.GetValueOrDefault<bool>("$GBBranch");
             set => this.SetValue<bool>("$GBBranch", value);
+        }
+
+        // Accessor for Bool $GBBranch3
+        public bool GBBranch3 {
+            get => this.GetValueOrDefault<bool>("$GBBranch3");
+            set => this.SetValue<bool>("$GBBranch3", value);
         }
 
     }
