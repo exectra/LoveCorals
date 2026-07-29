@@ -17,6 +17,7 @@ namespace CoralDating.Inventory
         [Header("Buttons")]
         [SerializeField] private Button useButton;
         [SerializeField] private Button discardButton;
+        private GiftButton currentButton;
 
         [Header("References")]
         [SerializeField] private GiftGivingManager giftGivingManager;
@@ -25,10 +26,12 @@ namespace CoralDating.Inventory
 
         private GiftData currentGift;
 
-        public void Show(GiftData gift)
+        public void Show(GiftData gift, GiftButton button)
         {
             Debug.Log("ItemDetailUI: Show() called");
             currentGift = gift;
+
+            currentButton = button;
 
             itemName.text = gift.displayName;
             description.text = gift.description;
@@ -66,17 +69,32 @@ namespace CoralDating.Inventory
         }
         public void DiscardSelectedGift()
         {
+            Debug.Log("DiscardSelectedGift called");
             if (currentGift == null)
+            {
+                Debug.Log("Current gift is null");
                 return;
+            }
 
             bool removed = inventorySystem.RemoveGift(currentGift);
+
+            Debug.Log($"Removed: {removed}");
+            Debug.Log($"Remaining: {inventorySystem.GetGiftCount(currentGift)}");
 
             if (!removed)
                 return;
 
+            int remaining = inventorySystem.GetGiftCount(currentGift);
+
             Debug.Log($"Discarded one {currentGift.displayName}");
 
-            Hide();
+            if (remaining <= 0)
+            {
+                Hide();
+                return;
+            }
+
+            currentButton.UpdateQuantity(remaining);
         }
     }
 }

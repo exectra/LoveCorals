@@ -56,7 +56,7 @@ namespace CoralDating.Gifts
 
             Debug.Log("detailsUI found: " + detailsUI.name);
 
-            detailsUI.Show(gift);
+            detailsUI.Show(gift,this);
             //if (!giftGivingManager.IsGivingGift)
             //{
             //    Debug.Log("Inventory is only for viewing.");
@@ -64,6 +64,11 @@ namespace CoralDating.Gifts
             //}
 
             //giftGivingManager.OnGiftSelected(gift);
+        }
+
+        public void UpdateQuantity(int amount)
+        {
+            quantity.text = $"x{amount}";
         }
     }
 }

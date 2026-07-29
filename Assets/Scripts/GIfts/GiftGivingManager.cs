@@ -73,7 +73,6 @@ namespace CoralDating.Gifts
             //Debug.Log($"Inventory reference: {inventorySystem.name}");
             //Debug.Log($"Gift count: {inventorySystem.GetAllGifts().Count}");
 
-
             foreach (Transform child in contentParent)
             {
                 Destroy(child.gameObject);
