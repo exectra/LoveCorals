@@ -3904,6 +3904,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1736372974819422523, guid: c089382518a742841b36b4058253d01a, type: 3}
+      propertyPath: warningSceneName
+      value: (Game) IdentifyScene 2.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736372974819422523, guid: c089382518a742841b36b4058253d01a, type: 3}
       propertyPath: tabs.Array.data[0].panel
       value: 
       objectReference: {fileID: 1516175055}
