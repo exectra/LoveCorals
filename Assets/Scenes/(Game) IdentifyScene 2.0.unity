@@ -10535,7 +10535,7 @@ MonoBehaviour:
   enableIdleFloat: 0
   floatAmount: 8
   floatSpeed: 2
-  pressedScale: 0.5
+  pressedScale: 1
   popScale: 1.5
   pressSpeed: 10
   releaseSpeed: 10
@@ -12164,7 +12164,7 @@ MonoBehaviour:
   enableIdleFloat: 0
   floatAmount: 8
   floatSpeed: 2
-  pressedScale: 0.5
+  pressedScale: 1
   popScale: 1.5
   pressSpeed: 10
   releaseSpeed: 10

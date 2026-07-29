@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
@@ -11,7 +12,7 @@ using UnityEngine.UI;
 public class CustomisationUIManager : MonoBehaviour
 {
     [Header("Bottom Equipment Panel")]
-    public RectTransform equipmentPanel;
+    public GameObject invSlots;
     [SerializeField] Vector2 hiddenPos = new Vector2(1000, 320);
     [SerializeField] Vector2 shownPos = new Vector2(0, 320);
     private float slideSpeed = 1000f;
@@ -35,26 +36,36 @@ public class CustomisationUIManager : MonoBehaviour
     public GameObject handDisplay;
     public GameObject bodyDisplay;
     public GameObject feetDisplay;
+
+    [Header("ImageRef")]
+    public GameObject imageRef;
+
+    [Header("Hat")]
+    public Sprite[] hatArr;
+
+    [Header("Hand")]
+    public Sprite[] handArr;
+
+    private List<GameObject> instantList;
+
     private void Start()
     {
+        instantList = new List<GameObject>();
         // Make sure all gear slots are always visible
         ShowAllGearSlots();
-
-        // Start with panel hidden
-        /*if (equipmentPanel != null)
-            equipmentPanel.anchoredPosition = hiddenPos;*/
 
         panelOpen = false;
         currentOpenIndex = -1;
 
         //add interxn on 
-        AddInteractionOnOpen();
+        //AddInteractionOnOpen();
+        AddHats();
     }
 
     public void OpenHeadgear()
     {
         OpenCategory("Crown (Headgear)", 0);
-
+        AddHats();
     }
 
     public void OpenBody()
@@ -66,7 +77,7 @@ public class CustomisationUIManager : MonoBehaviour
     public void OpenHands()
     {
         OpenCategory("Flippers (Hands)", 2);
-
+        AddHands();
     }
 
     public void OpenFeet()
@@ -136,98 +147,171 @@ public class CustomisationUIManager : MonoBehaviour
             ClosePanel();
     }
 
-/*    private void SlideTo(Vector2 target)
-    {
-        if (equipmentPanel == null)
-            return;
-
-        if (slideRoutine != null)
-            StopCoroutine(slideRoutine);
-
-        slideRoutine = StartCoroutine(Slide(target));
-    }
-
-    private IEnumerator Slide(Vector2 target)
-    {
-        while (Vector2.Distance(equipmentPanel.anchoredPosition, target) > 0.5f)
-        {
-            equipmentPanel.anchoredPosition = Vector2.MoveTowards(
-                equipmentPanel.anchoredPosition,
-                target,
-                slideSpeed * Time.unscaledDeltaTime
-            );
-
-            yield return null;
-        }
-
-        equipmentPanel.anchoredPosition = target;
-    }*/
-
     //Van added this section onwards
     //Slot interactions + Updating corresponding item slots + Showing item on Sharkie
 
     //Slot interaction
-    private void AddInteractionOnOpen(/*int currentIndex*/)
+
+    //this function DOESNT EXIST
+
+    private void AddHats()
     {
-        int index = 0;
+        DestroyChild();
+
+        int i = 0;
         foreach (Transform child in itemSlots.transform)
         {
-            Debug.Log(child.name);
-            if (!child.gameObject.TryGetComponent<Button>(out Button btn))
+            if (i < hatArr.Length)
             {
-                btn = child.gameObject.AddComponent<Button>();
-            }
+                GameObject img = Instantiate(imageRef, child);
+                instantList.Add(img);
+                img.GetComponentInChildren<Image>().sprite = hatArr[i];
+
+                if (!child.gameObject.TryGetComponent<Button>(out Button btn))
+                {
+                    btn = child.gameObject.AddComponent<Button>();
+                }
 
 
-            ColorBlock colorBlock = btn.colors;
-            colorBlock.highlightedColor = Color.cyan;
+                ColorBlock colorBlock = btn.colors;
+                colorBlock.highlightedColor = Color.cyan;
 
-            btn.colors = colorBlock;
+                btn.colors = colorBlock;
 
-            // CRITICAL FIX: Clear old click hooks before assigning the current loop's tracking data
-            btn.onClick.RemoveAllListeners();
+                // CRITICAL FIX: Clear old click hooks before assigning the current loop's tracking data
+                btn.onClick.RemoveAllListeners();
 
-            // Use a local copy variable for the lambda expression capture trap
-            int currentCapturedIndex = index;
+                // Use a local copy variable for the lambda expression capture trap
+                int currentCapturedIndex = i;
+                string type = "Hats";
+                // Pass the structural database pointer directly through the anonymous click function
+                btn.onClick.AddListener(() => OnSlotClicked(currentCapturedIndex, type));
 
-            // Pass the structural database pointer directly through the anonymous click function
-            btn.onClick.AddListener(() => OnSlotClicked(currentCapturedIndex));
-
-            // Increment the tracking index counter for the next slot child
-            index++;
-        }
-    }
-
-    //this function just equips the hat on the shark
-    private void OnSlotClicked(int databaseSlotID)
-    {
-        Debug.Log($"Player selected UI Slot Index: {databaseSlotID}");
-
-        // Example database check logic:
-        // ItemData selectedItem = ItemDatabase.GetItemFromCategory(currentCategory, databaseSlotID);
-        // CharacterManager.Equip(selectedItem);
-
-        GameObject[] arr = GameObject.FindGameObjectsWithTag("Database");
-
-        if (databaseSlotID >= arr.Length) 
-        {
-            Debug.Log("Out of Bounds");
-            hatDisplay.GetComponent<Image>().sprite = null; hatDisplay.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f);
-        }       
-        else
-        {
-            Sprite image = arr[databaseSlotID].GetComponent<Image>().sprite;
-            if (hatDisplay.GetComponent<Image>().sprite == null)
-            {
-                hatDisplay.GetComponent<Image>().sprite = image;
-                hatDisplay.GetComponent<Image>().color = Color.white;
+                // Increment the tracking index counter for the next slot child
+                i++;
             }
             else
             {
-                if (hatDisplay.GetComponent<Image>().sprite.name == image.name) { hatDisplay.GetComponent<Image>().sprite = null; hatDisplay.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f); }
-                else if(hatDisplay.GetComponent<Image>().sprite.name != image.name && image != null) { hatDisplay.GetComponent<Image>().sprite = image; hatDisplay.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f); }
-                else { hatDisplay.GetComponent<Image>().sprite = null; hatDisplay.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f); }
+                break;
             }
+
+        }
+    }
+
+    private void AddHands()
+    {
+        DestroyChild();
+
+        int i = 0;
+        foreach (Transform child in itemSlots.transform)
+        {
+            if (i < handArr.Length)
+            {
+                GameObject img = Instantiate(imageRef, child);
+                instantList.Add(img);
+                img.GetComponentInChildren<Image>().sprite = handArr[i];
+
+                if (!child.gameObject.TryGetComponent<Button>(out Button btn))
+                {
+                    btn = child.gameObject.AddComponent<Button>();
+                }
+
+
+                ColorBlock colorBlock = btn.colors;
+                colorBlock.highlightedColor = Color.cyan;
+
+                btn.colors = colorBlock;
+
+                // CRITICAL FIX: Clear old click hooks before assigning the current loop's tracking data
+                btn.onClick.RemoveAllListeners();
+
+                // Use a local copy variable for the lambda expression capture trap
+                int currentCapturedIndex = i;
+                string type = "Hands";
+                // Pass the structural database pointer directly through the anonymous click function
+                btn.onClick.AddListener(() => OnSlotClicked(currentCapturedIndex, type));
+
+                // Increment the tracking index counter for the next slot child
+                i++;
+            }
+            else { break; }
+        }
+    }
+
+    private void DestroyChild()
+    {
+        if (instantList != null)
+        {
+            foreach (GameObject i in instantList)
+            {
+                Destroy(i);
+            }
+            instantList.Clear();
+        }
+    }
+
+    private void KillButtons()
+    {
+        foreach (Transform child in itemSlots.transform)
+        {
+            if (child.gameObject.TryGetComponent<Button>(out Button button))
+            {
+                Destroy(button);
+            }
+        }
+    }
+
+    private void OnSlotClicked(int i, string type)
+    {
+        if (type == "Hands")
+        {
+
+            if (handDisplay.GetComponent<Image>().sprite != null)
+            {
+                Sprite prevSprite = handDisplay.GetComponent<Image>().sprite;
+                if (prevSprite != handArr[i])
+                {
+                    handDisplay.GetComponent<Image>().sprite = handArr[i];
+                    handDisplay.GetComponent<Image>().color = Color.white;
+                }
+                else
+                {
+                    handDisplay.GetComponent<Image>().sprite = null;
+                    handDisplay.GetComponent <Image>().color = Color.clear;
+                }
+
+            }
+            else
+            {
+                handDisplay.GetComponent<Image>().sprite = handArr[i];
+                handDisplay.GetComponent<Image>().color = Color.white;
+            }
+            Debug.Log(handDisplay.GetComponent<Image>().sprite.name);
+        }
+
+        if (type == "Hats")
+        {
+
+            if (hatDisplay.GetComponent<Image>().sprite != null)
+            {
+                Sprite prevSprite = hatDisplay.GetComponent<Image>().sprite;
+                if (prevSprite != hatArr[i])
+                {
+                    hatDisplay.GetComponent<Image>().sprite = hatArr[i];
+                    hatDisplay.GetComponent<Image>().color = Color.white;
+                }
+                else
+                {
+                    hatDisplay.GetComponent<Image>().sprite = null;
+                    hatDisplay.GetComponent<Image>().color = Color.clear;
+                }
+            }
+            else
+            {
+                hatDisplay.GetComponent<Image>().sprite = hatArr[i];
+                hatDisplay.GetComponent<Image>().color = Color.white;
+            }
+            Debug.Log(hatDisplay.GetComponent<Image>().sprite.name);
         }
     }
 }
