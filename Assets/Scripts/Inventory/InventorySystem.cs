@@ -28,7 +28,7 @@ namespace CoralDating.Inventory
             AddGift(testPearl, 2);
             AddGift(testShell, 5);
             AddGift(testSeaFanFragment, 1);
-            //Debug.Log($"Inventory contains {GetAllGifts().Count} gift types.");
+            Debug.Log($"Inventory contains {GetAllGifts().Count} gift types.");
         }
         public bool AddGift(GiftData gift, int amount = 1)
         {

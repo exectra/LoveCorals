@@ -13,7 +13,6 @@ namespace CoralDating.Gifts
         [SerializeField] private Transform contentParent;
         [SerializeField] private GiftButton giftButtonPrefab;
         [SerializeField] private InventoryDrawer inventoryDrawer;
-        [SerializeField] private ItemDetailsUI itemDetailsUI;
 
         public string LastGiftID { get; private set; }
         public bool IsGivingGift { get; private set; } = false;
@@ -24,15 +23,19 @@ namespace CoralDating.Gifts
 
         private TaskCompletionSource<GiftData> giftSelectionTask;
 
+        // 👇 TEMPORARY TEST
         private void Update()
         {
-
+            //if (Input.GetKeyDown(KeyCode.G))
+            //{
+            //    OpenGiftMenu("brain_coral");
+            //}
         }
         public async Task<GiftData> OpenGiftMenu(string coralID)
         {
             currentCoralID = coralID;
 
-            BeginGiftSelection();
+            IsGivingGift = true;
 
             inventoryDrawer.OpenInventory();
 
@@ -51,15 +54,13 @@ namespace CoralDating.Gifts
 
             PopulateGiftMenu();
 
-            EndGiftSelection();
-
             Debug.Log($"Player gave {gift.displayName} to {currentCoralID}");
 
             Debug.Log($"{gift.displayName} now has {inventorySystem.GetGiftCount(gift)} remaining.");
 
             inventoryDrawer.CloseInventory();
 
-
+            IsGivingGift = false;
 
             giftSelectionTask?.SetResult(gift);
         }
@@ -68,14 +69,9 @@ namespace CoralDating.Gifts
         {
             Debug.Log("PopulateGiftMenu called");
 
-            if (itemDetailsUI == null)
-            {
-                itemDetailsUI = FindFirstObjectByType<ItemDetailsUI>();
+            Debug.Log($"Inventory reference: {inventorySystem.name}");
+            Debug.Log($"Gift count: {inventorySystem.GetAllGifts().Count}");
 
-                Debug.Log("Found ItemDetailsUI: " + itemDetailsUI);
-            }
-            //Debug.Log($"Inventory reference: {inventorySystem.name}");
-            //Debug.Log($"Gift count: {inventorySystem.GetAllGifts().Count}");
 
             foreach (Transform child in contentParent)
             {
@@ -84,7 +80,7 @@ namespace CoralDating.Gifts
 
             foreach (InventoryEntry entry in inventorySystem.GetAllGifts())
             {
-                //Debug.Log($"Creating button for {entry.Gift.displayName}");
+                Debug.Log($"Creating button for {entry.Gift.displayName}");
 
                 GiftButton button = Instantiate(
                     giftButtonPrefab,
@@ -93,8 +89,7 @@ namespace CoralDating.Gifts
                 button.Setup(
                     entry.Gift,
                     entry.Quantity,
-                    this,
-                    itemDetailsUI);
+                    this);
             }
         }
         public void GiveGift(GiftData gift)
@@ -126,18 +121,6 @@ namespace CoralDating.Gifts
             {
                 inventorySystem.OnInventoryChanged -= PopulateGiftMenu;
             }
-        }
-
-        private void BeginGiftSelection()
-        {
-            IsGivingGift = true;
-            Debug.Log("Gift selection started");
-        }
-
-        private void EndGiftSelection()
-        {
-            IsGivingGift = false;
-            Debug.Log("Gift selection ended");
         }
     }
 }

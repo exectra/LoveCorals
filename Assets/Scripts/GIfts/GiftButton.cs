@@ -1,4 +1,3 @@
-using CoralDating.Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,27 +13,14 @@ namespace CoralDating.Gifts
 
         private GiftData gift;
         private GiftGivingManager giftGivingManager;
-        private ItemDetailsUI detailsUI;
-
-        private void Awake()
-        {
-            if (detailsUI == null)
-            {
-                detailsUI = FindFirstObjectByType<ItemDetailsUI>();
-            }
-        }
 
         public void Setup(
             GiftData giftData,
             int amount,
-            GiftGivingManager manager, 
-            ItemDetailsUI detailsUI)
+            GiftGivingManager manager)
         {
-            this.gift = giftData;
-            this.giftGivingManager = manager;
-            this.detailsUI = detailsUI;
-
-            Debug.Log("Setup called for " + gift.displayName);
+            gift = giftData;
+            giftGivingManager = manager;
 
             icon.sprite = gift.icon;
             giftName.text = gift.displayName;
@@ -46,37 +32,13 @@ namespace CoralDating.Gifts
 
         private void OnClicked()
         {
-            //Debug.Log("GiftButton OnClicked");
-
-            //if (detailsUI == null)
-            //{
-            //    Debug.LogError("detailsUI is NULL!");
-            //    return;
-            //}
-
-            //Debug.Log("detailsUI found: " + detailsUI.name);
-
-            //detailsUI.Show(gift,this);
-            Debug.Log("GiftButton OnClicked");
-
-            Debug.Log("detailsUI reference = " + detailsUI);
-
-            if (detailsUI == null)
+            if (!giftGivingManager.IsGivingGift)
             {
-                Debug.LogError("detailsUI is NULL!");
+                Debug.Log("Inventory is only for viewing.");
                 return;
             }
 
-            Debug.Log("Calling Show()...");
-
-            detailsUI.Show(gift, this);
-
-            Debug.Log("Returned from Show()");
-        }
-
-        public void UpdateQuantity(int amount)
-        {
-            quantity.text = $"x{amount}";
+            giftGivingManager.OnGiftSelected(gift);
         }
     }
 }
