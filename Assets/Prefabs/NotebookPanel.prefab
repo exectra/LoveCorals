@@ -2315,9 +2315,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6feaa25c1b619748b21e5fe19c4ea0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gbcProfile: {fileID: 0}
-  clcProfile: {fileID: 0}
-  swcProfile: {fileID: 0}
+  gbcProfile: {fileID: 1892623656284369540}
+  clcProfile: {fileID: 4027178244950850862}
+  swcProfile: {fileID: 629785034400534997}
+  identifyBtn: {fileID: 4012509414364151091}
+  identifyScene: (Main Menu) IdentifyScene 2.0
   clickSFX: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
 --- !u!1 &3273018455757016240
 GameObject:
@@ -3114,9 +3116,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: OpenIdentifyScene
+      - m_Target: {fileID: 3500725951362491565}
+        m_TargetAssemblyTypeName: ProfileLoader, Assembly-CSharp
+        m_MethodName: OpenScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

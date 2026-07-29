@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField] private AudioClip clickSFX;
     [SerializeField] private AudioManager AM;
+    //[SerializeField] private GameObject GM;
     [SerializeField] string identifyScene = "(Main Menu) IdentifyScene 2.0";
 
     public string previousScene;
@@ -28,6 +29,7 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
+        //GM = GameObject.Find("GameManager");
         AM = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         previousScene = SceneManager.GetActiveScene().name;
     }

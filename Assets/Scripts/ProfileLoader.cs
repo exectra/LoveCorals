@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ProfileLoader : MonoBehaviour
 {
@@ -10,8 +11,17 @@ public class ProfileLoader : MonoBehaviour
     public GameObject gbcProfile;
     public GameObject clcProfile;
     public GameObject swcProfile;
+    public GameObject identifyBtn;
+    public SceneManager sceneManager;
+    [SerializeField] string identifyScene = "(Main Menu) IdentifyScene 2.0";
+
 
     public AudioClip clickSFX;
+
+    private void Awake()
+    {
+        sceneManager = GameObject.Find("GameManager").GetComponent<SceneManager>(); ;
+    }
     void Start()
     {
         gbcProfile.SetActive(false);
@@ -46,5 +56,10 @@ public class ProfileLoader : MonoBehaviour
     public void PlaySFX()
     {
         AudioManager.Instance.PlaySFX(clickSFX);
+    }
+
+    public void OpenScene()
+    {
+        SceneManager.LoadScene(identifyScene, LoadSceneMode.Additive);
     }
 }
