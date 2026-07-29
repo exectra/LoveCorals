@@ -24,6 +24,10 @@ public class DialogueStarter : MonoBehaviour
         {
             DialogueState.NextNode = "GroovedBrainCoralNode2";
         }
+        else if(commandController.isGBBranch2)
+        {
+            DialogueState.NextNode = "GroovedBrainCoralNode3";
+        }
         else
         {
             DialogueState.NextNode = "GroovedBrainCoralNode";
@@ -44,6 +48,11 @@ public class DialogueStarter : MonoBehaviour
         {
             Debug.Log("branch 2");
             DialogueState.NextNode = "CabbageCoralNode2";
+        }
+        else if(commandController.isBranch3)
+        {
+            Debug.Log("branch 3");
+            DialogueState.NextNode = "CabbageCoralNode3";
         }
         else
         {

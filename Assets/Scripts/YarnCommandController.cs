@@ -18,6 +18,8 @@ public class YarnCommandController : MonoBehaviour
     [SerializeField] public string currentSpeaker;
     [SerializeField] public bool isBranch2;
     [SerializeField] public bool isGBBranch2;
+    [SerializeField] public bool isBranch3;
+    [SerializeField] public bool isGBBranch3;
     [SerializeField] private string lastGiftID;
     public string LastGiftID => lastGiftID;
     [SerializeField] private GiftGivingManager giftGivingManager;
@@ -55,56 +57,9 @@ public class YarnCommandController : MonoBehaviour
     void Start()
     {
         Debug.Log("YarnCommandController Awake");
-        //dialogueRunner = FindObjectOfType<DialogueRunner>();
+
         yarnVariables = FindAnyObjectByType<YarnVariables>();
-        ////coralPointsNum = coralPointsObj.GetComponent<TextMeshProUGUI>();
-
-        //dialogueRunner.AddCommandHandler(
-        //    "update_coral_points_display",
-        //    UpdateCoralPointsDisplay
-        //);
-
-        //dialogueRunner.AddCommandHandler(
-        //    "Update_CurrentSpeaker",
-        //    CurrentSpeaker
-        //);
-
-        //dialogueRunner.AddCommandHandler<string>(
-        //    "GiveGift",
-        //    GiveGiftCommand
-        //);
-
-        //dialogueRunner.AddCommandHandler(
-        //    "returnToHome",
-        //    returnToHome
-        //);
-
-        //dialogueRunner.AddCommandHandler(
-        //    "isCLBranch2",
-        //    CLBranch
-        //);
-
-        //if (giftGivingManager == null)
-        //{
-        //    giftGivingManager = FindObjectOfType<GiftGivingManager>();
-        //}
-
-        //if (!string.IsNullOrEmpty(DialogueState.NextNode))
-        //{
-        //    dialogueRunner.startNode = DialogueState.NextNode;
-        //    Debug.Log(DialogueState.NextNode);
-        //    //dialogueRunner.StartDialogue(DialogueState.NextNode);
-        //    DialogueState.NextNode = ""; // Clear it after use
-
-        //}
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         dialogueRunner = FindFirstObjectByType<DialogueRunner>();
@@ -160,9 +115,20 @@ public class YarnCommandController : MonoBehaviour
         );
 
         dialogueRunner.AddCommandHandler(
+            "isCLBranch3",
+            CLBranch3
+        );
+
+        dialogueRunner.AddCommandHandler(
             "isGBBranch2",
             GBBranch
         );
+
+        dialogueRunner.AddCommandHandler(
+            "isGBBranch3",
+            GBBranch3
+        );
+
         dialogueRunner.AddFunction(
             "LastGift",
             () => lastGiftID
@@ -230,6 +196,20 @@ public class YarnCommandController : MonoBehaviour
         }
     }
 
+    public void CLBranch3()
+    {
+        if (yarnVariables.TryGetValue("$CLBranch3", out bool isNextBranch))
+        {
+            isBranch2 = isNextBranch;
+
+            Debug.Log("Updated proceeding to 3nd branch?: " + isBranch3);
+        }
+        else
+        {
+            Debug.LogError("Could not find $CLBranch3 in Yarn variables.");
+        }
+    }
+
     //get the bool if the player has already finish the first branch for Grooved Brain coral
     public void GBBranch()
     {
@@ -242,6 +222,20 @@ public class YarnCommandController : MonoBehaviour
         else
         {
             Debug.LogError("Could not find $GBBranch in Yarn variables.");
+        }
+    }
+
+    public void GBBranch3()
+    {
+        if (yarnVariables.TryGetValue("$GBBranch3", out bool isNextBranch))
+        {
+            isGBBranch2 = isNextBranch;
+
+            Debug.Log("Updated proceeding to 3nd branch?: " + isGBBranch3);
+        }
+        else
+        {
+            Debug.LogError("Could not find $GBBranch3 in Yarn variables.");
         }
     }
 

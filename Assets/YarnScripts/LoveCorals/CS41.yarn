@@ -6,7 +6,9 @@ position: -702,-12
 <<declare $SWCoralPoints = 0>>
 <<declare $Speaker = "none">>
 <<declare $CLBranch= false>>
+<<declare $CLBranch3= false>>
 <<declare $GBBranch= false>>
+<<declare $GBBranch3= false>>
 
 <<set $Speaker to "None">>
 <<Update_CurrentSpeaker>>
@@ -99,7 +101,7 @@ position: -162,-16
 You swim near the seabed, on the prowl for a new adventure, when you come across the oddest of creatures
 A coral!
 
-<<set $Speaker to "Player">>
+<<set $Speaker to "Player_happy">>
 <<Update_CurrentSpeaker>>
 You: Whoa, what a cute parrot fish!
 
@@ -123,7 +125,7 @@ You: Nope, I didn't say anything.
 
 Seeing your face red with embarrassment, it smirked at you. 
 
-<<set $Speaker to "GroovedBrainCoral">>
+<<set $Speaker to "GroovedBrainCoral_happy">>
 <<Update_CurrentSpeaker>>
 Grooved Brain Coral: It's ok to be embarrassed, after all, I, Grooved Brain Coral, am here to educate the masses.
 
@@ -135,7 +137,7 @@ That comment irked you. Naturally, you decided that rage baiting was the mature 
 <<Update_CurrentSpeaker>>
 You: You are wrong, that fish is MOST definitely a parrot fish!
 
-<<set $Speaker to "GroovedBrainCoral">>
+<<set $Speaker to "GroovedBrainCoral_happy">>
 <<Update_CurrentSpeaker>>
 Grooved brain Coral let out a laugh of disbelief.
 
@@ -145,11 +147,15 @@ Grooved Brain Coral: Erm, actually that's a wrasse. Though they both hold simila
 <<Update_CurrentSpeaker>>
 You: Source?
 
-<<set $Speaker to "GroovedBrainCoral">>
+<<set $Speaker to "GroovedBrainCoral_sad">>
 <<Update_CurrentSpeaker>>
 Grooved Brain Coral: I would know... my colony never recovered after a hungry parrot fish came through.
 -> Whoa, things just got dark...
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
     It ignored your comment and started rambling again. 
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
     Grooved Brain Coral: That is why I know that is definitely a wrasse. Speaking of which, where has it gone off to?
 -> Can that little guy really be the cause of that? [3 Identification Needed]
     <<identifyCorals>>
@@ -161,11 +167,15 @@ Grooved Brain Coral: I would know... my colony never recovered after a hungry pa
 <<Update_CurrentSpeaker>>
 You: Oh hey, the Wrasse is back and its nibbling on you. That's so cute, look at it go!
 
-<<set $Speaker to "GroovedBrainCoral">>
+<<set $Speaker to "GroovedBrainCoral_sad">>
 <<Update_CurrentSpeaker>>
 The coral looked up. Lo and behold, the fish was gobbling away. It let out a piercing shriek.
 -> Let the fish continue nibbling.
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
     You stood by and watched as the Grooved Brain Coral was helplessly nibbled by the fish. Once it had its fill, the fish swam away.
+    <<set $Speaker to "GroovedBrainCoral_sad">>
+    <<Update_CurrentSpeaker>>
     The coral stared blankly into the distance, evidently done with this conversation... and perhaps with you as well.
     <<set $GBBranch = true>>
     <<isGBBranch2>>
@@ -174,6 +184,8 @@ The coral looked up. Lo and behold, the fish was gobbling away. It let out a pie
     <<set $SWCoralPoints += 5>>
     <<update_coral_points_display>>
     You gobbled the fish up, saving the coral from becoming the fish's next meal.
+    <<set $Speaker to "GroovedBrainCoral_happy">>
+    <<Update_CurrentSpeaker>>
     Grooved Brain Coral: Thank you... I suppose I owe you one. And yes, before you say anything, that was definitely a wrasse. I refuse to discuss the matter any further.
     The coral cleared its throat. 
     Grooved Brain Coral: Come back and visit me sometime. There's still plenty about the reef for you to learn... even if your fish identification skills need work.
@@ -223,6 +235,8 @@ Cabbage Leather Coral: Oh...hey there! I didn't think you were talking to me! Us
             Cabbage Leather Coral: Is that.. a sculpture of me? That's beautiful!
             <<jump CabbageCoralGrateful>>
         <<elseif LastGift() == "sea_bass">>
+            <<set $Speaker to "CabbageCoral_happy ">>
+            <<Update_CurrentSpeaker>>
             Cabbage Leather Coral: Oh.. well, I don't really know what to do with this, but.. it's the thought that counts, right?
             <<jump CabbageCoralGrateful>>
         <<endif>>
@@ -233,10 +247,12 @@ Cabbage Leather Coral: Oh...hey there! I didn't think you were talking to me! Us
         <<isCLBranch2>>
         <<jump CabbageCoralGrateful>>
 -> I don't blame them...you look absolutely terrifying
-    <<set $Speaker to "CabbageCoral">>
+    <<set $Speaker to "CabbageCoral_sad">>
     <<Update_CurrentSpeaker>>
     Cabbage Leather Coral: Oh..yes, I get that a lot.
     Cabbage Leather Coral visibly wilts. Its leafy leathery lobes loses its luster.
+    <<set $Speaker to "CabbageCoral_happy">>
+    <<Update_CurrentSpeaker>>
     Cabbage Leather Coral: But still, I'm glad that you're here!
     Cabbage Leather Coral: With me!
     Cabbage Leather Coral: Talking!
@@ -246,6 +262,8 @@ Cabbage Leather Coral: Oh...hey there! I didn't think you were talking to me! Us
 title: CabbageCoralGrateful
 position: -435,190
 ---
+<<set $Speaker to "CabbageCoral_sad">>
+<<Update_CurrentSpeaker>>
 Cabbage Leather Coral: Sorry. 
 Cabbage Leather Coral: Oh gosh, I'm so awkward. 
 Cabbage Leather Coral: Usually the only people who talk to me is the zooxanthellae algae living in my tissue.
@@ -278,7 +296,7 @@ Cabbage Leather Coral: Do you...not? Have zooxanthellae algae to help you?
 ===
 
 title: CabbageCoralNode2
-position: -424,395
+position: -399,382
 ---
 <<if $CLBranch == true>>
     <<set $Speaker to "None">>
@@ -288,14 +306,20 @@ position: -424,395
     <<set $Speaker to "CabbageCoral">>
     <<Update_CurrentSpeaker>>
     Cabbage Leather Coral: Oh my gosh, oh my GOSH! It's you again!
+    <<set $Speaker to "CabbageCoral_sad">>
+    <<Update_CurrentSpeaker>>
     Cabbage Leather Coral: I'm sorry, I know, I'm shouting! It's just, well...I thought I messed everything up with how our last encounter went. 
     Cabbage Leather Coral: I am glad you came back. Really!
+    <<set $Speaker to "CabbageCoral_happy">>
+    <<Update_CurrentSpeaker>>
     Cabbage Leather Coral: I'm really, REALLY glad. It's been real hard for me to find someone to talk to these days.
+    <<set $Speaker to "CabbageCoral_sad">>
+    <<Update_CurrentSpeaker>>
     Cabbage Leather Coral: And you know, I understand why. It just gets so lonely.
     -> Why? Is it because you look like a cabbage? Mon Petit Chou?
         <<jump Branch>>
     -> Well you aren't the most...easy person to have a conversation with.
-        <<jump Continuation>>>>
+        <<jump Continuation>>
 
 <<endif>>
 
@@ -304,6 +328,8 @@ position: -424,395
 title: Branch
 position: -533,578
 ---
+<<set $Speaker to "CabbageCoral_happy">>
+<<Update_CurrentSpeaker>>
 Cabbage Leather Coral: Oh I don't know about that. I've been a real mess lately. But that's really sweet of you.
 <<jump Continuation>>
 ===
@@ -311,6 +337,8 @@ Cabbage Leather Coral: Oh I don't know about that. I've been a real mess lately.
 title: Continuation
 position: -375,774
 ---
+<<set $Speaker to "CabbageCoral_sad">>
+<<Update_CurrentSpeaker>>
 Cabbage Leather Coral: I think that's why all my friends find excuses to ditch me.
 -> Yes I... do understand you. I too, felt somewhat alienated with my sharky pals. [3 Identification Needed]
     <<identifyCorals>>
@@ -339,6 +367,8 @@ Cabbage Leather Coral: Sorry...where was I? I think I was a bit lost in the sauc
 -> Uh, do you not remember?
     Cabbage Leather Coral: Remember what?
 -> Okay wow, you're psycho!
+    <<set $Speaker to "CabbageCoral_happy">>
+    <<Update_CurrentSpeaker>>
     Cabbage Leather Coral: Why would you say that about me!
 
 You tell Cabbage Leather Coral about their little...episode.
@@ -354,24 +384,33 @@ Cabbage Leather Coral: And that's why my friends are so awkward around me? Becau
     It smiles a bit at your attempt to lighten the mood.
     <<jump Become_friend>>
 -> I guess it was you after all.
+    <<set $Speaker to "CabbageCoral_sad">>
+    <<Update_CurrentSpeaker>>
     Cabbage Leather Coral: Yea...I guess it was.
-    <<returnToHome>>
 
+<<set $CLBranch3 = true>>
+<<isCLBranch3>>
+<<jump Cabbage_Coral_Node3>>
 ===
 
 title: Become_friend
-position: -380,975
+position: -571,973
 ---
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
 Cabbage Leather Coral: Thanks buddy. You've been a great help so far. But I need some time to myself to...figure things out.
 Cabbage Leather Coral: Cabbage Leather Coral waves a leafy lobe at you as you swim away.
+<<set $CLBranch3 = true>>
+<<isCLBranch3>>
 <<returnToHome>>
+<<jump Cabbage_Coral_Node3>>
 ===
 
 title: GroovedBrainCoralNode2
 position: -163,187
 ---
 <<if $GBBranch == true>>
-    <<set $Speaker to "None">>
+    <<set $Speaker to "Player">>
     <<Update_CurrentSpeaker>>
     <<update_coral_points_display>>
     You approach the coral, and it looked like it was thinking hard about something...
@@ -386,10 +425,10 @@ position: -163,187
     <<Update_CurrentSpeaker>>
     Grooved Brain Coral: WOWZERS! Jeez you are as silent as a parrot fish! How long have you been creeping behind me?
 
-    <<set $Speaker to "None">>
+    <<set $Speaker to "Player_happy">>
     <<Update_CurrentSpeaker>>
     You were about to reply to the coral when it interrupted you excitedly.
-    <<set $Speaker to "GroovedBrainCoral">>
+    <<set $Speaker to "GroovedBrainCoral_happy">>
     <<Update_CurrentSpeaker>>
     Grooved Brain Coral: Actually, now that you're here, let's exchange a few fun facts about ourselves to get to know each other better!
     Grooved Brain Coral: ME FIRST!!!!!
@@ -399,10 +438,14 @@ position: -163,187
     Grooved Brain Coral: Ahhh.. such is the circle of life.... I love biology..
     -> Wow, how interesting. I've learned so much in such a short time! [3 Identification Needed]
         <<identifyCorals>>
+        <<set $Speaker to "GroovedBrainCoral_happy">>
+        <<Update_CurrentSpeaker>>
         Grooved Brain Coral: Hehe, that was nothing! Wait till you lay your eyes upon GREATNESS!!!
         <<set $SWCoralPoints += 5>>
         <<update_coral_points_display>>
     -> Zzz...zzz...zzz...zzz
+        <<set $Speaker to "GroovedBrainCoral">>
+        <<Update_CurrentSpeaker>>
         The coral notices you dozing away but doesn't say anything. However it looks really dejected.
         Grooved Brain Coral: H..Hey, what about this? Look, its my favourite puzzle!
 <<jump A_Box>>
@@ -410,22 +453,26 @@ position: -163,187
 ===
 
 title: A_Box
-position: -168,375
+position: -155,375
 ---
 Grooved Brain Coral proudly pulled out a box and presented it to you.
 
 Grooved Brain Coral: I CALL THIS...
+<<set $Speaker to "GroovedBrainCoral_happy">>
+<<Update_CurrentSpeaker>>
 Grooved Brain Coral: THE MAZE!!!
 Grooved Brain Coral: This box descended upon me one day and I have been tinkering with it. I am now a master-mazer and will teach you a trick I learned.
 It taught you a few tricks and persuaded you to give it a try.
 -> You solve it in less than a minute.
+    <<set $Speaker to "GroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
     Grooved Brain Coral: You solved it so fast, it's hard to believe this is your first time...
     Its vibrant colours had faded, and it looked dejected...
     <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
     You feel guilty, maybe you finished it too fast.
 -> You solve it after 5 minutes.
-    <<set $Speaker to "GroovedBrainCoral">>
+    <<set $Speaker to "GroovedBrainCoral_happy">>
     <<Update_CurrentSpeaker>>
     Grooved Brain Coral: Hey, that wasn't so bad! That was a great effort! With more practice you might be a master like me!
     It seemed happy and content!
@@ -439,6 +486,8 @@ It taught you a few tricks and persuaded you to give it a try.
     <<if LastGift() == "bouquet">>
         <<set $SWCoralPoints += 5>>
         <<update_coral_points_display>>
+        <<set $Speaker to "GroovedBrainCoral_happy">>
+        <<Update_CurrentSpeaker>>
         Grooved Brain Coral: Gasp! Is this for me??
         Grooved Brain Coral: These are my favourite! How did you know?
         Grooved Brain Coral: Thank you so much! Please excuse me as I feast on this delicacy!
@@ -452,5 +501,332 @@ It taught you a few tricks and persuaded you to give it a try.
     <<endif>>
     Grooved Brain Coral: And I thought we knew each other well enough.. Guess I was wrong.
     The coral is avoiding your gaze. It seems like you have done it this time...
+    <<set $GBBranch3 = true>>
+    <<isGBBranch3>>
     <<returnToHome>>
+<<jump Grooved_Brain_Coral_Node3>>
+===
+
+
+
+title: Grooved_Brain_Coral_Node3
+position: -134,568
+---
+<<if $GBBranch3 == true>>
+    <<set $Speaker to "Player_happy">>
+    <<Update_CurrentSpeaker>>
+    You happily swam towards Grooved Brain Coral but it looked really troubled...
+
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Hey, are you alright? You look very down.
+
+    You waited for a response but it doesn't seem like it heard you.
+    You waved your pectoral fin and repeated yourself.
+
+    <<set $Speaker to "BleachedGroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    The coral jolted, and its eyes focused on you. It seemed to have only just realised that you were standing in front of it.
+
+    Grooved Brain Coral: Oh, hey... Sorry, I didn't see you there. I was deep in thought and...
+    The coral was about to continue when you noticed something shocking...
+
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Y-Your body... it's turning white! What's happening to you?
+    <<set $Speaker to "BleachedGroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: Oh, you don't have to worry. It's just the bleaching...
+    Grooved Brain Coral: The water is getting too warm, and I'm losing the tiny algae that give me my colour and help me survive.
+    -> Are you talking about your zooxanthellae?
+        Grooved Brain Coral: Yes, without them, I'm getting sick...
+    -> Are you talking about your Symbiodiniaceae? [3 Identification Needed]
+        <<identifyCorals>>
+        <<set $SWCoralPoints += 5>>
+        <<update_coral_points_display>>
+        Grooved Brain Coral: Wow, you must have done your homework. I'm pleasantly surprised you know this term...
+    
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Is there anything I can do to help?
+    <<set $Speaker to "BleachedGroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: Fret not! My superior intellect will save me from this predicament!
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Come on, there must be something I can do!
+    <<set $Speaker to "BleachedGroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: I appreciate your concern, but this is beyond your understanding. I know my own condition better than anyone... and your efforts may only make things worse.
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral's voice grows weaker with every word. It is slowly losing energy and may not be able to continue the conversation for much longer. There is absolutely no way it can solve this by itself.
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Can you drop the almighty act for a moment and let me help you? 
+    You: You're clearly not in a state to handle this alone.
+    <<set $Speaker to "BleachedGroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: I-It's not that I don't want you to help... 
+    Grooved Brain Coral: I just...
+    Grooved Brain Coral: This is something I need to do by myself.
+    Grooved Brain Coral: Do you remember... the story I told you when we first met... That day, everything changed...
+    Grooved Brain Coral: I was still a budding coral, basking in the sunlight, when a parrotfish swam up to me.
+    Grooved Brain Coral: It asked if I knew where to find a colony of Grooved Brain Corals.
+    <<set $Speaker to "BleachedGroovedBrainCoral_sad">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: That was the moment my gullible, idiotic self fell right into its trap. It was a mistake I would regret for years to come...
+    Grooved Brain Coral: After that the parrotfish thanked me and left me to continue basking.
+    Grooved Brain Coral: When I returned home, a devastating view presented itself.
+    Grooved Brain Coral: Bits of decayed tissue drifted past me, leading me to the cemetery of corals.
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    My heart sank, that must have been scarring at such a young age.
+    You: I'm so sorry this happened, I didn't know...
+    <<set $Speaker to "BleachedGroovedBrainCoral">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: If only I knew parrotfishes were one of our main predators, If only I was smarter.. 
+    Grooved Brain Coral: if only....
+    Grooved Brain Coral: That's why I need to do this myself! 
+    Grooved Brain Coral: I have to! or my efforts will be for nothing....
+    -> We can overcome this together!
+    -> You don't need to shoulder this alone, please.. let me help you, together we-
+    Grooved Brain Coral: Together...?
+    Grooved Brain Coral: AND WHAT WILL BEING TOGETHER DO FOR ME? 
+    Grooved Brain Coral: It surely didn't help my friends...
+    Grooved Brain Coral: my family... 
+    Grooved Brain Coral: WE outnumbered those fiends and in the end, WE could only suffer in silence...
+    Grooved Brain Coral: The only solution lies in wisdom, science, knowledge... THE COLD HARD TRUTH OF THIS WORLD!
+    -> Since you don't want my help THAT badly, I'm going to go.
+    -> You're right, If you truly believe this is the way... I will respect your decision.
+    -> What good is the knowledge you have if you cant use it?
+        <<set $SWCoralPoints += 5>>
+        <<update_coral_points_display>>
+        <<jump deep_thoughts>>
+
+    <<set $Speaker to "BleachedGroovedBrainCoral_sad">>
+    <<Update_CurrentSpeaker>>
+    Grooved Brain Coral: The coral had a painful look in its eye and muttered, thank you.
+
+    You swam away, giving your friend one last look before leaving.
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    Hate ending:Inevitable end
+    <<returnToHome>>
+<<endif>>>>
+===
+
+title: deep_thoughts
+position: -127,743
+---
+<<set $Speaker to "BleachedGroovedBrainCoral">>
+<<Update_CurrentSpeaker>>
+Grooved Brain Coral: That left the coral deep in thought, giving you the space to continue.
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: With the ever rising temperature and your weakened state, I think you already know, but you cant do anything in your condition.
+You: Your only option is to relocate, and you'll need my help.
+<<set $Speaker to "BleachedGroovedBrainCoral">>
+<<Update_CurrentSpeaker>>
+Grooved Brain Coral: But...but...
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Even with all the world's wisdom, nothing changes without action.
+You: True strength... comes from knowing what to do and having the courage to do it.
+<<set $Speaker to "BleachedGroovedBrainCoral_happy">>
+<<Update_CurrentSpeaker>>
+Its eyes brightened hopefully, and it relaxed slightly. 
+Grooved Brain Coral: You would go this far for me?
+-> We are friends aren't we?
+-> Of course , but I cant help you if you wont tell me how
+
+<<set $Speaker to "BleachedGroovedBrainCoral_happy">>
+<<Update_CurrentSpeaker>>
+A gentle smile spreads across the coral's face.
+Grooved Brain Coral: I... I need you to gently carry the rock I'm on. Since im small enough, it should be light enough for you to handle.
+Grooved Brain Coral: And and! 
+Grooved Brain Coral: You need to procure a location, shallow enough for sunlight to pass through for my algae to thrive in
+<<set $Speaker to "Player_happy">>
+<<Update_CurrentSpeaker>>
+You: Haha, take it easy. We'll move at your pace. Just guide me, and we'll figure it out together.
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+You did exactly as the coral said, and together, set off into the sunset...
+Friendship ending:Teamwork makes the dream work!
+
+===
+
+title: Cabbage_Coral_Node3
+position: -366,1152
+---
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+When you meet Cabbage Leather coral again, it look morose and depressed.
+You...didn't really know how to approach it.
+The way you two left it off was awkward, to say the least.
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Hey...
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: Hey.
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: It's been awhile...how have you been?
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: I've been fine. Been doing some soul searching.
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: well...did you find it?
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: Huh? Find what?
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Your soul. Weren't you searching for it?
+<<set $Speaker to "CabbageCoral_happy">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: No! I'm not searching for my actual soul! It's a metaphor!
+Cabbage Leather coral glowers at you for the joke.
+-> What wrong Cabbage Leather Coral, you're usually not this...aggressive.
+    <<jump Not_Aggressive>>
+-> Well...you seem to be more comfortable around me. You're stuttering less [3 Identification Needed]
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral snaps out of its anger and blushes.
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: It doesn't seem that way. In fact, I think it's the opposite. I think you've actually found your bearings.
+    You: You seem more assured, and you're standing up for yourself.
+    <<set $Speaker to "CabbageCoral_sad">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: You make it easy. I enjoy talking to you and sometimes I forget myself. I lose my bearings when I'm with you.
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You and Cabbage Leather Coral share a moment of comfortable silence.
+    <<set $SWCoralPoints += 5>>
+    <<update_coral_points_display>>
+    <<jump friendship_end>>
+-> I'm sorry. You just seemed so down. I wanted to make you smile again.
+    At your apology Cabbage Leather Coral sags.
+    Cabbage Leather Coral: No, I'm the one who should apologise. I shouldn't be taking my anger out on you. 
+    Cabbage Leather Coral: I just feel so...frustrated with myself!
+    Cabbage Leather Coral: I've been trying really hard recently to love and except myself for who I am.
+    <<set $Speaker to "CabbageCoral_sad">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: I want to be more confident. I don't want to be that shy blushing coral that I used to be!
+    <<set $Speaker to "CabbageCoral_happy">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: I want to let all those nasty thoughts I have deep inside of me out!
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Do you, uh...have these nasty thoughts often?
+    <<set $Speaker to "CabbageCoral">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: Yes, and I no longer want to hold them back! 
+    Cabbage Leather Coral: After all, if I don't love myself, how am I going to love anyone else?
+    <<set $Speaker to "None">>
+    <<Update_CurrentSpeaker>>
+    You give Cabbage Leather coral a supportive pat on the leaf, proud of its revelation.
+    <<jump friendship_end>>
+
+===
+
+title: Not_Aggressive
+position: -471,1322
+---
+<<set $Speaker to "CabbageCoral_happy">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: I'm not aggressive. I'm just going through a hard time right now! I'm not really In the mood for jokes!
+-> I was just trying to lighten the mood! Stop acting like you're in the middle of a mid-life crisis!
+    Cabbage Leather Coral: I AM in the middle of a crisis! 
+    Cabbage Leather Coral: That day changed everything I knew about myself.
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Well...get over it! It's been like a week!
+    <<jump hate_end>>
+-> Okay, so you have a bit of a split personality, no big deal! Get it together and move on!
+    <<set $Speaker to "CabbageCoral_happy">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: No big deal? NO BIG DEAL??!! You have no IDEA what it's like!
+    <<set $Speaker to "CabbageCoral_sad">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: I've been so lonely...constantly asking myself why no one wants me around...only to find that the problem was me all along!
+    Cabbage Leather Coral: And it's something I can't fix! 
+    Cabbage Leather Coral: It's built into me, and all I can do is accept it and learn to live with it.
+    Cabbage Leather Coral: And no one will ever want to be my friend because of it!
+        -> You're exaggerating, there are plenty of fishes out there.
+            <<jump hate_end>>
+        -> But I do.
+            <<set $Speaker to "None">>
+            <<Update_CurrentSpeaker>>
+            Cabbage Leather Coral pauses in the middle of its tirade to give you a broken look.
+            <<set $Speaker to "Player">>
+            <<Update_CurrentSpeaker>>
+            You: I accept you. I want to keep being friends with you. You're so cool Cabbage Leather Coral, who wouldn't want to be friends with you!
+            You: Sometimes people don't click. And that's okay. Are you going to let your past friendships stop you from going out in this world and making new friends?
+            <<set $Speaker to "CabbageCoral">>
+            <<Update_CurrentSpeaker>>
+            Cabbage Leather Coral: ...I guess I shouldn't huh.
+            <<set $Speaker to "Player">>
+            <<Update_CurrentSpeaker>>
+            You: I'm not really the nicest fish in the sea, and if I like you, there's definitely more creatures that will too!
+            <<set $Speaker to "None">>
+            <<Update_CurrentSpeaker>>
+            It gives you a small but hopeful smile at your encouragement.
+            <<set $Speaker to "CabbageCoral">>
+            <<Update_CurrentSpeaker>>
+            Cabbage Leather Coral: You're right. There's definitely more people who would like me. The real me.
+            <<jump friendship_end>>
+        
+===
+
+title: hate_end
+position: -495,1544
+---
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral's face shutters, and toxins started filling the water around it.
+<<set $Speaker to "CabbageCoral_sad">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: Go away.
+<<set $Speaker to "Player_sad">>
+<<Update_CurrentSpeaker>>
+You: Please. If you can't respect my feelings, I think we should stop talking.
+
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+And with that, you swim away, confused and regretful, with one less friend.
+Just why would you say that?!
+Hate End
+===
+
+title: friendship_end
+position: -209,1550
+---
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: You know, it's actually pretty cool, what you can do.
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: ...Really?
+<<set $Speaker to "Player">>
+<<Update_CurrentSpeaker>>
+You: Well yea! I mean. You were all like 'WHAM!', don't touch me! You scared the other coral right off!
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: When you put it like that...heh, I guess I am pretty cool!
+<<set $Speaker to "Player_happy">>
+<<Update_CurrentSpeaker>>
+You: You're even cooler now that you've found your self confidence!
+<<set $Speaker to "CabbageCoral">>
+<<Update_CurrentSpeaker>>
+Cabbage Leather Coral: And I couldn't have done it without you. 
+Cabbage Leather Coral: Thank you for helping me find myself, and accepting who I am...split personality and all.
+Cabbage Leather Coral: You're...you're a really good friend.
+<<set $Speaker to "None">>
+<<Update_CurrentSpeaker>>
+Friendship end
+<<returnToHome>>
 ===

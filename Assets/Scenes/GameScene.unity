@@ -7804,13 +7804,35 @@ MonoBehaviour:
   commandController: {fileID: 0}
   speakers:
   - name: SeaWhipCoral
-    image: {fileID: 21300000, guid: cdfbf19a12c2b654d9c7768f12a24e82, type: 3}
+    image: {fileID: 21300000, guid: 721dfe5abd35c8247b4c977c1be2f47f, type: 3}
+  - name: SeaWhipCoral_happy
+    image: {fileID: 21300000, guid: ebe3b08a6b7c142458d4787a572d86ef, type: 3}
+  - name: SeaWhipCoral_sad
+    image: {fileID: 21300000, guid: d1dd07b74b24f8e4bbe6caf51e3d07ce, type: 3}
   - name: Player
-    image: {fileID: 21300000, guid: 336626f65397bf34a8334f46f963fb48, type: 3}
+    image: {fileID: 21300000, guid: c564972ee79cdb141b1b19fab2fd40aa, type: 3}
+  - name: Player_happy
+    image: {fileID: 21300000, guid: 1fb12e1e383b6b84793ca54eb46df9f1, type: 3}
+  - name: Player_sad
+    image: {fileID: 21300000, guid: 7c4cbdf2a9848834aabb52a2e9a999dd, type: 3}
   - name: GroovedBrainCoral
-    image: {fileID: 21300000, guid: b6dd0b42745be04489a55d3e36ee784f, type: 3}
+    image: {fileID: 21300000, guid: 258abfc079489cb458b6225081af2e74, type: 3}
+  - name: GroovedBrainCoral_happy
+    image: {fileID: 21300000, guid: e5af340c9819d5543b71306016ab8f0e, type: 3}
+  - name: GroovedBrainCoral_sad
+    image: {fileID: 21300000, guid: 3bea629505dac3842894a6402dc55743, type: 3}
   - name: CabbageCoral
-    image: {fileID: 21300000, guid: f7d882fb3026ef84da2c17486c7ac826, type: 3}
+    image: {fileID: 21300000, guid: e24943d352bc1c945b117d72b949bb42, type: 3}
+  - name: CabbageCoral_happy
+    image: {fileID: 21300000, guid: a555aee0c9be10146bac0ab2691a9c3e, type: 3}
+  - name: CabbageCoral_sad
+    image: {fileID: 21300000, guid: fcd06583d51bc5441836e8cdf1b93fb2, type: 3}
+  - name: BleachedGroovedBrainCoral_sad
+    image: {fileID: 21300000, guid: e41c2aa9862d86c48b1efba72765299f, type: 3}
+  - name: BleachedGroovedBrainCoral_happy
+    image: {fileID: 21300000, guid: a3666fa13ad9b3548bba708ba97ead91, type: 3}
+  - name: BleachedGroovedBrainCoral
+    image: {fileID: 21300000, guid: 26aabe8e2c52ade4ba35c5d77445e7e3, type: 3}
 --- !u!1 &9078442560205187376 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9078442560890639579, guid: 52571f68872914e24837210513edea1d, type: 3}
