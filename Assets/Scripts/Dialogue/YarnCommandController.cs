@@ -32,6 +32,7 @@ public class YarnCommandController : MonoBehaviour
     public TextMeshProUGUI coralPointsText;
 
     public static YarnCommandController Instance;
+    private TaskCompletionSource<bool> identifyCompletionSource;
 
 
     private void OnEnable()
@@ -180,14 +181,32 @@ public class YarnCommandController : MonoBehaviour
         }
     }
 
-    //[YarnCommand("returnMainMenu")]
     public void returnToHome()
     {
         SceneManager.LoadScene("MainMenu");
     }
-    public void identifying()
+
+    private async Task identifying()
     {
-        SceneManager.LoadScene(identifyScene, LoadSceneMode.Additive);
+        identifyCompletionSource = new TaskCompletionSource<bool>();
+
+        var loadOp = SceneManager.LoadSceneAsync(identifyScene, LoadSceneMode.Additive);
+        await WaitForAsyncOperation(loadOp);
+
+        // Dialogue pauses here until OnIdentifyComplete() is called
+        await identifyCompletionSource.Task;
+    }
+
+    private Task WaitForAsyncOperation(AsyncOperation op)
+    {
+        var tcs = new TaskCompletionSource<bool>();
+        op.completed += _ => tcs.TrySetResult(true);
+        return tcs.Task;
+    }
+
+    public void identifyingComplete()
+    {
+        identifyCompletionSource?.TrySetResult(true);
     }
 
     //get the bool if the player has already finish the first branch for Cabbage coral
