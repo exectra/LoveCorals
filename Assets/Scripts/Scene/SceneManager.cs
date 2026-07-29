@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField] private AudioClip clickSFX;
     [SerializeField] private AudioManager AM;
+    [SerializeField] string identifyScene = "(Main Menu) IdentifyScene 2.0";
 
     public string previousScene;
 
@@ -53,7 +54,7 @@ public class SceneLoader : MonoBehaviour
     public void OpenIdentifyScene()
     {
         AM.PlaySFX(clickSFX);
-        SceneManager.LoadScene("CoralIdentify");
+        SceneManager.LoadScene(identifyScene, LoadSceneMode.Additive);
     }
 
 }

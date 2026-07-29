@@ -21,15 +21,18 @@ public class YarnCommandController : MonoBehaviour
     [SerializeField] public bool isBranch3;
     [SerializeField] public bool isGBBranch3;
     [SerializeField] private string lastGiftID;
+
+    [SerializeField] private string identifyScene = "(Game) IdentifyScene 2.0";
     public string LastGiftID => lastGiftID;
     [SerializeField] private GiftGivingManager giftGivingManager;
 
     public DialogueRunner dialogueRunner;
+    private DialogueRunner registeredRunner;
 
-    //public GameObject coralPointsObj;
     public TextMeshProUGUI coralPointsText;
 
     public static YarnCommandController Instance;
+
 
     private void OnEnable()
     {
@@ -62,17 +65,23 @@ public class YarnCommandController : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        dialogueRunner = FindFirstObjectByType<DialogueRunner>();
+        var foundRunner = FindFirstObjectByType<DialogueRunner>();
         giftGivingManager = FindFirstObjectByType<GiftGivingManager>();
-        coralPointsText = GameObject.FindWithTag("CoralPts").GetComponent<TextMeshProUGUI>();
 
-        Debug.Log($"Scene Loaded: {scene.name}");
+        var coralPtsObj = GameObject.FindWithTag("CoralPts");
+        if (coralPtsObj != null)
+            coralPointsText = coralPtsObj.GetComponent<TextMeshProUGUI>();
 
-        if (dialogueRunner != null)
+        if (foundRunner != null)
         {
-            // Make the DialogueRunner use the singleton's YarnVariables
+            dialogueRunner = foundRunner;
             dialogueRunner.VariableStorage = yarnVariables;
-            GetScripts();
+
+            if (registeredRunner != dialogueRunner)
+            {
+                GetScripts();
+                registeredRunner = dialogueRunner;
+            }
 
             if (!string.IsNullOrEmpty(DialogueState.NextNode))
             {
@@ -178,7 +187,7 @@ public class YarnCommandController : MonoBehaviour
     }
     public void identifying()
     {
-        SceneManager.LoadScene("CoralIdentify", LoadSceneMode.Additive);
+        SceneManager.LoadScene(identifyScene, LoadSceneMode.Additive);
     }
 
     //get the bool if the player has already finish the first branch for Cabbage coral
@@ -200,7 +209,7 @@ public class YarnCommandController : MonoBehaviour
     {
         if (yarnVariables.TryGetValue("$CLBranch3", out bool isNextBranch))
         {
-            isBranch2 = isNextBranch;
+            isBranch3 = isNextBranch;
 
             Debug.Log("Updated proceeding to 3nd branch?: " + isBranch3);
         }
@@ -229,7 +238,7 @@ public class YarnCommandController : MonoBehaviour
     {
         if (yarnVariables.TryGetValue("$GBBranch3", out bool isNextBranch))
         {
-            isGBBranch2 = isNextBranch;
+            isGBBranch3 = isNextBranch;
 
             Debug.Log("Updated proceeding to 3nd branch?: " + isGBBranch3);
         }

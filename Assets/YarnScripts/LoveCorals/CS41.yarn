@@ -390,7 +390,7 @@ Cabbage Leather Coral: And that's why my friends are so awkward around me? Becau
 
 <<set $CLBranch3 = true>>
 <<isCLBranch3>>
-<<jump Cabbage_Coral_Node3>>
+<<jump CabbageCoralNode3>>
 ===
 
 title: Become_friend
@@ -403,7 +403,7 @@ Cabbage Leather Coral: Cabbage Leather Coral waves a leafy lobe at you as you sw
 <<set $CLBranch3 = true>>
 <<isCLBranch3>>
 <<returnToHome>>
-<<jump Cabbage_Coral_Node3>>
+<<jump CabbageCoralNode3>>
 ===
 
 title: GroovedBrainCoralNode2
@@ -501,15 +501,15 @@ It taught you a few tricks and persuaded you to give it a try.
     <<endif>>
     Grooved Brain Coral: And I thought we knew each other well enough.. Guess I was wrong.
     The coral is avoiding your gaze. It seems like you have done it this time...
-    <<set $GBBranch3 = true>>
-    <<isGBBranch3>>
-    <<returnToHome>>
-<<jump Grooved_Brain_Coral_Node3>>
+<<set $GBBranch3 = true>>
+<<isGBBranch3>>
+<<returnToHome>>
+<<jump GroovedBrainCoralNode3>>
 ===
 
 
 
-title: Grooved_Brain_Coral_Node3
+title: GroovedBrainCoralNode3
 position: -134,568
 ---
 <<if $GBBranch3 == true>>
@@ -544,8 +544,7 @@ position: -134,568
         <<identifyCorals>>
         <<set $SWCoralPoints += 5>>
         <<update_coral_points_display>>
-        Grooved Brain Coral: Wow, you must have done your homework. I'm pleasantly surprised you know this term...
-    
+        Grooved Brain Coral: Wow, you must have done your homework. I'm pleasantly surprised you know this term...  
     <<set $Speaker to "Player">>
     <<Update_CurrentSpeaker>>
     You: Is there anything I can do to help?
@@ -613,7 +612,7 @@ position: -134,568
     <<Update_CurrentSpeaker>>
     Hate ending:Inevitable end
     <<returnToHome>>
-<<endif>>>>
+<<endif>>
 ===
 
 title: deep_thoughts
@@ -656,81 +655,82 @@ Friendship ending:Teamwork makes the dream work!
 
 ===
 
-title: Cabbage_Coral_Node3
+title: CabbageCoralNode3
 position: -366,1152
 ---
-<<set $Speaker to "None">>
-<<Update_CurrentSpeaker>>
-When you meet Cabbage Leather coral again, it look morose and depressed.
-You...didn't really know how to approach it.
-The way you two left it off was awkward, to say the least.
-<<set $Speaker to "Player">>
-<<Update_CurrentSpeaker>>
-You: Hey...
-<<set $Speaker to "CabbageCoral">>
-<<Update_CurrentSpeaker>>
-Cabbage Leather Coral: Hey.
-<<set $Speaker to "Player">>
-<<Update_CurrentSpeaker>>
-You: It's been awhile...how have you been?
-<<set $Speaker to "CabbageCoral">>
-<<Update_CurrentSpeaker>>
-Cabbage Leather Coral: I've been fine. Been doing some soul searching.
-<<set $Speaker to "Player">>
-<<Update_CurrentSpeaker>>
-You: well...did you find it?
-<<set $Speaker to "CabbageCoral">>
-<<Update_CurrentSpeaker>>
-Cabbage Leather Coral: Huh? Find what?
-<<set $Speaker to "Player">>
-<<Update_CurrentSpeaker>>
-You: Your soul. Weren't you searching for it?
-<<set $Speaker to "CabbageCoral_happy">>
-<<Update_CurrentSpeaker>>
-Cabbage Leather Coral: No! I'm not searching for my actual soul! It's a metaphor!
-Cabbage Leather coral glowers at you for the joke.
--> What wrong Cabbage Leather Coral, you're usually not this...aggressive.
-    <<jump Not_Aggressive>>
--> Well...you seem to be more comfortable around me. You're stuttering less [3 Identification Needed]
+<<if $CLBranch3 == true>>
     <<set $Speaker to "None">>
     <<Update_CurrentSpeaker>>
-    Cabbage Leather Coral snaps out of its anger and blushes.
+    When you meet Cabbage Leather coral again, it look morose and depressed.
+    You...didn't really know how to approach it.
+    The way you two left it off was awkward, to say the least.
     <<set $Speaker to "Player">>
     <<Update_CurrentSpeaker>>
-    You: It doesn't seem that way. In fact, I think it's the opposite. I think you've actually found your bearings.
-    You: You seem more assured, and you're standing up for yourself.
-    <<set $Speaker to "CabbageCoral_sad">>
-    <<Update_CurrentSpeaker>>
-    Cabbage Leather Coral: You make it easy. I enjoy talking to you and sometimes I forget myself. I lose my bearings when I'm with you.
-    <<set $Speaker to "None">>
-    <<Update_CurrentSpeaker>>
-    You and Cabbage Leather Coral share a moment of comfortable silence.
-    <<set $SWCoralPoints += 5>>
-    <<update_coral_points_display>>
-    <<jump friendship_end>>
--> I'm sorry. You just seemed so down. I wanted to make you smile again.
-    At your apology Cabbage Leather Coral sags.
-    Cabbage Leather Coral: No, I'm the one who should apologise. I shouldn't be taking my anger out on you. 
-    Cabbage Leather Coral: I just feel so...frustrated with myself!
-    Cabbage Leather Coral: I've been trying really hard recently to love and except myself for who I am.
-    <<set $Speaker to "CabbageCoral_sad">>
-    <<Update_CurrentSpeaker>>
-    Cabbage Leather Coral: I want to be more confident. I don't want to be that shy blushing coral that I used to be!
-    <<set $Speaker to "CabbageCoral_happy">>
-    <<Update_CurrentSpeaker>>
-    Cabbage Leather Coral: I want to let all those nasty thoughts I have deep inside of me out!
-    <<set $Speaker to "Player">>
-    <<Update_CurrentSpeaker>>
-    You: Do you, uh...have these nasty thoughts often?
+    You: Hey...
     <<set $Speaker to "CabbageCoral">>
     <<Update_CurrentSpeaker>>
-    Cabbage Leather Coral: Yes, and I no longer want to hold them back! 
-    Cabbage Leather Coral: After all, if I don't love myself, how am I going to love anyone else?
-    <<set $Speaker to "None">>
+    Cabbage Leather Coral: Hey.
+    <<set $Speaker to "Player">>
     <<Update_CurrentSpeaker>>
-    You give Cabbage Leather coral a supportive pat on the leaf, proud of its revelation.
-    <<jump friendship_end>>
-
+    You: It's been awhile...how have you been?
+    <<set $Speaker to "CabbageCoral">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: I've been fine. Been doing some soul searching.
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: well...did you find it?
+    <<set $Speaker to "CabbageCoral">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: Huh? Find what?
+    <<set $Speaker to "Player">>
+    <<Update_CurrentSpeaker>>
+    You: Your soul. Weren't you searching for it?
+    <<set $Speaker to "CabbageCoral_happy">>
+    <<Update_CurrentSpeaker>>
+    Cabbage Leather Coral: No! I'm not searching for my actual soul! It's a metaphor!
+    Cabbage Leather coral glowers at you for the joke.
+    -> What wrong Cabbage Leather Coral, you're usually not this...aggressive.
+        <<jump Not_Aggressive>>
+    -> Well...you seem to be more comfortable around me. You're stuttering less [3 Identification Needed]
+        <<set $Speaker to "None">>
+        <<Update_CurrentSpeaker>>
+        Cabbage Leather Coral snaps out of its anger and blushes.
+        <<set $Speaker to "Player">>
+        <<Update_CurrentSpeaker>>
+        You: It doesn't seem that way. In fact, I think it's the opposite. I think you've actually found your bearings.
+        You: You seem more assured, and you're standing up for yourself.
+        <<set $Speaker to "CabbageCoral_sad">>
+        <<Update_CurrentSpeaker>>
+        Cabbage Leather Coral: You make it easy. I enjoy talking to you and sometimes I forget myself. I lose my bearings when I'm with you.
+        <<set $Speaker to "None">>
+        <<Update_CurrentSpeaker>>
+        You and Cabbage Leather Coral share a moment of comfortable silence.
+        <<set $SWCoralPoints += 5>>
+        <<update_coral_points_display>>
+        <<jump friendship_end>>
+    -> I'm sorry. You just seemed so down. I wanted to make you smile again.
+        At your apology Cabbage Leather Coral sags.
+        Cabbage Leather Coral: No, I'm the one who should apologise. I shouldn't be taking my anger out on you. 
+        Cabbage Leather Coral: I just feel so...frustrated with myself!
+        Cabbage Leather Coral: I've been trying really hard recently to love and except myself for who I am.
+        <<set $Speaker to "CabbageCoral_sad">>
+        <<Update_CurrentSpeaker>>
+        Cabbage Leather Coral: I want to be more confident. I don't want to be that shy blushing coral that I used to be!
+        <<set $Speaker to "CabbageCoral_happy">>
+        <<Update_CurrentSpeaker>>
+        Cabbage Leather Coral: I want to let all those nasty thoughts I have deep inside of me out!
+        <<set $Speaker to "Player">>
+        <<Update_CurrentSpeaker>>
+        You: Do you, uh...have these nasty thoughts often?
+        <<set $Speaker to "CabbageCoral">>
+        <<Update_CurrentSpeaker>>
+        Cabbage Leather Coral: Yes, and I no longer want to hold them back! 
+        Cabbage Leather Coral: After all, if I don't love myself, how am I going to love anyone else?
+        <<set $Speaker to "None">>
+        <<Update_CurrentSpeaker>>
+        You give Cabbage Leather coral a supportive pat on the leaf, proud of its revelation.
+        <<jump friendship_end>>
+<<endif>>
 ===
 
 title: Not_Aggressive

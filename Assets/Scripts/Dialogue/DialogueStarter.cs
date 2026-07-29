@@ -20,19 +20,19 @@ public class DialogueStarter : MonoBehaviour
 
     public void BrainCoralSelected()
     {
-        if(commandController.isGBBranch2)
-        {
-            DialogueState.NextNode = "GroovedBrainCoralNode2";
-        }
-        else if(commandController.isGBBranch2)
+        if (commandController.isGBBranch3)
         {
             DialogueState.NextNode = "GroovedBrainCoralNode3";
+        }
+        else if (commandController.isGBBranch2)
+        {
+            DialogueState.NextNode = "GroovedBrainCoralNode2";
         }
         else
         {
             DialogueState.NextNode = "GroovedBrainCoralNode";
         }
-            
+
 
         SceneManager.LoadScene("GameScene");
     }
@@ -44,15 +44,15 @@ public class DialogueStarter : MonoBehaviour
     }
     public void CabbageCoralSelected()
     {
-        if(commandController.isBranch2)
-        {
-            Debug.Log("branch 2");
-            DialogueState.NextNode = "CabbageCoralNode2";
-        }
-        else if(commandController.isBranch3)
+        if (commandController.isBranch3)
         {
             Debug.Log("branch 3");
             DialogueState.NextNode = "CabbageCoralNode3";
+        }
+        else if (commandController.isBranch2)
+        {
+            Debug.Log("branch 2");
+            DialogueState.NextNode = "CabbageCoralNode2";
         }
         else
         {
