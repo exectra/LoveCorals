@@ -32,6 +32,9 @@ public class CustomisationUIManager : MonoBehaviour
 
     [Header("DisplaySlots")]
     public GameObject hatDisplay;
+    public GameObject handDisplay;
+    public GameObject bodyDisplay;
+    public GameObject feetDisplay;
     private void Start()
     {
         // Make sure all gear slots are always visible
@@ -195,6 +198,7 @@ public class CustomisationUIManager : MonoBehaviour
         }
     }
 
+    //this function just equips the hat on the shark
     private void OnSlotClicked(int databaseSlotID)
     {
         Debug.Log($"Player selected UI Slot Index: {databaseSlotID}");

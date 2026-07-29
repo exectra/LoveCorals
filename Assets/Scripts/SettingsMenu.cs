@@ -25,4 +25,6 @@ public class SettingsMenu : MonoBehaviour
     {
         profilePanel.SetActive(false);
     }
+
+
 }
