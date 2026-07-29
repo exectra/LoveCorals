@@ -24,7 +24,13 @@
                     "name": "You",
                     "colour": "#eeff00"
                 }
-            ]
+            ],
+            "projectGraphPositions": {
+                "CS41.yarn": {
+                    "x": -204,
+                    "y": 156
+                }
+            }
         }
     }
 }
