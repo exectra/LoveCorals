@@ -103,9 +103,10 @@ public class NavigationBar : MonoBehaviour
         if (warningPanel != null)
             warningPanel.SetActive(false);
 
-        // User has acknowledged the warning.
-        // Don't show it again until re-enabled.
         warningEnabled = false;
+
+        // Close the additive Identify scene
+        SceneLoader.GetInstance().CloseIdentifyScene();
 
         if (pendingTab >= 0)
         {
