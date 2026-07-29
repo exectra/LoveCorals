@@ -58,4 +58,8 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(identifyScene, LoadSceneMode.Additive);
     }
 
+    public void CloseIdentifyScene()
+    {
+        SceneManager.UnloadSceneAsync(identifyScene);
+    }
 }
