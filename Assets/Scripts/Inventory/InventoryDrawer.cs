@@ -196,16 +196,19 @@ public class InventoryDrawer : MonoBehaviour
     public void CloseInventory()
     {
         Debug.Log("CloseInventory Called");
+        Debug.Log("inventoryOpen before = " + inventoryOpen);
         if (inventoryPanel == null) return;
 
         inventoryOpen = false;
 
+        Debug.Log("inventoryOpen after = " + inventoryOpen);
         if (itemDetailsPanel != null)
             itemDetailsPanel.SetActive(false);
 
         //if (dialogueSystem != null)
         //    dialogueSystem.SetActive(true);    // bring dialogue back when inventory closes
 
+        Debug.Log("Starting SlideInventoryOut");
         if (inventoryRoutine != null) StopCoroutine(inventoryRoutine);
         inventoryRoutine = StartCoroutine(SlideInventoryOut(inventoryHiddenPos));
     }
@@ -222,11 +225,15 @@ public class InventoryDrawer : MonoBehaviour
 
     private IEnumerator SlideInventoryOut(Vector2 target)
     {
+
+        Debug.Log("SlideInventoryOut started");
         while (Vector2.Distance(inventoryPanel.anchoredPosition, target) > 0.5f)
         {
             inventoryPanel.anchoredPosition = Vector2.MoveTowards(inventoryPanel.anchoredPosition, target, inventorySlideSpeed * 800f * Time.unscaledDeltaTime);
             yield return null;
         }
+
+        Debug.Log("Inventory hidden");
         inventoryPanel.anchoredPosition = target;
         inventoryPanel.gameObject.SetActive(false);
     }

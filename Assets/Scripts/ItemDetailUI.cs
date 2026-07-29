@@ -28,7 +28,7 @@ namespace CoralDating.Inventory
 
         public void Show(GiftData gift, GiftButton button)
         {
-            Debug.Log("ItemDetailUI: Show() called");
+            Debug.Log("Show called. IsGivingGift = " + giftGivingManager.IsGivingGift);
             currentGift = gift;
 
             currentButton = button;
@@ -55,9 +55,10 @@ namespace CoralDating.Inventory
 
         public void UseSelectedGift()
         {
+            Debug.Log("UseSelectedGift called");
             if (currentGift == null)
                 return;
-
+            Debug.Log("IsGivingGift = " + giftGivingManager.IsGivingGift);
             if (!giftGivingManager.IsGivingGift)
             {
                 Debug.Log("Cannot give gifts outside of dialogue.");
@@ -65,7 +66,8 @@ namespace CoralDating.Inventory
             }
 
             giftGivingManager.OnGiftSelected(currentGift);
-            Hide();
+            panel.SetActive(false);
+            currentGift = null;
         }
         public void DiscardSelectedGift()
         {

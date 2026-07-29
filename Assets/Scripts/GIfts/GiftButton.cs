@@ -46,7 +46,20 @@ namespace CoralDating.Gifts
 
         private void OnClicked()
         {
+            //Debug.Log("GiftButton OnClicked");
+
+            //if (detailsUI == null)
+            //{
+            //    Debug.LogError("detailsUI is NULL!");
+            //    return;
+            //}
+
+            //Debug.Log("detailsUI found: " + detailsUI.name);
+
+            //detailsUI.Show(gift,this);
             Debug.Log("GiftButton OnClicked");
+
+            Debug.Log("detailsUI reference = " + detailsUI);
 
             if (detailsUI == null)
             {
@@ -54,16 +67,11 @@ namespace CoralDating.Gifts
                 return;
             }
 
-            Debug.Log("detailsUI found: " + detailsUI.name);
+            Debug.Log("Calling Show()...");
 
-            detailsUI.Show(gift,this);
-            //if (!giftGivingManager.IsGivingGift)
-            //{
-            //    Debug.Log("Inventory is only for viewing.");
-            //    return;
-            //}
+            detailsUI.Show(gift, this);
 
-            //giftGivingManager.OnGiftSelected(gift);
+            Debug.Log("Returned from Show()");
         }
 
         public void UpdateQuantity(int amount)

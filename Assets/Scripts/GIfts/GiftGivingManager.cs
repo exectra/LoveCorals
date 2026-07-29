@@ -68,8 +68,12 @@ namespace CoralDating.Gifts
         {
             Debug.Log("PopulateGiftMenu called");
 
-            Debug.Log("itemDetailsUI = " + itemDetailsUI);
+            if (itemDetailsUI == null)
+            {
+                itemDetailsUI = FindFirstObjectByType<ItemDetailsUI>();
 
+                Debug.Log("Found ItemDetailsUI: " + itemDetailsUI);
+            }
             //Debug.Log($"Inventory reference: {inventorySystem.name}");
             //Debug.Log($"Gift count: {inventorySystem.GetAllGifts().Count}");
 
