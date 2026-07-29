@@ -1992,6 +1992,7 @@ RectTransform:
   - {fileID: 1757717316}
   - {fileID: 825751194}
   - {fileID: 482292858}
+  - {fileID: 816615059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2336,7 +2337,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 655988124}
-  - {fileID: 816615059}
   - {fileID: 963250474}
   - {fileID: 1147582562}
   - {fileID: 2065090117}
@@ -4320,11 +4320,11 @@ RectTransform:
   - {fileID: 2101695385}
   - {fileID: 2023256250}
   - {fileID: 1788848036}
-  m_Father: {fileID: 482292858}
+  m_Father: {fileID: 458580116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -771.7672}
+  m_AnchoredPosition: {x: 0, y: 138.23279}
   m_SizeDelta: {x: 1080, y: 276.4658}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &816615060
@@ -6078,6 +6078,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 556567652769510082, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
   m_PrefabInstance: {fileID: 8466453824961996726}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1271057261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6052084888912269445, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
+  m_PrefabInstance: {fileID: 8466453824961996726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360d940fc86cecb4e91e81d362a87cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1304449976
 GameObject:
   m_ObjectHideFlags: 0
@@ -8460,7 +8471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1788848036
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8475,10 +8486,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 816615059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 810, y: -138.2329}
+  m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1788848037
 MonoBehaviour:
@@ -8546,28 +8557,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: CloseSettings
-        m_Mode: 1
+      - m_Target: {fileID: 1271057261}
+        m_TargetAssemblyTypeName: UnloadScene, Assembly-CSharp
+        m_MethodName: unloadscene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: CloseProfile
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: (Main Menu) IdentifyScene 2.0
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1788848039
@@ -9402,40 +9401,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: CloseSettings
-        m_Mode: 1
+      - m_Target: {fileID: 1271057261}
+        m_TargetAssemblyTypeName: UnloadScene, Assembly-CSharp
+        m_MethodName: unloadscene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: CloseProfile
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ProfileLoader, Assembly-CSharp
-        m_MethodName: CloseAll
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: (Main Menu) IdentifyScene 2.0
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2023256253
@@ -9749,7 +9724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2101695385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9764,10 +9739,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 816615059}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 270, y: -138.2329}
+  m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2101695386
 MonoBehaviour:
@@ -9835,28 +9810,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 996222610}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: CloseSettings
-        m_Mode: 1
+      - m_Target: {fileID: 1271057261}
+        m_TargetAssemblyTypeName: UnloadScene, Assembly-CSharp
+        m_MethodName: unloadscene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 996222609}
-        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: (Main Menu) IdentifyScene 2.0
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2101695388

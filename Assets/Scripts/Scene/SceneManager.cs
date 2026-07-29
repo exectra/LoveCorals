@@ -54,6 +54,7 @@ public class SceneLoader : MonoBehaviour
     public void OpenIdentifyScene()
     {
         AM.PlaySFX(clickSFX);
+        DontDestroyOnLoad(FindObjectOfType<Canvas>());
         SceneManager.LoadScene(identifyScene, LoadSceneMode.Additive);
     }
 

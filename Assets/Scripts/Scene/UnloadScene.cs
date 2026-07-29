@@ -8,6 +8,7 @@ public class UnloadScene : MonoBehaviour
 
     public void unloadscene(string scene)
     {
-        SceneManager.UnloadSceneAsync(scene);
+        if (scene != null) SceneManager.UnloadSceneAsync(scene);
+        else { SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); }
     }
 }

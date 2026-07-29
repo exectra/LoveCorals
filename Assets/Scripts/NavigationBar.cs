@@ -36,7 +36,7 @@ public class NavigationBar : MonoBehaviour
             tabs[i].button.onClick.AddListener(() => OpenTab(index));
         }
 
-       
+
 
         if (PlayerPrefs.GetInt("GoToCustom") == 1)
         {
@@ -66,7 +66,7 @@ public class NavigationBar : MonoBehaviour
         {
             bool selected = i == index;
 
-            tabs[i].panel.SetActive(selected);
+            if (tabs[i].panel != null) tabs[i].panel.SetActive(selected);
 
             tabs[i].icon.sprite = selected
                 ? tabs[i].selectedSprite
