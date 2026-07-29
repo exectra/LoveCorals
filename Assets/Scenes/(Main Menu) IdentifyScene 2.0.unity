@@ -421,19 +421,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 124342619}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &124342619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1962,18 +1950,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 304397664}
         m_TargetAssemblyTypeName: UIPopUp, Assembly-CSharp
         m_MethodName: ShowPopup
@@ -3017,31 +2993,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 470985014}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &470985014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3380,19 +3332,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 489029567}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &489029567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3551,30 +3491,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 495202801}
-        m_TargetAssemblyTypeName: UIPopUp, Assembly-CSharp
-        m_MethodName: ShowPopup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 495202801}
         m_TargetAssemblyTypeName: UIPopUp, Assembly-CSharp
         m_MethodName: ShowPopup
@@ -4535,18 +4451,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 630717471}
         m_TargetAssemblyTypeName: SpriteSwap, Assembly-CSharp
         m_MethodName: SwapImage
@@ -6894,19 +6798,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112382944}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1112382944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8451,18 +8343,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1389186878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9683,18 +9563,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1618925696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10336,18 +10204,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11030,19 +10886,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847940375}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1847940375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11334,17 +11178,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868597279}
   m_CullTransparentMesh: 1
---- !u!114 &1875275526 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 66366957252078274, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-  m_PrefabInstance: {fileID: 6439542344222570637}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0672271859d4234196f97eedad4710e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1892531134
 GameObject:
   m_ObjectHideFlags: 0
@@ -11436,18 +11269,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11601,7 +11422,6 @@ MonoBehaviour:
     panel: {fileID: 0}
   defaultTab: 0
   clickSFX: {fileID: 8300000, guid: d41312073c491ce4ba0bf4a2a0c0f04c, type: 3}
-  warningPanel: {fileID: 0}
 --- !u!114 &1899367752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12010,19 +11830,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1992074665}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1875275526}
-        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
-        m_MethodName: PlayButtonSFX
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1992074665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12539,63 +12347,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126417430}
   m_CullTransparentMesh: 1
---- !u!1001 &6439542344222570637
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 531.81165
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 898.493
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.004816552
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1736550331987609677, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4623244055386397673, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
-      propertyPath: m_Name
-      value: ButtonSFX
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7a4f9aba5f0704a44b6ecd8b92234d5f, type: 3}
 --- !u!1001 &8466453824961996726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12684,38 +12435,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6194161291280858427, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6194161291280858427, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6194161291280858427, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1875275526}
-    - target: {fileID: 6194161291280858427, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6194161291280858427, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayButtonSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 6194161291280858427, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: ButtonClick, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6194161291280858427, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
-      value: 
-      objectReference: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-    - target: {fileID: 6194161291280858427, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.AudioClip, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7589983714299535553, guid: 80394b6adc33ccd4e90831599a8aa992, type: 3}
       propertyPath: m_Name
       value: Continue Button
@@ -12733,4 +12452,3 @@ SceneRoots:
   - {fileID: 458580116}
   - {fileID: 1152903496}
   - {fileID: 996222613}
-  - {fileID: 6439542344222570637}

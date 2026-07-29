@@ -1250,7 +1250,6 @@ GameObject:
   - component: {fileID: 304397661}
   - component: {fileID: 304397660}
   - component: {fileID: 304397664}
-  - component: {fileID: 304397665}
   m_Layer: 5
   m_Name: Yes Button
   m_TagString: Untagged
@@ -1407,20 +1406,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupPanel: {fileID: 1035056837}
   fadeDuration: 0.3
---- !u!114 &304397665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 304397658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0672271859d4234196f97eedad4710e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSFX: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-  AM: {fileID: 0}
 --- !u!1 &304773766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2341,7 +2326,6 @@ GameObject:
   - component: {fileID: 470985015}
   - component: {fileID: 470985014}
   - component: {fileID: 470985013}
-  - component: {fileID: 470985016}
   m_Layer: 5
   m_Name: No Button
   m_TagString: Untagged
@@ -2450,20 +2434,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470985011}
   m_CullTransparentMesh: 1
---- !u!114 &470985016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470985011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0672271859d4234196f97eedad4710e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSFX: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-  AM: {fileID: 0}
 --- !u!1 &479214408
 GameObject:
   m_ObjectHideFlags: 0
@@ -7949,7 +7919,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264973551}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1264973553
 Camera:
   m_ObjectHideFlags: 0
@@ -10753,7 +10723,6 @@ GameObject:
   - component: {fileID: 1847940376}
   - component: {fileID: 1847940375}
   - component: {fileID: 1847940374}
-  - component: {fileID: 1847940377}
   m_Layer: 5
   m_Name: Unsure Button
   m_TagString: Untagged
@@ -10862,20 +10831,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847940372}
   m_CullTransparentMesh: 1
---- !u!114 &1847940377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847940372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0672271859d4234196f97eedad4710e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSFX: {fileID: 8300000, guid: 5422820fea3b64a4f8dd3d03d3956f19, type: 3}
-  AM: {fileID: 0}
 --- !u!1 &1852829427
 GameObject:
   m_ObjectHideFlags: 0

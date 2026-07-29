@@ -4346,13 +4346,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3679430122199414726, guid: 060f9ff44a25b3e4d8ae5aac1e543026, type: 3}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 4520170701170942945, guid: 060f9ff44a25b3e4d8ae5aac1e543026, type: 3}
       propertyPath: Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4520170701170942945, guid: 060f9ff44a25b3e4d8ae5aac1e543026, type: 3}
+      propertyPath: m_Volume
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 4520170701170942945, guid: 060f9ff44a25b3e4d8ae5aac1e543026, type: 3}
       propertyPath: m_audioClip
