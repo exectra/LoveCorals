@@ -1,3 +1,4 @@
+using CoralDating.Inventory;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,14 +14,27 @@ namespace CoralDating.Gifts
 
         private GiftData gift;
         private GiftGivingManager giftGivingManager;
+        private ItemDetailsUI detailsUI;
+
+        private void Awake()
+        {
+            if (detailsUI == null)
+            {
+                detailsUI = FindFirstObjectByType<ItemDetailsUI>();
+            }
+        }
 
         public void Setup(
             GiftData giftData,
             int amount,
-            GiftGivingManager manager)
+            GiftGivingManager manager, 
+            ItemDetailsUI detailsUI)
         {
-            gift = giftData;
-            giftGivingManager = manager;
+            this.gift = giftData;
+            this.giftGivingManager = manager;
+            this.detailsUI = detailsUI;
+
+            Debug.Log("Setup called for " + gift.displayName);
 
             icon.sprite = gift.icon;
             giftName.text = gift.displayName;
@@ -32,13 +46,24 @@ namespace CoralDating.Gifts
 
         private void OnClicked()
         {
-            if (!giftGivingManager.IsGivingGift)
+            Debug.Log("GiftButton OnClicked");
+
+            if (detailsUI == null)
             {
-                Debug.Log("Inventory is only for viewing.");
+                Debug.LogError("detailsUI is NULL!");
                 return;
             }
 
-            giftGivingManager.OnGiftSelected(gift);
+            Debug.Log("detailsUI found: " + detailsUI.name);
+
+            detailsUI.Show(gift);
+            //if (!giftGivingManager.IsGivingGift)
+            //{
+            //    Debug.Log("Inventory is only for viewing.");
+            //    return;
+            //}
+
+            //giftGivingManager.OnGiftSelected(gift);
         }
     }
 }

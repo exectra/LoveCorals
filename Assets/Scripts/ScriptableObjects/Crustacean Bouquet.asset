@@ -15,5 +15,5 @@ MonoBehaviour:
   giftID: bouquet
   displayName: Crustacean Bouquet
   icon: {fileID: 21300000, guid: f9961dd8520dbf84f80cd9a3a67e6b40, type: 3}
-  description: 
+  description: You will love this lot of likeable shellfish!
   category: 4

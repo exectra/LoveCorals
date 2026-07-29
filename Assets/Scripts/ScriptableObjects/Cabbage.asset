@@ -15,5 +15,5 @@ MonoBehaviour:
   giftID: cabbage
   displayName: Cabbage
   icon: {fileID: 21300000, guid: b1bccb14241bc3648b75be9ff966347a, type: 3}
-  description: 
+  description: You can tell it's a cabbage because of the way that it is!
   category: 3

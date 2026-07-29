@@ -49,7 +49,11 @@ public class InventoryDrawer : MonoBehaviour
     public RectTransform inventoryPanel;    // drag your InventoryUI panel's RectTransform here
     public float inventorySlideSpeed = 12f;
     public float inventoryOffscreenY = -2000f;  // how far below screen it starts hidden
+    [SerializeField] private GameObject itemDetailsPanel;
 
+    [SerializeField] private float raisedOffset = 180f;
+
+    private Vector2 inventoryRaisedPos;
     private Vector2 inventoryShownPos;
     private Vector2 inventoryHiddenPos;
     private Coroutine inventoryRoutine;
@@ -67,6 +71,7 @@ public class InventoryDrawer : MonoBehaviour
         if (inventoryPanel != null)
         {
             inventoryShownPos = inventoryPanel.anchoredPosition;                          // wherever you placed it in the Editor
+            inventoryRaisedPos = inventoryShownPos + Vector2.up * raisedOffset;
             inventoryHiddenPos = new Vector2(inventoryShownPos.x, inventoryOffscreenY);    // below the screen
             inventoryPanel.anchoredPosition = inventoryHiddenPos;
             inventoryPanel.gameObject.SetActive(false);
@@ -165,10 +170,14 @@ public class InventoryDrawer : MonoBehaviour
 
     public void OpenInventory()
     {
+        Debug.Log("OpenInventory Called");
         if (inventoryPanel == null) return;
 
         inventoryOpen = true;
         inventoryPanel.gameObject.SetActive(true);
+
+        if (itemDetailsPanel != null)
+            itemDetailsPanel.SetActive(false);
 
         //if (dialogueSystem != null)
         //    dialogueSystem.SetActive(false);   // hide dialogue while inventory is open
@@ -186,9 +195,13 @@ public class InventoryDrawer : MonoBehaviour
 
     public void CloseInventory()
     {
+        Debug.Log("CloseInventory Called");
         if (inventoryPanel == null) return;
 
         inventoryOpen = false;
+
+        if (itemDetailsPanel != null)
+            itemDetailsPanel.SetActive(false);
 
         //if (dialogueSystem != null)
         //    dialogueSystem.SetActive(true);    // bring dialogue back when inventory closes
@@ -267,6 +280,25 @@ public class InventoryDrawer : MonoBehaviour
         }
         t.anchoredPosition = target;
         menuButtons[i].gameObject.SetActive(false);
+    }
+    public void RaiseInventory()
+    {
+        Debug.Log("RaiseInventory Called");
+        if (inventoryRoutine != null)
+            StopCoroutine(inventoryRoutine);
+
+        inventoryRoutine =
+            StartCoroutine(SlideInventory(inventoryRaisedPos));
+    }
+
+    public void LowerInventory()
+    {
+        Debug.Log("LowerInventory Called");
+        if (inventoryRoutine != null)
+            StopCoroutine(inventoryRoutine);
+
+        inventoryRoutine =
+            StartCoroutine(SlideInventory(inventoryShownPos));
     }
 
     // ---------------- TAB SYSTEM ----------------
