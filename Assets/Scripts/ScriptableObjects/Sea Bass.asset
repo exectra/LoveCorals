@@ -15,5 +15,5 @@ MonoBehaviour:
   giftID: sea_bass
   displayName: Sea Bass
   icon: {fileID: 21300000, guid: 88d60aabc96e34e45b97559885b1f212, type: 3}
-  description: 
+  description: No wait, it's at least a C+!
   category: 5
