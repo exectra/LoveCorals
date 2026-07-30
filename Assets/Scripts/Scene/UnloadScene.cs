@@ -8,6 +8,8 @@ public class UnloadScene : MonoBehaviour
 
     public void unloadscene(string scene)
     {
+        YarnCommandController.Instance.identifyingComplete();
+
         if (scene != null) SceneManager.UnloadSceneAsync(scene);
         else { SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene()); }
     }

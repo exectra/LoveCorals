@@ -62,6 +62,8 @@ public class SceneLoader : MonoBehaviour
 
     public void CloseIdentifyScene()
     {
+        YarnCommandController.Instance.identifyingComplete();
+
         SceneManager.UnloadSceneAsync(identifyScene);
     }
 }
