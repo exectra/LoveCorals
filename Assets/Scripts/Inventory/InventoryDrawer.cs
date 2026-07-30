@@ -19,7 +19,7 @@ public class InventoryDrawer : MonoBehaviour
     [Header("Menu Buttons")]
     public RectTransform homeButton;
     public RectTransform inventoryButton;
-    public RectTransform customisationButton;
+    //public RectTransform customisationButton;
     public RectTransform settingsButton;
     public float buttonSpacing = 70f;      // vertical gap between buttons when open
     public float buttonStagger = 0.05f;    // delay between each button's animation
@@ -65,7 +65,7 @@ public class InventoryDrawer : MonoBehaviour
         // hiddenPos = new Vector2(0, 0);
         // panel.anchoredPosition = hiddenPos;   // panel was null, caused NullReferenceException
 
-        menuButtons = new RectTransform[] { homeButton, inventoryButton, customisationButton, settingsButton };
+        menuButtons = new RectTransform[] { homeButton, inventoryButton, settingsButton };
         InitButtons();
 
         if (inventoryPanel != null)
