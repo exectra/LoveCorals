@@ -5498,7 +5498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2624598923005745799, guid: 9969265e0b6f6f441b39629035497438, type: 3}
       propertyPath: m_TagString
-      value: CoralPts
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2678837051542975809, guid: 9969265e0b6f6f441b39629035497438, type: 3}
       propertyPath: m_TagString
@@ -6014,7 +6014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9168320204887160034, guid: 9969265e0b6f6f441b39629035497438, type: 3}
       propertyPath: m_text
-      value: 
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9216667124870913445, guid: 9969265e0b6f6f441b39629035497438, type: 3}
       propertyPath: m_AnchoredPosition.x

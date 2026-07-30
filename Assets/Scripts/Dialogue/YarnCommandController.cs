@@ -76,8 +76,12 @@ public class YarnCommandController : MonoBehaviour
             backgroundImage = bgObj.GetComponent<Image>();
 
         var coralPtsObj = GameObject.FindWithTag("CoralPts");
+
         if (coralPtsObj != null)
+        {
             coralPointsText = coralPtsObj.GetComponent<TextMeshProUGUI>();
+            UpdateCoralPointsDisplay();
+        }
 
         if (foundRunner != null)
         {
