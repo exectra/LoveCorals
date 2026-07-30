@@ -7,6 +7,7 @@ TagManager:
   - Database
   - CoralPts
   - ShopItem
+  - Background
   layers:
   - Default
   - TransparentFX

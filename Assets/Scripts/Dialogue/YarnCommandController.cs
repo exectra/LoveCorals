@@ -6,6 +6,7 @@ using TMPro;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Yarn.Unity;
 using Yarn.Unity.Samples;
 using static DialogueStarter;
@@ -21,6 +22,7 @@ public class YarnCommandController : MonoBehaviour
     [SerializeField] public bool isBranch3;
     [SerializeField] public bool isGBBranch3;
     [SerializeField] private string lastGiftID;
+    [SerializeField] private Image backgroundImage;
 
     [SerializeField] private string identifyScene = "(Game) IdentifyScene 2.0";
     public string LastGiftID => lastGiftID;
@@ -69,6 +71,10 @@ public class YarnCommandController : MonoBehaviour
         var foundRunner = FindFirstObjectByType<DialogueRunner>();
         giftGivingManager = FindFirstObjectByType<GiftGivingManager>();
 
+        var bgObj = GameObject.FindWithTag("Background");
+        if (bgObj != null)
+            backgroundImage = bgObj.GetComponent<Image>();
+
         var coralPtsObj = GameObject.FindWithTag("CoralPts");
         if (coralPtsObj != null)
             coralPointsText = coralPtsObj.GetComponent<TextMeshProUGUI>();
@@ -89,6 +95,12 @@ public class YarnCommandController : MonoBehaviour
                 dialogueRunner.startNode = DialogueState.NextNode;
                 DialogueState.NextNode = "";
             }
+        }
+
+        if (DialogueState.NextBackground != null && backgroundImage != null)
+        {
+            backgroundImage.sprite = DialogueState.NextBackground;
+            DialogueState.NextBackground = null;
         }
     }
 

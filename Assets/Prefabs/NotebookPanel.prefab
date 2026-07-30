@@ -227,6 +227,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandController: {fileID: 0}
+  backgroundList:
+  - routeID: CabbageCoral
+    background: {fileID: 21300000, guid: 07c9fa4c57651924b9fb84cdb529ee4a, type: 3}
+  - routeID: GroovedBrainCoral
+    background: {fileID: 21300000, guid: 61e543b1f09154c49abfff4532caa360, type: 3}
+  - routeID: SeaWhipCoral
+    background: {fileID: 21300000, guid: cb4e17b0df39f1342b460e0b22551e20, type: 3}
 --- !u!1 &629785034400534997
 GameObject:
   m_ObjectHideFlags: 0
@@ -3488,6 +3495,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandController: {fileID: 0}
+  backgroundList:
+  - routeID: CabbageCoral
+    background: {fileID: 21300000, guid: 07c9fa4c57651924b9fb84cdb529ee4a, type: 3}
+  - routeID: GroovedBrainCoral
+    background: {fileID: 21300000, guid: 61e543b1f09154c49abfff4532caa360, type: 3}
+  - routeID: SeaWhipCoral
+    background: {fileID: 21300000, guid: cb4e17b0df39f1342b460e0b22551e20, type: 3}
 --- !u!1 &4906759412011628871
 GameObject:
   m_ObjectHideFlags: 0
@@ -5520,6 +5534,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandController: {fileID: 0}
+  backgroundList:
+  - routeID: CabbageCoral
+    background: {fileID: 21300000, guid: 07c9fa4c57651924b9fb84cdb529ee4a, type: 3}
+  - routeID: GroovedBrainCoral
+    background: {fileID: 21300000, guid: 61e543b1f09154c49abfff4532caa360, type: 3}
+  - routeID: SeaWhipCoral
+    background: {fileID: 21300000, guid: cb4e17b0df39f1342b460e0b22551e20, type: 3}
 --- !u!1 &8609531470722744007
 GameObject:
   m_ObjectHideFlags: 0
@@ -5915,6 +5936,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandController: {fileID: 0}
+  backgroundList: []
 --- !u!1 &9105766219636707073
 GameObject:
   m_ObjectHideFlags: 0
