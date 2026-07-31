@@ -20,7 +20,7 @@ public class ProfileLoader : MonoBehaviour
 
     private void Awake()
     {
-        sceneManager = GameObject.Find("GameManager").GetComponent<SceneManager>(); ;
+        //sceneManager = GameObject.Find("GameManager").GetComponent<SceneManager>(); ;
     }
     void Start()
     {
@@ -36,14 +36,38 @@ public class ProfileLoader : MonoBehaviour
 
     }
 
-    public void OpenGBC() { gbcProfile.SetActive(true); AudioManager.Instance.PlaySFX(clickSFX); }
-    public void CloseGBC() { gbcProfile.SetActive(false); }
+    public void OpenGBC()
+    {
+        gbcProfile.SetActive(true); AudioManager.Instance.PlaySFX(clickSFX);
+        PlayerPrefs.SetInt("ProfileEnabled", 1); PlayerPrefs.Save();
+    }
+    public void CloseGBC()
+    {
+        gbcProfile.SetActive(false);
+        PlayerPrefs.SetInt("ProfileEnabled", 0); PlayerPrefs.Save();
+    }
 
-    public void OpenCLC() { clcProfile.SetActive(true); AudioManager.Instance.PlaySFX(clickSFX); }
-    public void CloseCLC() { clcProfile.SetActive(false); }
+    public void OpenCLC()
+    {
+        clcProfile.SetActive(true); AudioManager.Instance.PlaySFX(clickSFX);
+        PlayerPrefs.SetInt("ProfileEnabled", 1); PlayerPrefs.Save();
+    }
+    public void CloseCLC()
+    {
+        clcProfile.SetActive(false);
+        PlayerPrefs.SetInt("ProfileEnabled", 0); PlayerPrefs.Save();
+    }
 
-    public void OpenSWC() { swcProfile.SetActive(true); AudioManager.Instance.PlaySFX(clickSFX); }
-    public void CloseSWC() { swcProfile.SetActive(false); }
+    public void OpenSWC()
+    {
+        swcProfile.SetActive(true); AudioManager.Instance.PlaySFX(clickSFX);
+        PlayerPrefs.SetInt("ProfileEnabled", 1); PlayerPrefs.Save();
+    }
+    public void CloseSWC()
+    {
+        swcProfile.SetActive(false);
+        PlayerPrefs.SetInt("ProfileEnabled", 0); PlayerPrefs.Save();
+    }
 
     public void CloseAll()
     {
@@ -51,6 +75,7 @@ public class ProfileLoader : MonoBehaviour
         gbcProfile.SetActive(false);
         clcProfile.SetActive(false);
         swcProfile.SetActive(false);
+        PlayerPrefs.SetInt("ProfileEnabled", 0); PlayerPrefs.Save();
     }
 
     public void PlaySFX()

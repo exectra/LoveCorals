@@ -8,6 +8,7 @@ TagManager:
   - CoralPts
   - ShopItem
   - Background
+  - Profile
   layers:
   - Default
   - TransparentFX

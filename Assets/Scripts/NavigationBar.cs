@@ -123,6 +123,7 @@ public class NavigationBar : MonoBehaviour
 
     public void OpenTab(int index)
     {
+
         if (currentTab == index)
             return;
 
@@ -144,6 +145,18 @@ public class NavigationBar : MonoBehaviour
 
             if (tabs[i].iconTransform != null)
                 tabs[i].iconTransform.localScale = selected ? Vector3.one * 1.2f : Vector3.one;
+
+            if (PlayerPrefs.GetInt("ProfileEnabled") == 1)
+            {
+                Debug.Log(PlayerPrefs.GetInt("ProfileEnabled"));
+                GameObject[] activObj = GameObject.FindGameObjectsWithTag("Profile");
+                foreach (GameObject obj in activObj)
+                {
+                    obj.SetActive(false);
+                    PlayerPrefs.SetInt("ProfileEnabled", 0);
+                    PlayerPrefs.Save();
+                }
+            }
         }
 
         currentTab = index;
