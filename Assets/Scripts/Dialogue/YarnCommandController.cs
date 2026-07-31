@@ -75,12 +75,17 @@ public class YarnCommandController : MonoBehaviour
         if (bgObj != null)
             backgroundImage = bgObj.GetComponent<Image>();
 
-        var coralPtsObj = GameObject.FindWithTag("CoralPts");
+        //var coralPtsObj = GameObject.FindWithTag("CoralPts");
+        GameObject[] coralPtsArr = GameObject.FindGameObjectsWithTag("CoralPts");
 
-        if (coralPtsObj != null)
+        for (int i = 0; i < coralPtsArr.Length; i++)
         {
-            coralPointsText = coralPtsObj.GetComponent<TextMeshProUGUI>();
-            UpdateCoralPointsDisplay();
+            if (coralPtsArr[i] != null)
+            {
+                coralPointsText = coralPtsArr[i].GetComponent<TextMeshProUGUI>();
+                UpdateCoralPointsDisplay();
+
+            }
         }
 
         if (foundRunner != null)
@@ -163,6 +168,7 @@ public class YarnCommandController : MonoBehaviour
 
     public void UpdateCoralPointsDisplay()
     {
+
         if (yarnVariables.TryGetValue("$SWCoralPoints", out float points))
         {
             coralPoints = points;
@@ -181,6 +187,8 @@ public class YarnCommandController : MonoBehaviour
         {
             Debug.LogError("Could not find $SWCoralPoints in Yarn variables.");
         }
+
+
     }
 
     public void CurrentSpeaker()

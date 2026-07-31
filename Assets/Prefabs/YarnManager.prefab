@@ -45,10 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9551ef1f8b8b3144a58c2b56ccd928d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yarnVariables: {fileID: 0}
-  coralPoints: 0
+  yarnVariables: {fileID: 8460526868727557339}
+  coralPoints: 12
   currentSpeaker: 
   isBranch2: 0
+  isGBBranch2: 0
+  isBranch3: 0
+  isGBBranch3: 0
+  lastGiftID: 
+  backgroundImage: {fileID: 0}
+  identifyScene: (Game) IdentifyScene 2.0
   giftGivingManager: {fileID: 0}
   dialogueRunner: {fileID: 0}
   coralPointsText: {fileID: 0}
