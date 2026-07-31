@@ -32,9 +32,17 @@ public class GameUIManager : MonoBehaviour
     {
         if (scene.name == "GameScene")
         {
-            inventoryDrawer = FindObjectOfType<InventoryDrawer>();
             pauseMenu = FindObjectOfType<PauseMenu>();
-            pauseMenu.gameObject.SetActive(false);
+            inventoryDrawer = FindObjectOfType<InventoryDrawer>();
+
+            if (pauseMenu != null && pauseMenu.gameObject.activeSelf)
+            {
+                pauseMenu.gameObject.SetActive(false);
+            }
+            else if (pauseMenu == null)
+            {
+                Debug.LogWarning("PauseMenu not found in GameScene.");
+            }
         }
     }
 }
